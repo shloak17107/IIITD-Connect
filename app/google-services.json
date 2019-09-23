@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "638022948431",
+    "firebase_url": "https://iiitd-connect-73dc0.firebaseio.com",
+    "project_id": "iiitd-connect-73dc0",
+    "storage_bucket": "iiitd-connect-73dc0.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:638022948431:android:9555e011ecbdc80a9fbc3a",
+        "android_client_info": {
+          "package_name": "com.example.iiitdconnect"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "638022948431-c9op3nr45inlcojskujluvdk04l9arlp.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCPQKv8dTYX9wePCOU3M0b2boXwl0z93ag"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "638022948431-c9op3nr45inlcojskujluvdk04l9arlp.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
