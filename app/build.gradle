@@ -1,6 +1,14 @@
 apply plugin: 'com.android.application'
 
 android {
+    signingConfigs {
+        config {
+            storeFile file('iiitd-connect-keystore')
+            storePassword 'android'
+            keyAlias = 'keystore-for-firebase'
+            keyPassword 'android'
+        }
+    }
     compileSdkVersion 28
     defaultConfig {
         applicationId "com.example.iiitdconnect"
@@ -14,6 +22,10 @@ android {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.config
+        }
+        debug {
+            signingConfig signingConfigs.config
         }
     }
 }
