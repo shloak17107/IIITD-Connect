@@ -15,6 +15,7 @@ import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.gms.auth.api.signin.GoogleSignInClient;
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
+import com.google.android.gms.common.SignInButton;
 import com.google.android.gms.common.api.ApiException;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -43,6 +44,14 @@ public class Login_page_fragment extends Fragment {
 
         // Initialize Firebase Auth
         mAuth = FirebaseAuth.getInstance();
+
+        SignInButton loginButton = (SignInButton) view.findViewById(R.id.sign_in_button);
+        loginButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                signIn();
+            }
+        });
         return view;
     }
 
@@ -78,6 +87,7 @@ public class Login_page_fragment extends Fragment {
 
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        Log.d(TAG, "inOnactivity");
         super.onActivityResult(requestCode, resultCode, data);
 
         // Result returned from launching the Intent from GoogleSignInApi.getSignInIntent(...);
@@ -135,6 +145,7 @@ public class Login_page_fragment extends Fragment {
     }
 
     private void signIn() {
+        Log.d(TAG, "siggnin");
         Intent signInIntent = mGoogleSignInClient.getSignInIntent();
         startActivityForResult(signInIntent, RC_SIGN_IN);
     }
@@ -160,9 +171,11 @@ public class Login_page_fragment extends Fragment {
 //        }
 //    }
 
-    public void onClickSignIn(View v) {
+/*    public void onClickSignIn(View v) {
         signIn();
-    }
+    }*/
+
+
 
 //    public void onClickSignOut(View v) {
 //        signOut();
