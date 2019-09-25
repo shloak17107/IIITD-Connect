@@ -1,3 +1,14 @@
 <resources>
-    <string name="app_name">IIITD Connect</string>
+    <string name="app_name">Project</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="Title">Add Title:</string>
+    <string name="Body">Add Body:</string>
+    <string name="Tags">Tags:</string>
+    <string name="share">Share Post</string>
+    <string name="Dark">Dark Theme</string>
+    <string name="signout">Sign Out</string>
+    <string name="notifications">Notifications</string>
+
 </resources>

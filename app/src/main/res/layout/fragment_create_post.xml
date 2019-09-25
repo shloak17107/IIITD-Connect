@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+   >
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/Frag"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:paddingLeft="20dp"
+    android:paddingRight="20dp"
+
+
+    tools:context=".CreatePostFrag">
+
+    <!-- TODO: Update blank fragment layout -->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="30dp"
+        android:fontFamily="@font/opensans_regular"
+        android:layout_marginTop="10dp"
+        android:text="@string/Title" />
+    <EditText
+    android:layout_width="match_parent"
+    android:layout_height="80dp"
+        />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="30dp"
+        android:layout_marginTop="10dp"
+        android:fontFamily="@font/opensans_regular"
+        android:text="@string/Body" />
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="240dp"
+        />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_marginTop="10dp"
+        android:layout_height="wrap_content"
+        android:textSize="30dp"
+        android:fontFamily="@font/opensans_regular"
+        android:text="@string/Tags" />
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:focusableInTouchMode="true"
+
+        />
+    <Button
+        android:layout_marginTop="20dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/share"
+
+        android:theme="@style/PrimaryButton"
+        android:textSize="30dp"/>
+
+</LinearLayout>
+</ScrollView>

@@ -2,16 +2,16 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingLeft="16dp"
     android:background="@drawable/gradient_background"
+    android:paddingLeft="16dp"
     android:paddingRight="16dp"
     android:orientation="vertical" >
 
     <fragment
-        android:id="@+id/frag_CreatePost"
+        android:id="@+id/frag_Settings"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:name="com.example.project.CreatePostFrag"
+        android:name="com.example.project.Fragment_settings"
 
         >
 
