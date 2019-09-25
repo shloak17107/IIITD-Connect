@@ -1,4 +1,4 @@
-package com.example.iiitdconnect;
+package com.example.project;
 
 import androidx.appcompat.app.AppCompatActivity;
 
