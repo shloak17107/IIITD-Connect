@@ -156,8 +156,8 @@ public class MainActivity extends AppCompatActivity {
                             progressDialog.dismiss();
                             Toast.makeText(getApplicationContext(), "Image Uploaded Successfully ", Toast.LENGTH_LONG).show();
 
-                            @SuppressWarnings("VisibleForTests")
-                            ImageUploadInfo imageUploadInfo = new ImageUploadInfo(TempImageName, taskSnapshot.getMetadata().getReference().getDownloadUrl().toString());
+//                            @SuppressWarnings("VisibleForTests")
+//                            ImageUploadInfo imageUploadInfo = new ImageUploadInfo(TempImageName, taskSnapshot.getMetadata().getReference().getDownloadUrl().toString());
                             updateUI(mAuth.getCurrentUser());
                         }
                     })
