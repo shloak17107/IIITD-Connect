@@ -93,6 +93,15 @@ public class MainActivity extends AppCompatActivity {
                         // Sign in success, update UI with the signed-in user's information
                         Log.d(TAG, "signInWithCredential:success");
                         FirebaseUser user = mAuth.getCurrentUser();
+                        boolean isNew = task.getResult().getAdditionalUserInfo().isNewUser();
+
+                            String email = user.getEmail();
+                            String name = user.getDisplayName();
+                            Intent oneIntent = new Intent(MainActivity.this, profile_enter.class);
+                            oneIntent.putExtra("Email", email);
+                            oneIntent.putExtra("Name", name);
+                            startActivity (oneIntent);
+
                         updateUI(user);
                     } else {
                         // If sign in fails, display a message to the user.
@@ -121,8 +130,8 @@ public class MainActivity extends AppCompatActivity {
 
     private void updateUI(FirebaseUser user) {
         if (user != null) {
-            mStatusTextView.setText(user.getEmail());
-            mDetailTextView.setText(user.getUid());
+            mStatusTextView.setText(user.getEmail());//extraction
+            mDetailTextView.setText(user.getUid());//extraction
         } else {
             mStatusTextView.setText("signedout");
             mDetailTextView.setText("signedout");
