@@ -17,6 +17,9 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
+import androidx.fragment.app.Fragment;
+
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
@@ -27,9 +30,6 @@ import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 
 import java.io.IOException;
-
-import androidx.annotation.NonNull;
-import androidx.fragment.app.Fragment;
 
 import static android.app.Activity.RESULT_CANCELED;
 import static android.app.Activity.RESULT_OK;
@@ -49,6 +49,13 @@ public class FragmentFillDetailsFormalumni extends Fragment {
     private DatabaseReference mDatabase;
 
     EditText Branch;
+    EditText ContactNumber;
+    EditText dateOfBirth;
+    EditText LinkedIn;
+    EditText webPage;
+    EditText yearOfPassing;
+    EditText currentStatus;
+    EditText instituteCompany;
 
     String Storage_Path = "images/";
 
@@ -84,6 +91,13 @@ public class FragmentFillDetailsFormalumni extends Fragment {
         mDatabase = FirebaseDatabase.getInstance().getReference();
 
         Branch = (EditText) view.findViewById(R.id.editbranch1);
+        ContactNumber = (EditText) view.findViewById(R.id.editcontact1);
+        dateOfBirth = (EditText) view.findViewById(R.id.editdob1);
+        LinkedIn = (EditText) view.findViewById(R.id.editlinkdin1);
+        webPage = (EditText) view.findViewById(R.id.editwebsite1);
+        yearOfPassing = (EditText) view.findViewById(R.id.edityearofpass1);
+        currentStatus = (EditText) view.findViewById(R.id.editstatus1);
+        instituteCompany = (EditText) view.findViewById(R.id.editcompany1);
 
         return view;
     }
@@ -122,8 +136,17 @@ public class FragmentFillDetailsFormalumni extends Fragment {
         String email = RegistrationActivity.email;
         String name = RegistrationActivity.name;
         String branch = Branch.getText().toString();
+        String contact = ContactNumber.getText().toString();
+        String dob = dateOfBirth.getText().toString();
+        String linkedIn = LinkedIn.getText().toString();
+        String webpage = webPage.getText().toString();
+        String yop = yearOfPassing.getText().toString();
+        String status = currentStatus.getText().toString();
+        String company = currentStatus.getText().toString();
+
+
         String id = email.substring(0, email.indexOf("@"));
-        Alumni newAlumni = new Alumni(name, branch);
+        Alumni newAlumni = new Alumni(name, branch, contact, dob, linkedIn, webpage, yop, status, company);
         mDatabase.child("Alumni").child(id).setValue(newAlumni);
         Toast.makeText(getActivity(), "Alumni Details Saved!", Toast.LENGTH_SHORT).show();
     }

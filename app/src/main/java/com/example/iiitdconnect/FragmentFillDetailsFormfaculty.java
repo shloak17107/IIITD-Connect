@@ -13,6 +13,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
 
@@ -46,6 +47,11 @@ public class FragmentFillDetailsFormfaculty extends Fragment {
     private FirebaseAuth mAuth;
     private DatabaseReference mDatabase;
 
+    EditText Department;
+    EditText Expertise;
+    EditText webpage;
+    EditText LinkedIn;
+
 //    EditText Branch;
     String Storage_Path = "images/";
 
@@ -78,6 +84,11 @@ public class FragmentFillDetailsFormfaculty extends Fragment {
         storageReference = RegistrationActivity.storageReference;
         mAuth = FirebaseAuth.getInstance();
         mDatabase = FirebaseDatabase.getInstance().getReference();
+
+        Department = (EditText) view.findViewById(R.id.editdepartment2);
+        Expertise = (EditText) view.findViewById(R.id.editexpertise2);
+        LinkedIn = (EditText) view.findViewById(R.id.editlinkdin2);
+        webpage = (EditText) view.findViewById(R.id.editwebsite2);
 
 //        Branch = (EditText) view.findViewById(R.id.editbranch1);
         return view;
@@ -115,10 +126,14 @@ public class FragmentFillDetailsFormfaculty extends Fragment {
     public void UploadUserData() {
         String email = RegistrationActivity.email;
         String name = RegistrationActivity.name;
-//        String branch = Branch.getText().toString();
+        String dept = Department.getText().toString();
+        String expt = Expertise.getText().toString();
+        String linkedin = LinkedIn.getText().toString();
+        String web = webpage.getText().toString();
         String id = email.substring(0, email.indexOf("@"));
-//        Alumni newAlumni = new Alumni(name, branch);
-//        mDatabase.child("Alumni").child(id).setValue(newAlumni);
+
+        Faculty newFaculty = new Faculty(name, dept, expt, web, linkedin);
+        mDatabase.child("Faculty").child(id).setValue(newFaculty);
 //        Toast.makeText(getActivity(), "Alumni Details Saved!", Toast.LENGTH_SHORT).show();
     }
 

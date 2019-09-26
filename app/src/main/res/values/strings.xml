@@ -20,4 +20,7 @@
     <string name="Status">Status</string>
     <string name="Company">Company</string>
     <string name="Edit">Edit</string>
+    <string name="Cancel">Cancel</string>
+    <string name="Expertise">Expertise</string>
+    <string name="Department">Department</string>
 </resources>

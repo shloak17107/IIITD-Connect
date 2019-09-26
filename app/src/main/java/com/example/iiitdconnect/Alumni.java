@@ -83,16 +83,15 @@ public class Alumni {
         this.instituteCompany = instituteCompany;
     }
 //, String contactNumber, String dateOfBirth, String linkedIn, String webpage, String yearOfPassing, String currentStatus, String instituteCompany
-    public Alumni(String name, String branch){
+    public Alumni(String name, String branch, String contactNumber, String dateOfBirth, String linkedIn, String webpage, String yearOfPassing, String currentStatus, String instituteCompany){
         this.name = name;
         this.branch = branch;
-//        this.contactNumber = contactNumber;
-//        this.branch = branch;
-//        this.dateOfBirth = dateOfBirth;
-//        this.webpage=webpage;
-//        this.yearOfPassing=yearOfPassing;
-//        this.linkedIn=linkedIn;
-//        this.currentStatus=currentStatus;
-//        this.instituteCompany=instituteCompany;
+        this.contactNumber = contactNumber;
+        this.dateOfBirth = dateOfBirth;
+        this.webpage=webpage;
+        this.yearOfPassing=yearOfPassing;
+        this.linkedIn=linkedIn;
+        this.currentStatus=currentStatus;
+        this.instituteCompany=instituteCompany;
     }
 }

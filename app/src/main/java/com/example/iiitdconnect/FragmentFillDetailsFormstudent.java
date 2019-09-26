@@ -13,6 +13,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
 
@@ -47,6 +48,13 @@ public class FragmentFillDetailsFormstudent extends Fragment {
     private FirebaseAuth mAuth;
     private DatabaseReference mDatabase;
 
+    EditText Branch;
+    EditText ContactNumber;
+    EditText dateOfBirth;
+    EditText LinkedIn;
+    EditText webPage;
+    EditText yearOfPassing;
+
     //    EditText Branch;
     String Storage_Path = "images/";
 
@@ -77,6 +85,13 @@ public class FragmentFillDetailsFormstudent extends Fragment {
         storageReference = RegistrationActivity.storageReference;
         mAuth = FirebaseAuth.getInstance();
         mDatabase = FirebaseDatabase.getInstance().getReference();
+
+        Branch = (EditText) view.findViewById(R.id.editbranch);
+        ContactNumber = (EditText) view.findViewById(R.id.editcontact);
+        dateOfBirth = (EditText) view.findViewById(R.id.editdob);
+        LinkedIn = (EditText) view.findViewById(R.id.editlinkdin);
+        webPage = (EditText) view.findViewById(R.id.editwebsite);
+        yearOfPassing = (EditText) view.findViewById(R.id.edityearofpass);
 
         return view;
     }
@@ -113,11 +128,18 @@ public class FragmentFillDetailsFormstudent extends Fragment {
     public void UploadUserData() {
         String email = RegistrationActivity.email;
         String name = RegistrationActivity.name;
-//        String branch = Branch.getText().toString();
+
+        String branch = Branch.getText().toString();
+        String contact = ContactNumber.getText().toString();
+        String dob = dateOfBirth.getText().toString();
+        String linkedIn = LinkedIn.getText().toString();
+        String webpage = webPage.getText().toString();
+        String yop = yearOfPassing.getText().toString();
+
         String id = email.substring(0, email.indexOf("@"));
-//        Alumni newAlumni = new Alumni(name, branch);
-//        mDatabase.child("Alumni").child(id).setValue(newAlumni);
-//        Toast.makeText(getActivity(), "Alumni Details Saved!", Toast.LENGTH_SHORT).show();
+        Student newStudent = new Student(name, branch, contact, dob, linkedIn, webpage, yop);
+        mDatabase.child("Student").child(id).setValue(newStudent);
+        Toast.makeText(getActivity(), "Student Details Saved!", Toast.LENGTH_SHORT).show();
     }
 
     public void UploadImageFileToFirebaseStorage() {
