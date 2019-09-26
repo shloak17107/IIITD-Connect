@@ -1,3 +1,23 @@
 <resources>
     <string name="app_name">IIITD Connect</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="fill_details_student">Student</string>
+    <string name="fill_details_alumni">Alumni</string>
+    <string name="fill_details_faculty">Faculty</string>
+    <string name="fill_details">Fill Details</string>
+    <string name="Email">Email</string>
+    <string name="Branch">Branch</string>
+    <string name="Conatct_no">Conatct No.</string>
+    <string name="D_O_B">D.O.B</string>
+    <string name="Linkdin">Linkdin</string>
+    <string name="Website">Website</string>
+    <string name="Name">Name</string>
+    <string name="Year_of_passing">Year of passing</string>
+    <string name="Type_here">None</string>
+    <string name="Save">Save</string>
+    <string name="Status">Status</string>
+    <string name="Company">Company</string>
+    <string name="Edit">Edit</string>
 </resources>

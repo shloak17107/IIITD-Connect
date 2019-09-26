@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
+        <ImageView
+            android:id="@+id/photo"
+            android:layout_width="match_parent"
+            android:layout_height="223dp"
+            android:layout_gravity="center"
+            android:src="@drawable/photo" />
+        <ImageView
+            android:id="@+id/circle_crop"
+            android:layout_width="match_parent"
+            android:layout_height="223dp"
+            android:layout_gravity="center"
+            android:src="@drawable/circle" />
+
+
+        <Button
+            android:id="@+id/camera"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_below="@id/photo"
+            android:layout_alignRight="@id/photo"
+            android:background="@drawable/camera" />
+
+        <TextView
+            android:id="@+id/email"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/Email"
+            android:textSize="24sp"
+            android:layout_below="@id/camera"
+            android:paddingTop="20dp"/>
+
+        <TextView
+            android:id="@+id/editemail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Email"
+            android:paddingTop="20dp"
+            android:layout_below="@id/camera"
+            android:layout_alignRight="@id/email"/>
+
+        <TextView
+            android:id="@+id/branch"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/Branch"
+            android:textSize="24sp"
+            android:layout_below="@id/email"
+            android:paddingTop="20dp"/>
+        <EditText
+            android:id="@+id/editbranch"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:text="@string/Type_here"
+            android:paddingTop="20dp"
+            android:layout_below="@id/email"
+            android:layout_alignRight="@id/branch"/>
+
+        <TextView
+            android:id="@+id/contact"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/Conatct_no"
+            android:textSize="24sp"
+            android:layout_below="@id/branch"
+            android:paddingTop="20dp"/>
+
+        <EditText
+            android:id="@+id/editcontact"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/branch"
+            android:layout_alignRight="@id/contact"
+            android:ems="10"
+            android:inputType="number"
+            android:paddingTop="20dp"
+            android:text="@string/Type_here" />
+
+        <TextView
+            android:id="@+id/dob"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/D_O_B"
+            android:textSize="24sp"
+            android:layout_below="@id/contact"
+            android:paddingTop="20dp"/>
+        <EditText
+            android:id="@+id/editdob"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:text="@string/Type_here"
+            android:paddingTop="20dp"
+            android:layout_below="@id/contact"
+            android:layout_alignRight="@id/dob"/>
+
+        <TextView
+            android:id="@+id/linkdin"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/Linkdin"
+            android:textSize="24sp"
+            android:layout_below="@id/dob"
+            android:paddingTop="20dp"/>
+        <EditText
+            android:id="@+id/editlinkdin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:text="@string/Type_here"
+            android:paddingTop="20dp"
+            android:layout_below="@id/dob"
+            android:layout_alignRight="@id/linkdin"/>
+
+        <TextView
+            android:id="@+id/website"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/Website"
+            android:textSize="24sp"
+            android:layout_below="@id/linkdin"
+            android:paddingTop="20dp"/>
+        <EditText
+            android:id="@+id/editwebsite"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:text="@string/Type_here"
+            android:paddingTop="20dp"
+            android:layout_below="@id/linkdin"
+            android:layout_alignRight="@id/website"/>
+
+        <TextView
+            android:id="@+id/name"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/Name"
+            android:textSize="24sp"
+            android:layout_below="@id/website"
+            android:paddingTop="20dp"/>
+        <EditText
+            android:id="@+id/editname"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:text="@string/Type_here"
+            android:paddingTop="20dp"
+            android:layout_below="@id/website"
+            android:layout_alignRight="@id/name"/>
+
+        <TextView
+            android:id="@+id/yearofpass"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/Year_of_passing"
+            android:textSize="24sp"
+            android:layout_below="@id/name"
+            android:paddingTop="20dp"/>
+        <EditText
+            android:id="@+id/edityearofpass"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="number"
+            android:text="@string/Type_here"
+            android:paddingTop="20dp"
+            android:layout_below="@id/name"
+            android:layout_alignRight="@id/yearofpass"/>
+
+        <Button
+            android:id="@+id/button"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:paddingTop="30dp"
+            android:text="@string/Save"
+            android:layout_below="@id/yearofpass"
+            android:textSize="20dp"
+            android:layout_centerHorizontal="true"/>
+
+
+
+
+    </RelativeLayout>
+</ScrollView>
