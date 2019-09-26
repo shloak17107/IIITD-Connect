@@ -8,9 +8,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
 
-import androidx.annotation.NonNull;
-import androidx.fragment.app.Fragment;
-
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.gms.auth.api.signin.GoogleSignInClient;
@@ -24,6 +21,9 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.GoogleAuthProvider;
+
+import androidx.annotation.NonNull;
+import androidx.fragment.app.Fragment;
 
 public class Login_page_fragment extends Fragment {
     private static final String TAG = "GoogleActivity";
@@ -122,9 +122,19 @@ public class Login_page_fragment extends Fragment {
                             String name = user.getDisplayName();
                             String domain = email.substring(email.lastIndexOf('@'),email.length());
                             if (!domain.equals("@iiitd.ac.in")){
-                                Toast toast = Toast.makeText(getActivity(),
+                                Toast.makeText(getActivity(),
                                         "Use IIITD Email",
-                                        Toast.LENGTH_SHORT);
+                                        Toast.LENGTH_SHORT).show();
+                                user.delete()
+                                        .addOnCompleteListener(new OnCompleteListener<Void>() {
+                                            @Override
+                                            public void onComplete(@NonNull Task<Void> task) {
+                                                if (task.isSuccessful()) {
+                                                    Log.d(TAG, "User account deleted.");
+                                                }
+                                            }
+                                        });
+                                signOut();
                             }
                             else{
                                 Intent oneIntent = new Intent(getActivity(), profile_enter.class);
@@ -150,16 +160,17 @@ public class Login_page_fragment extends Fragment {
         startActivityForResult(signInIntent, RC_SIGN_IN);
     }
 
-//    private void signOut() {
-//        mAuth.signOut();
-//        mGoogleSignInClient.signOut().addOnCompleteListener(this,
-//                new OnCompleteListener<Void>() {
-//                    @Override
-//                    public void onComplete(@NonNull Task<Void> task) {
+    private void signOut() {
+        mAuth.signOut();
+        mGoogleSignInClient.signOut().addOnCompleteListener(getActivity(),
+                new OnCompleteListener<Void>() {
+                    @Override
+                    public void onComplete(@NonNull Task<Void> task) {
 //                        updateUI(null);
-//                    }
-//                });
-//    }
+                          Log.d("SIGN OUT", "SUCCESSFUL");
+                    }
+                });
+    }
 
 //    private void updateUI(FirebaseUser user) {
 //        if (user != null) {

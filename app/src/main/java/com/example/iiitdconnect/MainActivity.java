@@ -2,14 +2,15 @@ package com.example.iiitdconnect;
 
 import android.content.Intent;
 import android.os.Bundle;
-
-import androidx.appcompat.app.AppCompatActivity;
+import android.util.Log;
 
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInClient;
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -46,6 +47,8 @@ public class MainActivity extends AppCompatActivity {
         if (currentUser == null){
             Intent intent = new Intent(this, LoginActivity.class);
             startActivity(intent);
+        }else{
+            Log.d("HELLO", "HELLO");
         }
 
     }
