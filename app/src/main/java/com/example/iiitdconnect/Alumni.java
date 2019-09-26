@@ -1,6 +1,6 @@
 package com.example.iiitdconnect;
 
-public class Student {
+public class Alumni {
     private String name;
     private String branch;
     private String contactNumber;
@@ -8,6 +8,8 @@ public class Student {
     private String linkedIn;
     private String webpage;
     private String yearOfPassing;
+    private String currentStatus;
+    private String instituteCompany;
 
     public String getName() {
         return name;
@@ -65,13 +67,32 @@ public class Student {
         this.yearOfPassing = yearOfPassing;
     }
 
-    public Student(String name, String branch, String contactNumber, String dateOfBirth, String linkedIn, String webpage, String yearOfPassing){
+    public String getCurrentStatus() {
+        return currentStatus;
+    }
+
+    public void setCurrentStatus(String currentStatus) {
+        this.currentStatus = currentStatus;
+    }
+
+    public String getInstituteCompany() {
+        return instituteCompany;
+    }
+
+    public void setInstituteCompany(String instituteCompany) {
+        this.instituteCompany = instituteCompany;
+    }
+//, String contactNumber, String dateOfBirth, String linkedIn, String webpage, String yearOfPassing, String currentStatus, String instituteCompany
+    public Alumni(String name, String branch){
         this.name = name;
-        this.contactNumber = contactNumber;
         this.branch = branch;
-        this.dateOfBirth = dateOfBirth;
-        this.webpage=webpage;
-        this.yearOfPassing=yearOfPassing;
-        this.linkedIn=linkedIn;
+//        this.contactNumber = contactNumber;
+//        this.branch = branch;
+//        this.dateOfBirth = dateOfBirth;
+//        this.webpage=webpage;
+//        this.yearOfPassing=yearOfPassing;
+//        this.linkedIn=linkedIn;
+//        this.currentStatus=currentStatus;
+//        this.instituteCompany=instituteCompany;
     }
 }
