@@ -1,4 +1,4 @@
-package com.example.iiitd_connect.ui.feed;
+package com.example.iiitdconnect.ui.aboutus;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -10,19 +10,19 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
-import com.example.iiitd_connect.R;
+import com.example.iiitdconnect.R;
 
-public class FeedFragment extends Fragment {
+public class AboutusFragment extends Fragment {
 
-    private FeedViewModel feedViewModel;
+    private AboutusViewModel aboutusViewModel;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        feedViewModel =
-                ViewModelProviders.of(this).get(FeedViewModel.class);
-        View root = inflater.inflate(R.layout.fragment_feed, container, false);
-        final TextView textView = root.findViewById(R.id.text_feed);
-        feedViewModel.getText().observe(this, new Observer<String>() {
+        aboutusViewModel =
+                ViewModelProviders.of(this).get(AboutusViewModel.class);
+        View root = inflater.inflate(R.layout.fragement_aboutus, container, false);
+        final TextView textView = root.findViewById(R.id.text_aboutus);
+        aboutusViewModel.getText().observe(this, new Observer<String>() {
             @Override
             public void onChanged(@Nullable String s) {
                 textView.setText(s);

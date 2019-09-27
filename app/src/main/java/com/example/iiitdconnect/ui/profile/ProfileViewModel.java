@@ -1,16 +1,16 @@
-package com.example.iiitd_connect.ui.signout;
+package com.example.iiitdconnect.ui.profile;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
-public class SignoutViewModel extends ViewModel {
+public class ProfileViewModel extends ViewModel {
 
     private MutableLiveData<String> mText;
 
-    public SignoutViewModel() {
+    public ProfileViewModel() {
         mText = new MutableLiveData<>();
-        mText.setValue("This is signout fragment constructor in SignoutViewModel.java");
+        mText.setValue("This is profile fragment, from ProfileViewModel.java");
     }
 
     public LiveData<String> getText() {

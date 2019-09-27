@@ -1,4 +1,4 @@
-package com.example.iiitd_connect.ui.signout;
+package com.example.iiitdconnect.ui.feed;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -10,19 +10,19 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
-import com.example.iiitd_connect.R;
+import com.example.iiitdconnect.R;
 
-public class SignoutFragment extends Fragment {
+public class FeedFragment extends Fragment {
 
-    private SignoutViewModel signoutViewModel;
+    private FeedViewModel feedViewModel;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        signoutViewModel =
-                ViewModelProviders.of(this).get(SignoutViewModel.class);
-        View root = inflater.inflate(R.layout.fragment_signout, container, false);
-        final TextView textView = root.findViewById(R.id.text_signout);
-        signoutViewModel.getText().observe(this, new Observer<String>() {
+        feedViewModel =
+                ViewModelProviders.of(this).get(FeedViewModel.class);
+        View root = inflater.inflate(R.layout.fragment_feed, container, false);
+        final TextView textView = root.findViewById(R.id.text_feed);
+        feedViewModel.getText().observe(this, new Observer<String>() {
             @Override
             public void onChanged(@Nullable String s) {
                 textView.setText(s);

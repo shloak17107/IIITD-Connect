@@ -1,6 +1,8 @@
-package com.example.iiitd_connect;
+package com.example.iiitdconnect.ui;
 
 import android.os.Bundle;
+
+import com.example.iiitdconnect.R;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 import android.view.View;

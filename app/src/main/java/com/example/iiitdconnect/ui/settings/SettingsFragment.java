@@ -1,4 +1,4 @@
-package com.example.iiitd_connect.ui.aboutus;
+package com.example.iiitdconnect.ui.settings;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -10,19 +10,19 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
-import com.example.iiitd_connect.R;
+import com.example.iiitdconnect.R;
 
-public class AboutusFragment extends Fragment {
+public class SettingsFragment extends Fragment {
 
-    private AboutusViewModel aboutusViewModel;
+    private SettingsViewModel settingsViewModel;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        aboutusViewModel =
-                ViewModelProviders.of(this).get(AboutusViewModel.class);
-        View root = inflater.inflate(R.layout.fragement_aboutus, container, false);
-        final TextView textView = root.findViewById(R.id.text_aboutus);
-        aboutusViewModel.getText().observe(this, new Observer<String>() {
+        settingsViewModel =
+                ViewModelProviders.of(this).get(SettingsViewModel.class);
+        View root = inflater.inflate(R.layout.fragment_settings, container, false);
+        final TextView textView = root.findViewById(R.id.text_settings);
+        settingsViewModel.getText().observe(this, new Observer<String>() {
             @Override
             public void onChanged(@Nullable String s) {
                 textView.setText(s);

@@ -1,4 +1,4 @@
-package com.example.iiitd_connect.ui.settings;
+package com.example.iiitdconnect.ui.settings;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
