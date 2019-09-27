@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
+
+
+        <ImageView
+            android:id="@+id/photo2"
+            android:layout_width="match_parent"
+            android:layout_height="223dp"
+            android:layout_gravity="center"
+            android:src="@drawable/photo" />
+
+        <ImageView
+            android:id="@+id/circle_crop2"
+            android:layout_width="match_parent"
+            android:layout_height="223dp"
+            android:layout_gravity="center"
+            android:src="@drawable/circle" />
+
+        <Button
+            android:id="@+id/camera2"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_below="@id/photo2"
+            android:layout_alignRight="@id/photo2"
+            android:background="@drawable/camera" />
+
+        <TextView
+            android:id="@+id/name2"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/Name"
+            android:textSize="24sp"
+            android:layout_below="@id/camera2"
+            android:paddingTop="20dp"/>
+        <EditText
+            android:id="@+id/editname2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:hint="@string/Type_here"
+            android:paddingTop="20dp"
+            android:layout_below="@id/camera2"
+            android:layout_alignRight="@id/name2"/>
+
+        <TextView
+            android:id="@+id/department2"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/Department"
+            android:textSize="24sp"
+            android:layout_below="@id/name2"
+            android:paddingTop="20dp"/>
+        <EditText
+            android:id="@+id/editdepartment2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:hint="@string/Type_here"
+            android:paddingTop="20dp"
+            android:layout_below="@id/name2"
+            android:layout_alignRight="@id/expertise2"/>
+
+        <TextView
+            android:id="@+id/expertise2"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/Expertise"
+            android:textSize="24sp"
+            android:layout_below="@id/department2"
+            android:paddingTop="20dp"/>
+        <EditText
+            android:id="@+id/editexpertise2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:hint="@string/Type_here"
+            android:paddingTop="20dp"
+            android:layout_below="@id/department2"
+            android:layout_alignRight="@id/expertise2"/>
+
+        <TextView
+            android:id="@+id/linkdin2"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/Linkdin"
+            android:textSize="24sp"
+            android:layout_below="@id/expertise2"
+            android:paddingTop="20dp"/>
+        <EditText
+            android:id="@+id/editlinkdin2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:hint="@string/Type_here"
+            android:paddingTop="20dp"
+            android:layout_below="@id/expertise2"
+            android:layout_alignRight="@id/linkdin2"/>
+
+        <TextView
+            android:id="@+id/website2"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/Website"
+            android:textSize="24sp"
+            android:layout_below="@id/linkdin2"
+            android:paddingTop="20dp"/>
+        <EditText
+            android:id="@+id/editwebsite2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:hint="@string/Type_here"
+            android:paddingTop="20dp"
+            android:layout_below="@id/linkdin2"
+            android:layout_alignRight="@id/website2"/>
+
+
+        <Button
+            android:id="@+id/button2"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:paddingTop="30dp"
+            android:text="@string/Save"
+            android:layout_below="@id/website2"
+            android:textSize="20dp"
+            android:layout_centerHorizontal="true"/>
+
+
+    </RelativeLayout>
+</ScrollView>

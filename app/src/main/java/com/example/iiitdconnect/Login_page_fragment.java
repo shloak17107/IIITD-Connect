@@ -125,6 +125,7 @@ public class Login_page_fragment extends Fragment {
                                 Toast.makeText(getActivity(),
                                         "Use IIITD Email",
                                         Toast.LENGTH_SHORT).show();
+                                signOut();
                                 user.delete()
                                         .addOnCompleteListener(new OnCompleteListener<Void>() {
                                             @Override
@@ -134,10 +135,9 @@ public class Login_page_fragment extends Fragment {
                                                 }
                                             }
                                         });
-                                signOut();
                             }
                             else{
-                                Intent oneIntent = new Intent(getActivity(), profile_enter.class);
+                                Intent oneIntent = new Intent(getActivity(), RegistrationActivity.class);
                                 oneIntent.putExtra("Email", email);
                                 oneIntent.putExtra("Name", name);
                                 startActivity (oneIntent);
