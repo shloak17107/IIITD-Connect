@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
+<<<<<<< Updated upstream
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
     android:layout_height="wrap_content"
@@ -12,4 +13,57 @@
 
         android:text="@string/notifications"
         />
+=======
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/image_content_divider"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:layout_margin="8dp"
+
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:background="@drawable/customborder"
+        android:orientation="horizontal">
+
+
+        <com.mikhaellopez.circularimageview.CircularImageView
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:src="@drawable/smile"
+            app:civ_border_color="@color/iiit"
+            app:civ_border_width="4dp"
+            app:civ_shadow="true"
+            app:civ_shadow_radius="1"
+            app:civ_shadow_color="#8BC34A"/>
+
+        <!--<ImageView-->
+            <!--android:layout_width="60dp"-->
+            <!--android:layout_height="60dp"-->
+            <!--android:contentDescription="TODO"-->
+            <!--android:id="@+id/notificationImage"-->
+            <!--android:background="@drawable/img_circular"-->
+            <!--android:src="@drawable/smile"-->
+            <!--/>-->
+        <LinearLayout
+            android:id="@+id/title_body_divider"
+            android:layout_margin="5dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="20dp"
+                android:id="@+id/notification_title"
+                android:textAllCaps="true"
+                android:textStyle="bold"
+                />
+    <TextView
+        android:id="@+id/text_notification"
+        android:layout_marginTop="2dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/notifications"
+        />
+        </LinearLayout>
+>>>>>>> Stashed changes
 </LinearLayout>

@@ -7,8 +7,13 @@
 
           <gradient
               android:angle="90"
+<<<<<<< Updated upstream
               android:startColor="@color/gradientstart"
               android:endColor="@color/gradientend"
+=======
+              android:startColor="#ffffff"
+              android:endColor="#ffffff"
+>>>>>>> Stashed changes
               android:type="linear"
               />
 

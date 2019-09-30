@@ -10,8 +10,12 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+<<<<<<< Updated upstream
     android:paddingLeft="20dp"
     android:paddingRight="20dp"
+=======
+    android:layout_margin="30dp"
+>>>>>>> Stashed changes
 
 
     tools:context=".CreatePostFrag">
@@ -20,36 +24,71 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+<<<<<<< Updated upstream
         android:textSize="30dp"
+=======
+        android:textSize="25dp"
+        android:layout_marginLeft="15dp"
+
+>>>>>>> Stashed changes
         android:fontFamily="@font/opensans_regular"
         android:layout_marginTop="10dp"
         android:text="@string/Title" />
     <EditText
     android:layout_width="match_parent"
     android:layout_height="80dp"
+<<<<<<< Updated upstream
+=======
+        android:layout_marginTop="5dp"
+        android:background="@drawable/customborder"
+>>>>>>> Stashed changes
         />
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+<<<<<<< Updated upstream
         android:textSize="30dp"
         android:layout_marginTop="10dp"
+=======
+        android:textSize="25dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="15dp"
+>>>>>>> Stashed changes
         android:fontFamily="@font/opensans_regular"
         android:text="@string/Body" />
     <EditText
         android:layout_width="match_parent"
+<<<<<<< Updated upstream
         android:layout_height="240dp"
+=======
+        android:layout_height="200dp"
+        android:layout_marginTop="5dp"
+        android:background="@drawable/customborder"
+>>>>>>> Stashed changes
         />
     <TextView
         android:layout_width="match_parent"
         android:layout_marginTop="10dp"
         android:layout_height="wrap_content"
+<<<<<<< Updated upstream
         android:textSize="30dp"
+=======
+        android:textSize="25dp"
+        android:layout_marginLeft="15dp"
+>>>>>>> Stashed changes
         android:fontFamily="@font/opensans_regular"
         android:text="@string/Tags" />
     <EditText
         android:layout_width="match_parent"
         android:layout_height="80dp"
+<<<<<<< Updated upstream
         android:focusableInTouchMode="true"
+=======
+        android:layout_marginTop="5dp"
+        android:focusableInTouchMode="true"
+        android:background="@drawable/customborder"
+        
+>>>>>>> Stashed changes
 
         />
     <Button
@@ -57,9 +96,15 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/share"
+<<<<<<< Updated upstream
 
         android:theme="@style/PrimaryButton"
         android:textSize="30dp"/>
+=======
+        android:theme="@style/PrimaryButton"
+        android:layout_gravity="center_horizontal"
+        android:textSize="20dp"/>
+>>>>>>> Stashed changes
 
 </LinearLayout>
 </ScrollView>

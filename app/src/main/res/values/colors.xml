@@ -1,9 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#008577</color>
+     <color name="colorPrimary">#008577</color>
     <color name="colorPrimaryDark">#00574B</color>
     <color name="colorAccent">#D81B60</color>
     <color name="gradientstart">#D3CCE3</color>
     <color name="gradientend">#E9E4F0</color>
+<<<<<<< Updated upstream
 
+=======
+    <color name="iiit">#3fada8</color>
+>>>>>>> Stashed changes
 </resources>

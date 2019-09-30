@@ -28,6 +28,10 @@ public class Adapter extends RecyclerView.Adapter<Adapter.NotificationViewHolder
     public void onBindViewHolder(@NonNull NotificationViewHolder notificationViewHolder, int i) {
         String notification=data[i];
         notificationViewHolder.textView.setText(notification);
+<<<<<<< Updated upstream
+=======
+        notificationViewHolder.textView_title.setText("This is title");
+>>>>>>> Stashed changes
     }
 
     @Override
@@ -37,10 +41,18 @@ public class Adapter extends RecyclerView.Adapter<Adapter.NotificationViewHolder
 
     public class NotificationViewHolder extends RecyclerView.ViewHolder{
         TextView textView;
+<<<<<<< Updated upstream
+=======
+        TextView textView_title;
+>>>>>>> Stashed changes
         public NotificationViewHolder(View itemview)
         {
             super(itemview);
             textView=(TextView) itemview.findViewById(R.id.text_notification);
+<<<<<<< Updated upstream
+=======
+            textView_title=(TextView) itemview.findViewById(R.id.notification_title);
+>>>>>>> Stashed changes
         }
     }
 }
