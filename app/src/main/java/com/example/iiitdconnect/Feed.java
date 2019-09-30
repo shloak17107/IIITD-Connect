@@ -58,7 +58,8 @@ public class Feed extends AppCompatActivity implements NavigationView.OnNavigati
         addPostButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                Intent i = new Intent(Feed.this, CreatePost.class);
+                startActivity(i);
             }
         });
     }

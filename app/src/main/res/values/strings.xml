@@ -35,4 +35,12 @@
     <string name="menu_settings">Settings</string>
     <string name="menu_about">About Us</string>
     <string name="menu_signOut">Sign Out</string>
+
+    <string name="Title">Title:</string>
+    <string name="Body">Body:</string>
+    <string name="Tags">Tags:</string>
+    <string name="share">Share Post</string>
+    <string name="Dark">Dark Theme</string>
+    <string name="signout">Sign Out</string>
+    <string name="notifications">Notifications</string>
 </resources>
