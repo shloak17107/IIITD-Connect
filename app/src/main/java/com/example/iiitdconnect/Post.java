@@ -1,5 +1,6 @@
 package com.example.iiitdconnect;
 
+import java.sql.Timestamp;
 import java.util.Date;
 
 public class Post {
@@ -8,12 +9,15 @@ public class Post {
 
     public Post(String createdBy, String title, String body, String tags){
         Date date = new Date();
-        this.timestamp = date.toString();
+        long time = date.getTime();
+        Timestamp t = new Timestamp(time);
+        this.timestamp = t.toString();
         this.createdBy = createdBy;
         this.title = title;
         this.body = body;
         this.tags = tags;
     }
+    public Post(){}
 
     public String getCreatedBy() {
         return createdBy;
