@@ -25,7 +25,7 @@ public class MainActivity extends AppCompatActivity {
 
     private boolean flag;
     private DatabaseReference mDatabase;
-    private FirebaseAuth mAuth;
+    public static FirebaseAuth mAuth;
     private FirebaseUser currentUser;
     private GoogleSignInClient mGoogleSignInClient;
 
