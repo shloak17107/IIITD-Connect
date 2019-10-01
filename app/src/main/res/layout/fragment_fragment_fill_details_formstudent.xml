@@ -5,19 +5,15 @@
     android:layout_height="fill_parent">
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent" >
+        android:layout_height="match_parent"
+        android:layout_margin="17dp">
         <ImageView
             android:id="@+id/photo"
             android:layout_width="match_parent"
             android:layout_height="223dp"
             android:layout_gravity="center"
             android:src="@drawable/photo" />
-        <ImageView
-            android:id="@+id/circle_crop"
-            android:layout_width="match_parent"
-            android:layout_height="223dp"
-            android:layout_gravity="center"
-            android:src="@drawable/circle" />
+
 
 
         <Button
@@ -35,7 +31,7 @@
             android:text="@string/Name"
             android:textSize="24sp"
             android:layout_below="@id/camera"
-            android:paddingTop="20dp"/>
+            android:layout_marginTop="20dp"/>
         <EditText
             android:id="@+id/editname"
             android:layout_width="wrap_content"
@@ -43,7 +39,8 @@
             android:ems="10"
             android:inputType="textPersonName"
             android:hint="@string/Type_here"
-            android:paddingTop="20dp"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/customborder"
             android:layout_below="@id/camera"
             android:layout_alignRight="@id/name"/>
 
@@ -54,7 +51,7 @@
             android:text="@string/Branch"
             android:textSize="24sp"
             android:layout_below="@id/name"
-            android:paddingTop="20dp"/>
+            android:layout_marginTop="20dp"/>
         <EditText
             android:id="@+id/editbranch"
             android:layout_width="wrap_content"
@@ -62,7 +59,8 @@
             android:ems="10"
             android:inputType="textPersonName"
             android:hint="@string/Type_here"
-            android:paddingTop="20dp"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/customborder"
             android:layout_below="@id/name"
             android:layout_alignRight="@id/branch"/>
 
@@ -73,7 +71,7 @@
             android:text="@string/Conatct_no"
             android:textSize="24sp"
             android:layout_below="@id/branch"
-            android:paddingTop="20dp"/>
+            android:layout_marginTop="20dp"/>
 
         <EditText
             android:id="@+id/editcontact"
@@ -83,7 +81,8 @@
             android:layout_alignRight="@id/contact"
             android:ems="10"
             android:inputType="number"
-            android:paddingTop="20dp"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/customborder"
             android:hint="@string/Type_here" />
 
         <TextView
@@ -93,7 +92,7 @@
             android:text="@string/D_O_B"
             android:textSize="24sp"
             android:layout_below="@id/contact"
-            android:paddingTop="20dp"/>
+            android:layout_marginTop="20dp"/>
         <EditText
             android:id="@+id/editdob"
             android:layout_width="wrap_content"
@@ -101,7 +100,8 @@
             android:ems="10"
             android:inputType="date"
             android:hint="@string/Type_here"
-            android:paddingTop="20dp"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/customborder"
             android:layout_below="@id/contact"
             android:layout_alignRight="@id/dob"/>
 
@@ -112,7 +112,7 @@
             android:text="@string/Linkdin"
             android:textSize="24sp"
             android:layout_below="@id/dob"
-            android:paddingTop="20dp"/>
+            android:layout_marginTop="20dp"/>
         <EditText
             android:id="@+id/editlinkdin"
             android:layout_width="wrap_content"
@@ -120,7 +120,8 @@
             android:ems="10"
             android:inputType="textPersonName"
             android:hint="@string/Type_here"
-            android:paddingTop="20dp"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/customborder"
             android:layout_below="@id/dob"
             android:layout_alignRight="@id/linkdin"/>
 
@@ -131,7 +132,7 @@
             android:text="@string/Website"
             android:textSize="24sp"
             android:layout_below="@id/linkdin"
-            android:paddingTop="20dp"/>
+            android:layout_marginTop="20dp"/>
         <EditText
             android:id="@+id/editwebsite"
             android:layout_width="wrap_content"
@@ -139,7 +140,8 @@
             android:ems="10"
             android:inputType="textPersonName"
             android:hint="@string/Type_here"
-            android:paddingTop="20dp"
+            android:background="@drawable/customborder"
+            android:layout_marginTop="20dp"
             android:layout_below="@id/linkdin"
             android:layout_alignRight="@id/website"/>
 
@@ -151,7 +153,7 @@
             android:text="@string/Year_of_passing"
             android:textSize="24sp"
             android:layout_below="@id/website"
-            android:paddingTop="20dp"/>
+            android:layout_marginTop="20dp"/>
         <EditText
             android:id="@+id/edityearofpass"
             android:layout_width="wrap_content"
@@ -159,7 +161,8 @@
             android:ems="10"
             android:inputType="number"
             android:hint="@string/Type_here"
-            android:paddingTop="20dp"
+            android:background="@drawable/customborder"
+            android:layout_marginTop="20dp"
             android:layout_below="@id/website"
             android:layout_alignRight="@id/yearofpass"/>
 
@@ -167,7 +170,7 @@
             android:id="@+id/button"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:paddingTop="30dp"
+            android:layout_marginTop="25dp"
             android:text="@string/Save"
             android:layout_below="@id/yearofpass"
             android:textSize="20dp"
