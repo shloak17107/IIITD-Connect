@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/nav_feed">
+
+    <fragment
+        android:id="@+id/nav_feed"
+        android:name="com.example.iiitdconnect.ui.feed.FeedFragment"
+        android:label="@string/menu_feed"
+        tools:layout="@layout/fragment_feed" />
+
+    <fragment
+        android:id="@+id/nav_profile"
+        android:name="com.example.iiitdconnect.ui.profile.ProfileFragment"
+        android:label="@string/menu_profile"
+        tools:layout="@layout/fragment_profile" />
+
+    <fragment
+        android:id="@+id/nav_settings"
+        android:name="com.example.iiitdconnect.ui.settings.SettingsFragment"
+        android:label="@string/menu_settings"
+        tools:layout="@layout/fragment_settings" />
+
+    <fragment
+        android:id="@+id/nav_aboutus"
+        android:name="com.example.iiitdconnect.ui.aboutus.AboutusFragment"
+        android:label="@string/menu_about"
+        tools:layout="@layout/fragement_aboutus" />
+
+    <fragment
+        android:id="@+id/nav_signout"
+        android:name="com.example.iiitdconnect.ui.signout.SignoutFragment"
+        android:label="@string/menu_signOut"
+        tools:layout="@layout/fragment_signout" />
+
+</navigation>

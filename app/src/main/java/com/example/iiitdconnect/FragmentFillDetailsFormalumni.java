@@ -17,9 +17,6 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
 
-import androidx.annotation.NonNull;
-import androidx.fragment.app.Fragment;
-
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
@@ -30,6 +27,9 @@ import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 
 import java.io.IOException;
+
+import androidx.annotation.NonNull;
+import androidx.fragment.app.Fragment;
 
 import static android.app.Activity.RESULT_CANCELED;
 import static android.app.Activity.RESULT_OK;
@@ -81,8 +81,10 @@ public class FragmentFillDetailsFormalumni extends Fragment {
         Save.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                UploadImageFileToFirebaseStorage();
                 UploadUserData();
+                UploadImageFileToFirebaseStorage();
+                Intent i = new Intent(getActivity(), Feed.class);
+                startActivity(i);
             }
         });
 

@@ -9,10 +9,12 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".RegistrationActivity"></activity>
+        <activity android:name=".CreatePost"></activity>
+        <activity android:name=".RegistrationActivity" />
         <activity android:name=".LoginActivity" />
         <activity android:name=".profile_see" />
         <activity android:name=".profile_enter" />
+        <activity android:name=".Feed" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

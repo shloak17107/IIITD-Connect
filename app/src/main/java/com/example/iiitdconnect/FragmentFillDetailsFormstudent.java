@@ -79,7 +79,10 @@ public class FragmentFillDetailsFormstudent extends Fragment {
         Save.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                UploadUserData();
+                UploadImageFileToFirebaseStorage();
+                Intent i = new Intent(getActivity(), Feed.class);
+                startActivity(i);
             }
         });
         storageReference = RegistrationActivity.storageReference;
