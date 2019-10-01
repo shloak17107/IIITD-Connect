@@ -56,7 +56,7 @@ public class CreatePostFrag extends Fragment {
         String id = email.substring(0, email.indexOf("@"));
 
         Post post = new Post(email, post_title, post_body, post_tags);
-        mDatabase.child("Post").child(id + " " + post.getTimestamp()).setValue(post);
+        mDatabase.child("Post").child(post.getTimestamp().replace("-", ":").replace(".", ":")).setValue(post);
         Toast.makeText(getActivity(), "New Post Created!", Toast.LENGTH_SHORT).show();
         getActivity().onBackPressed();
     }

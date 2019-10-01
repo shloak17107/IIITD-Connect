@@ -26,6 +26,7 @@ public class MainActivity extends AppCompatActivity {
     private boolean flag;
     private DatabaseReference mDatabase;
     private FirebaseAuth mAuth;
+    private FirebaseUser currentUser;
     private GoogleSignInClient mGoogleSignInClient;
 
 
@@ -83,7 +84,7 @@ public class MainActivity extends AppCompatActivity {
                                         } else {
                                             Intent oneIntent = new Intent(MainActivity.this, RegistrationActivity.class);
                                             oneIntent.putExtra("Email", email);
-                                            oneIntent.putExtra("Name", mAuth.getCurrentUser().getDisplayName().toString());
+                                            oneIntent.putExtra("Name", currentUser.getDisplayName().toString());
                                             startActivity(oneIntent);
                                         }
 
@@ -119,7 +120,7 @@ public class MainActivity extends AppCompatActivity {
         super.onStart();
 
         // Check if user is signed in (non-null) and update UI accordingly.
-        FirebaseUser currentUser = mAuth.getCurrentUser();
+        currentUser = mAuth.getCurrentUser();
         if (currentUser == null){
 //            Log.d("MESSAGE", "1");
             Intent intent = new Intent(this, LoginActivity.class);

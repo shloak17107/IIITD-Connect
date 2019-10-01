@@ -10,6 +10,10 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.navigation.NavigationView;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
+import java.util.ArrayList;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -20,11 +24,21 @@ import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
+import androidx.recyclerview.widget.RecyclerView;
 
 public class Feed extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
 
     private FloatingActionButton addPostButton;
     private DrawerLayout drawer;
+
+//    private SwipeRefreshLayout mSwipeRefreshLayout;
+
+    private static RecyclerView.Adapter adapter;
+    private RecyclerView.LayoutManager layoutManager;
+    private static RecyclerView recyclerView;
+    private static ArrayList<Post> posts;
+    private DatabaseReference mDatabase;
+    private FirebaseAuth mAuth;
 
     private AppBarConfiguration mAppBarConfiguration;
     @Override
@@ -62,6 +76,49 @@ public class Feed extends AppCompatActivity implements NavigationView.OnNavigati
                 startActivity(i);
             }
         });
+
+//        recyclerView = (RecyclerView) findViewById(R.id.my_recycler_view);
+//        recyclerView.setHasFixedSize(true);
+//
+//        layoutManager = new LinearLayoutManager(this);
+//        recyclerView.setLayoutManager(layoutManager);
+//        recyclerView.setItemAnimator(new DefaultItemAnimator());
+//        posts = new ArrayList<Post>();
+
+        mAuth = FirebaseAuth.getInstance();
+        mDatabase = FirebaseDatabase.getInstance().getReference();
+
+//        mSwipeRefreshLayout = (SwipeRefreshLayout) findViewById(R.id.swipeToRefresh);
+//
+//        mSwipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+//            @Override
+//            public void onRefresh() {
+//                Refresh();
+//                mSwipeRefreshLayout.setRefreshing(false);
+//            }
+//        });
+
+//        // FETCH RECORDS FROM DATABASE
+//
+//        final FirebaseDatabase database = FirebaseDatabase.getInstance();
+//        DatabaseReference ref = database.getReference("Post");
+//        ref.addValueEventListener(new ValueEventListener() {
+//            @Override
+//            public void onDataChange(DataSnapshot dataSnapshot) {
+//                for (DataSnapshot data : dataSnapshot.getChildren()) {
+//                    Post post = data.getValue(Post.class);
+//                    posts.add(post);
+//                }
+//                adapter = new CustomAdapter(posts);
+//                recyclerView.setAdapter(adapter);
+//            }
+//
+//            @Override
+//            public void onCancelled(@NonNull DatabaseError databaseError) {
+//
+//            }
+//        });
+
     }
 
     @Override
@@ -93,6 +150,13 @@ public class Feed extends AppCompatActivity implements NavigationView.OnNavigati
 //        mAuth.signOut();
 //        Intent i = new Intent(this, LoginActivity.class);
 //        startActivity(i);
+//    }
+
+//    public void Refresh (){
+//        Intent intent = getIntent();
+//        intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
+//        finish();
+//        startActivity(intent);
 //    }
 
     @Override
