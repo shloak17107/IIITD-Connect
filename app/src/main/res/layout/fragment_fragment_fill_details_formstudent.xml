@@ -24,147 +24,162 @@
             android:layout_alignRight="@id/photo"
             android:background="@drawable/camera" />
 
-        <TextView
+        <ImageView
             android:id="@+id/name"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
+            android:layout_width="60dp"
+            android:src="@drawable/ic_person_outline_black_24dp"
+            android:layout_height="60dp"
             android:text="@string/Name"
             android:textSize="24sp"
             android:layout_below="@id/camera"
-            android:layout_marginTop="20dp"/>
+            android:paddingTop="20dp"/>
         <EditText
             android:id="@+id/editname"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:ems="10"
+            android:ems="15"
             android:inputType="textPersonName"
-            android:hint="@string/Type_here"
+            android:hint="@string/Name"
             android:layout_marginTop="20dp"
+            android:layout_marginLeft="25dp"
             android:background="@drawable/customborder"
             android:layout_below="@id/camera"
-            android:layout_alignRight="@id/name"/>
+            android:layout_toEndOf="@id/name"/>
 
-        <TextView
+        <ImageView
             android:id="@+id/branch"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
+            android:src="@drawable/ic_branch_24dp"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
             android:text="@string/Branch"
             android:textSize="24sp"
             android:layout_below="@id/name"
-            android:layout_marginTop="20dp"/>
+            android:paddingTop="20dp"/>
         <EditText
             android:id="@+id/editbranch"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:ems="10"
+            android:ems="15"
             android:inputType="textPersonName"
-            android:hint="@string/Type_here"
+            android:hint="@string/Branch"
             android:layout_marginTop="20dp"
+            android:layout_marginLeft="25dp"
             android:background="@drawable/customborder"
             android:layout_below="@id/name"
-            android:layout_alignRight="@id/branch"/>
+            android:layout_toEndOf="@id/branch"/>
 
-        <TextView
+        <ImageView
             android:id="@+id/contact"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
             android:text="@string/Conatct_no"
+            android:src="@drawable/ic_contact_24dp"
             android:textSize="24sp"
             android:layout_below="@id/branch"
-            android:layout_marginTop="20dp"/>
+            android:paddingTop="20dp"/>
 
         <EditText
             android:id="@+id/editcontact"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/branch"
-            android:layout_alignRight="@id/contact"
-            android:ems="10"
+            android:layout_toEndOf="@id/contact"
+            android:ems="15"
             android:inputType="number"
             android:layout_marginTop="20dp"
+            android:layout_marginLeft="25dp"
             android:background="@drawable/customborder"
-            android:hint="@string/Type_here" />
+            android:hint="@string/Conatct_no" />
 
-        <TextView
+        <ImageView
             android:id="@+id/dob"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
             android:text="@string/D_O_B"
+            android:src="@drawable/ic_cake_black_24dp"
             android:textSize="24sp"
             android:layout_below="@id/contact"
-            android:layout_marginTop="20dp"/>
+            android:paddingTop="20dp"/>
+
         <EditText
             android:id="@+id/editdob"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:ems="10"
-            android:inputType="date"
-            android:hint="@string/Type_here"
-            android:layout_marginTop="20dp"
-            android:background="@drawable/customborder"
             android:layout_below="@id/contact"
-            android:layout_alignRight="@id/dob"/>
+            android:layout_marginLeft="25dp"
+            android:layout_marginTop="20dp"
+            android:layout_toEndOf="@id/dob"
+            android:background="@drawable/customborder"
+            android:ems="15"
+            android:hint="@string/D_O_B"
+            android:inputType="date" />
 
-        <TextView
+        <ImageView
             android:id="@+id/linkdin"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
             android:text="@string/Linkdin"
+            android:src="@drawable/ic_iconmonstr_linkedin_3"
             android:textSize="24sp"
             android:layout_below="@id/dob"
-            android:layout_marginTop="20dp"/>
+            android:paddingTop="20dp"/>
         <EditText
             android:id="@+id/editlinkdin"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:ems="10"
+            android:ems="15"
             android:inputType="textPersonName"
-            android:hint="@string/Type_here"
+            android:hint="@string/Linkdin"
             android:layout_marginTop="20dp"
+            android:layout_marginLeft="25dp"
             android:background="@drawable/customborder"
             android:layout_below="@id/dob"
-            android:layout_alignRight="@id/linkdin"/>
+            android:layout_toEndOf="@id/linkdin"/>
 
-        <TextView
+        <ImageView
             android:id="@+id/website"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:src="@drawable/website_3"
             android:text="@string/Website"
             android:textSize="24sp"
             android:layout_below="@id/linkdin"
-            android:layout_marginTop="20dp"/>
+            android:paddingTop="20dp"/>
         <EditText
             android:id="@+id/editwebsite"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:ems="10"
+            android:ems="15"
             android:inputType="textPersonName"
-            android:hint="@string/Type_here"
+            android:hint="@string/Website"
             android:background="@drawable/customborder"
             android:layout_marginTop="20dp"
+            android:layout_marginLeft="25dp"
             android:layout_below="@id/linkdin"
-            android:layout_alignRight="@id/website"/>
+            android:layout_toEndOf="@id/website"/>
 
 
-        <TextView
+        <ImageView
             android:id="@+id/yearofpass"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:src="@drawable/ic_graduate_24dp"
             android:text="@string/Year_of_passing"
             android:textSize="24sp"
             android:layout_below="@id/website"
-            android:layout_marginTop="20dp"/>
+            android:paddingTop="20dp"/>
         <EditText
             android:id="@+id/edityearofpass"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:ems="10"
+            android:ems="15"
             android:inputType="number"
             android:hint="@string/Type_here"
             android:background="@drawable/customborder"
             android:layout_marginTop="20dp"
+            android:layout_marginLeft="25dp"
             android:layout_below="@id/website"
-            android:layout_alignRight="@id/yearofpass"/>
+            android:layout_toEndOf="@id/yearofpass"/>
 
         <Button
             android:id="@+id/button"

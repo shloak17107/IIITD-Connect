@@ -25,105 +25,111 @@
             android:layout_alignRight="@id/photo2"
             android:background="@drawable/camera" />
 
-        <TextView
+        <ImageView
             android:id="@+id/name2"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/Name"
-            android:textSize="24sp"
+            android:src="@drawable/ic_person_outline_black_24dp"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
             android:layout_below="@id/camera2"
-            android:layout_marginTop="20dp"/>
+            android:paddingTop="20dp"/>
         <EditText
             android:id="@+id/editname2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:ems="10"
+            android:ems="15"
             android:background="@drawable/customborder"
             android:inputType="textPersonName"
-            android:hint="@string/Type_here"
+            android:hint="@string/Name"
+            android:layout_marginLeft="25dp"
             android:layout_marginTop="20dp"
             android:layout_below="@id/camera2"
-            android:layout_alignRight="@id/name2"/>
+            android:layout_toEndOf="@id/name2"/>
 
-        <TextView
+        <ImageView
             android:id="@+id/department2"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
+            android:src="@drawable/ic_branch_24dp"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
             android:text="@string/Department"
-            android:textSize="24sp"
             android:layout_below="@id/name2"
-            android:layout_marginTop="20dp"/>
+            android:paddingTop="20dp"/>
         <EditText
             android:id="@+id/editdepartment2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:ems="10"
+            android:ems="15"
             android:background="@drawable/customborder"
             android:inputType="textPersonName"
-            android:hint="@string/Type_here"
+            android:hint="@string/Department"
             android:layout_marginTop="20dp"
+            android:layout_marginLeft="25dp"
             android:layout_below="@id/name2"
-            android:layout_alignRight="@id/expertise2"/>
+            android:layout_toEndOf="@id/department2"/>
 
-        <TextView
+        <ImageView
             android:id="@+id/expertise2"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
             android:text="@string/Expertise"
-            android:textSize="24sp"
+            android:src="@drawable/ic_branch_24dp"
             android:layout_below="@id/department2"
-            android:layout_marginTop="20dp"/>
+            android:paddingTop="20dp"/>
         <EditText
             android:id="@+id/editexpertise2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:ems="10"
+            android:ems="15"
             android:background="@drawable/customborder"
             android:inputType="textPersonName"
-            android:hint="@string/Type_here"
+            android:hint="@string/Expertise"
+            android:layout_marginLeft="25dp"
             android:layout_marginTop="20dp"
             android:layout_below="@id/department2"
-            android:layout_alignRight="@id/expertise2"/>
+            android:layout_toEndOf="@id/expertise2"/>
 
-        <TextView
+        <ImageView
             android:id="@+id/linkdin2"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
+            android:layout_width="60dp"
+            android:src="@drawable/ic_iconmonstr_linkedin_3"
+            android:layout_height="60dp"
             android:text="@string/Linkdin"
             android:textSize="24sp"
             android:layout_below="@id/expertise2"
-            android:layout_marginTop="20dp"/>
+            android:paddingTop="20dp"/>
         <EditText
             android:id="@+id/editlinkdin2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:ems="10"
+            android:ems="15"
             android:inputType="textPersonName"
-            android:hint="@string/Type_here"
+            android:hint="@string/Linkdin"
             android:background="@drawable/customborder"
+            android:layout_marginLeft="25dp"
             android:layout_marginTop="20dp"
             android:layout_below="@id/expertise2"
-            android:layout_alignRight="@id/linkdin2"/>
+            android:layout_toEndOf="@id/linkdin2"/>
 
-        <TextView
+        <ImageView
             android:id="@+id/website2"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
+            android:src="@drawable/website_3"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
             android:text="@string/Website"
             android:textSize="24sp"
             android:layout_below="@id/linkdin2"
-            android:layout_marginTop="20dp"/>
+            android:paddingTop="20dp"/>
         <EditText
             android:id="@+id/editwebsite2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:ems="10"
+            android:ems="15"
             android:inputType="textPersonName"
-            android:hint="@string/Type_here"
+            android:hint="@string/Website"
             android:background="@drawable/customborder"
             android:layout_marginTop="20dp"
+            android:layout_marginLeft="25dp"
             android:layout_below="@id/linkdin2"
-            android:layout_alignRight="@id/website2"/>
+            android:layout_toEndOf="@id/website2"/>
 
 
         <Button

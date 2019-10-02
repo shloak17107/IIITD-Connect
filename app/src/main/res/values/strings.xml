@@ -10,10 +10,10 @@
     <string name="Branch">Branch</string>
     <string name="Conatct_no">Conatct No.</string>
     <string name="D_O_B">D.O.B</string>
-    <string name="Linkdin">Linkdin</string>
+    <string name="Linkdin">Linkedin URL</string>
     <string name="Website">Website</string>
     <string name="Name">Name</string>
-    <string name="Year_of_passing">Year of passing</string>
+    <string name="Year_of_passing">Graduation Year</string>
     <string name="Type_here">None</string>
     <string name="Save">Save</string>
     <string name="Status">Status</string>
