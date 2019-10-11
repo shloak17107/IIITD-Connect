@@ -1,6 +1,7 @@
 package com.example.iiitdconnect;
 
 import android.app.AlertDialog;
+import android.app.DatePickerDialog;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -12,9 +13,12 @@ import android.provider.MediaStore;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnFailureListener;
@@ -27,6 +31,7 @@ import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 
 import java.io.IOException;
+import java.util.Calendar;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
@@ -38,8 +43,14 @@ import static android.app.Activity.RESULT_OK;
 public class FragmentFillDetailsFormstudent extends Fragment {
 
     private Button camerabutton ;
+
     private Button Save ;
     ImageView img;
+    Spinner degreespinner;
+    Button click;
+    EditText date;
+    int year,month,day;
+
     StorageReference storageReference2nd;
     Uri FilePathUri;
     StorageReference storageReference;
@@ -48,7 +59,7 @@ public class FragmentFillDetailsFormstudent extends Fragment {
     private FirebaseAuth mAuth;
     private DatabaseReference mDatabase;
 
-    EditText Branch;
+    Spinner Branch;
     EditText ContactNumber;
     EditText dateOfBirth;
     EditText LinkedIn;
@@ -68,6 +79,12 @@ public class FragmentFillDetailsFormstudent extends Fragment {
         // Inflate the layout for this fragment
         View view =inflater.inflate(R.layout.fragment_fragment_fill_details_formstudent, container, false);
         img=view.findViewById(R.id.photo);
+        degreespinner=view.findViewById(R.id.editbranch);
+        ArrayAdapter<CharSequence> adapter2 = ArrayAdapter.createFromResource(getActivity(),
+                R.array.degreesarray, android.R.layout.simple_spinner_item);
+        adapter2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        adapter2.setDropDownViewResource(android.R.layout.simple_dropdown_item_1line);
+        degreespinner.setAdapter(adapter2);
         camerabutton = (Button)view.findViewById(R.id.camera);
         camerabutton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -75,6 +92,27 @@ public class FragmentFillDetailsFormstudent extends Fragment {
                 galleryorcamera(getActivity());
             }
         });
+
+        click=(Button)view.findViewById(R.id.datebutton);
+        date=(EditText)view.findViewById(R.id.editdob);
+        click.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Calendar cal=Calendar.getInstance();
+                year=cal.get(Calendar.YEAR);
+                month=cal.get(Calendar.MONTH);
+                day=cal.get(Calendar.DAY_OF_MONTH);
+                DatePickerDialog d=new DatePickerDialog(getActivity(), new DatePickerDialog.OnDateSetListener() {
+                    @Override
+                    public void onDateSet(DatePicker datePicker, int i, int i1, int i2) {
+                        date.setText(i2+"/"+(i1+1)+"/"+i);
+                    }
+                },year,month,day);
+                d.show();
+
+            }
+        });
+
         Save = (Button)view.findViewById(R.id.button);
         Save.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -82,6 +120,7 @@ public class FragmentFillDetailsFormstudent extends Fragment {
                 UploadUserData();
                 UploadImageFileToFirebaseStorage();
                 Intent i = new Intent(getActivity(), Feed.class);
+                i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                 startActivity(i);
             }
         });
@@ -89,7 +128,7 @@ public class FragmentFillDetailsFormstudent extends Fragment {
         mAuth = FirebaseAuth.getInstance();
         mDatabase = FirebaseDatabase.getInstance().getReference();
 
-        Branch = (EditText) view.findViewById(R.id.editbranch);
+        Branch = (Spinner) view.findViewById(R.id.editbranch);
         ContactNumber = (EditText) view.findViewById(R.id.editcontact);
         dateOfBirth = (EditText) view.findViewById(R.id.editdob);
         LinkedIn = (EditText) view.findViewById(R.id.editlinkdin);
@@ -98,6 +137,7 @@ public class FragmentFillDetailsFormstudent extends Fragment {
 
         return view;
     }
+
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         if(resultCode != RESULT_CANCELED) {
@@ -132,7 +172,7 @@ public class FragmentFillDetailsFormstudent extends Fragment {
         String email = RegistrationActivity.email;
         String name = RegistrationActivity.name;
 
-        String branch = Branch.getText().toString();
+        String branch = Branch.getSelectedItem().toString();
         String contact = ContactNumber.getText().toString();
         String dob = dateOfBirth.getText().toString();
         String linkedIn = LinkedIn.getText().toString();

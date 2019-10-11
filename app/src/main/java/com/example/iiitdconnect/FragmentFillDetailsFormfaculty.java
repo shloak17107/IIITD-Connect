@@ -12,9 +12,11 @@ import android.provider.MediaStore;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnFailureListener;
@@ -38,6 +40,7 @@ public class FragmentFillDetailsFormfaculty extends Fragment {
     private Button camerabutton ;
     ImageView img;
     private Button Save;
+    Spinner departmentspinner;
 
     StorageReference storageReference2nd;
     Uri FilePathUri;
@@ -47,7 +50,7 @@ public class FragmentFillDetailsFormfaculty extends Fragment {
     private FirebaseAuth mAuth;
     private DatabaseReference mDatabase;
 
-    EditText Department;
+    Spinner Department;
     EditText Expertise;
     EditText webpage;
     EditText LinkedIn;
@@ -65,6 +68,12 @@ public class FragmentFillDetailsFormfaculty extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_fragment_fill_details_formfaculty, container, false);
         img=view.findViewById(R.id.photo2);
+        departmentspinner=view.findViewById(R.id.editdepartment2);
+        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(getActivity(),
+                R.array.departmentarray, android.R.layout.simple_spinner_item);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        adapter.setDropDownViewResource(android.R.layout.simple_dropdown_item_1line);
+        departmentspinner.setAdapter(adapter);
         camerabutton = (Button)view.findViewById(R.id.camera2);
         camerabutton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -79,6 +88,7 @@ public class FragmentFillDetailsFormfaculty extends Fragment {
                 UploadUserData();
                 UploadImageFileToFirebaseStorage();
                 Intent i = new Intent(getActivity(), Feed.class);
+                i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                 startActivity(i);
             }
         });
@@ -87,7 +97,7 @@ public class FragmentFillDetailsFormfaculty extends Fragment {
         mAuth = FirebaseAuth.getInstance();
         mDatabase = FirebaseDatabase.getInstance().getReference();
 
-        Department = (EditText) view.findViewById(R.id.editdepartment2);
+        Department = (Spinner) view.findViewById(R.id.editdepartment2);
         Expertise = (EditText) view.findViewById(R.id.editexpertise2);
         LinkedIn = (EditText) view.findViewById(R.id.editlinkdin2);
         webpage = (EditText) view.findViewById(R.id.editwebsite2);
@@ -128,7 +138,7 @@ public class FragmentFillDetailsFormfaculty extends Fragment {
     public void UploadUserData() {
         String email = RegistrationActivity.email;
         String name = RegistrationActivity.name;
-        String dept = Department.getText().toString();
+        String dept = Department.getSelectedItem().toString();
         String expt = Expertise.getText().toString();
         String linkedin = LinkedIn.getText().toString();
         String web = webpage.getText().toString();

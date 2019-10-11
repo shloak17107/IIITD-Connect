@@ -192,6 +192,7 @@ public class Login_page_fragment extends Fragment {
                 if(dataSnapshot.exists()) {
 //                    flag = true;
                     Intent i = new Intent(getActivity(), Feed.class);
+                    i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                     startActivity(i);
                     getActivity().finish();
                 } else {
@@ -202,6 +203,7 @@ public class Login_page_fragment extends Fragment {
                             if(dataSnapshot.exists()) {
 //                                flag = true;
                                 Intent i = new Intent(getActivity(), Feed.class);
+                                i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                                 startActivity(i);
                                 getActivity().finish();
                             } else {
@@ -212,6 +214,7 @@ public class Login_page_fragment extends Fragment {
                                         if(dataSnapshot.exists()) {
 //                                            flag = true;
                                             Intent i = new Intent(getActivity(), Feed.class);
+                                            i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                                             getActivity().finish();
                                         } else {
                                             Intent oneIntent = new Intent(getActivity(), RegistrationActivity.class);
