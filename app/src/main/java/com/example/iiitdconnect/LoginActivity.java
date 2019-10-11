@@ -1,5 +1,6 @@
 package com.example.iiitdconnect;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.TextView;
 
@@ -34,5 +35,13 @@ public class LoginActivity extends AppCompatActivity {
                     .add(R.id.Login_page_fragment, fragment)
                     .commit();
         }
+    }
+
+    public void onBackPressed(){
+        Intent a = new Intent(Intent.ACTION_MAIN);
+        a.addCategory(Intent.CATEGORY_HOME);
+        a.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        startActivity(a);
+
     }
 }

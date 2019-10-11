@@ -1,24 +1,37 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
-    android:layout_height="fill_parent">
+    android:layout_height="fill_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent" >
-        <ImageView
+        <!--        <ImageView-->
+        <!--            android:id="@+id/photo1"-->
+        <!--            android:layout_width="match_parent"-->
+        <!--            android:layout_height="223dp"-->
+        <!--            android:layout_gravity="center"-->
+        <!--            android:src="@drawable/photo" />-->
+        <!--        <ImageView-->
+        <!--            android:id="@+id/circle_crop1"-->
+        <!--            android:layout_width="match_parent"-->
+        <!--            android:layout_height="223dp"-->
+        <!--            android:layout_gravity="center"-->
+        <!--            android:src="@drawable/circle" />-->
+        <com.mikhaellopez.circularimageview.CircularImageView
             android:id="@+id/photo1"
-            android:layout_width="match_parent"
+            android:layout_width="223dp"
             android:layout_height="223dp"
-            android:layout_gravity="center"
-            android:src="@drawable/photo" />
-        <ImageView
-            android:id="@+id/circle_crop1"
-            android:layout_width="match_parent"
-            android:layout_height="223dp"
-            android:layout_gravity="center"
-            android:src="@drawable/circle" />
-
+            android:layout_alignParentEnd="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginEnd="108dp"
+            android:src="@drawable/photo"
+            app:civ_border_width="4dp"
+            app:civ_shadow="true"
+            app:civ_shadow_color="#8BC34A"
+            app:civ_shadow_radius="1"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="108dp" />
 
         <Button
             android:id="@+id/camera1"
@@ -28,178 +41,150 @@
             android:layout_alignRight="@id/photo1"
             android:background="@drawable/camera" />
 
-        <TextView
-            android:id="@+id/name1"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/Name"
-            android:textSize="24sp"
-            android:layout_below="@id/camera1"
-            android:paddingTop="20dp"/>
+
         <EditText
             android:id="@+id/editname1"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
             android:inputType="textPersonName"
-            android:hint="@string/Type_here"
+            android:hint="@string/Name"
             android:paddingTop="20dp"
             android:layout_below="@id/camera1"
-            android:layout_alignRight="@id/name1"/>
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            />
 
-        <TextView
-            android:id="@+id/branch1"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/Branch"
-            android:textSize="24sp"
-            android:layout_below="@id/name1"
-            android:paddingTop="20dp"/>
-        <EditText
+
+        <Spinner
             android:id="@+id/editbranch1"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:inputType="textPersonName"
-            android:hint="@string/Type_here"
+            android:layout_height="50dp"
             android:paddingTop="20dp"
-            android:layout_below="@id/name1"
-            android:layout_alignRight="@id/branch1"/>
+            android:layout_below="@id/editname1"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            />
 
-        <TextView
-            android:id="@+id/contact1"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/Conatct_no"
-            android:textSize="24sp"
-            android:layout_below="@id/branch1"
-            android:paddingTop="20dp"/>
+
         <EditText
             android:id="@+id/editcontact1"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
             android:inputType="number"
-            android:hint="@string/Type_here"
+            android:hint="@string/Conatct_no"
             android:paddingTop="20dp"
-            android:layout_below="@id/branch1"
-            android:layout_alignRight="@id/contact1"/>
+            android:layout_below="@id/editbranch1"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            />
 
-        <TextView
-            android:id="@+id/status1"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/Status"
-            android:textSize="24sp"
-            android:layout_below="@id/contact1"
-            android:paddingTop="20dp"/>
-        <EditText
+
+        <!--        <EditText-->
+        <!--            android:id="@+id/editstatus1"-->
+        <!--            android:layout_width="match_parent"-->
+        <!--            android:layout_height="wrap_content"-->
+        <!--            android:ems="10"-->
+        <!--            android:inputType="textPersonName"-->
+        <!--            android:hint="@string/Status"-->
+        <!--            android:paddingTop="20dp"-->
+        <!--            android:layout_below="@id/editcontact1"-->
+        <!--            android:layout_marginLeft="30dp"-->
+        <!--            android:layout_marginRight="30dp"-->
+        <!--            />-->
+        <Spinner
             android:id="@+id/editstatus1"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:inputType="textPersonName"
-            android:hint="@string/Type_here"
+            android:layout_height="50dp"
             android:paddingTop="20dp"
-            android:layout_below="@id/contact1"
-            android:layout_alignRight="@id/dob1"/>
+            android:layout_below="@+id/editcontact1"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
 
-        <TextView
-            android:id="@+id/dob1"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/D_O_B"
-            android:textSize="24sp"
-            android:layout_below="@id/status1"
-            android:paddingTop="20dp"/>
+            />
+
+
         <EditText
             android:id="@+id/editdob1"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
             android:inputType="date"
-            android:hint="@string/Type_here"
+            android:hint="@string/D_O_B"
             android:paddingTop="20dp"
-            android:layout_below="@id/status1"
-            android:layout_alignRight="@id/dob1"/>
+            android:layout_below="@id/editstatus1"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            />
+        <Button
+            android:id="@+id/datebutton1"
+            android:text="click"
 
-        <TextView
-            android:id="@+id/company1"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/Company"
-            android:textSize="24sp"
-            android:layout_below="@id/dob1"
-            android:paddingTop="20dp"/>
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_below="@+id/editstatus1"
+            android:layout_alignRight="@+id/editdob1"
+            android:background="@drawable/calendar"/>
+
+
+
         <EditText
             android:id="@+id/editcompany1"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
             android:inputType="textPersonName"
-            android:hint="@string/Type_here"
+            android:hint="@string/Company"
             android:paddingTop="20dp"
-            android:layout_below="@id/dob1"
-            android:layout_alignRight="@id/company1"/>
+            android:layout_below="@id/editdob1"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            />
 
-        <TextView
-            android:id="@+id/linkdin1"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/Linkdin"
-            android:textSize="24sp"
-            android:layout_below="@id/company1"
-            android:paddingTop="20dp"/>
+
         <EditText
             android:id="@+id/editlinkdin1"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
             android:inputType="textPersonName"
-            android:hint="@string/Type_here"
+            android:hint="@string/Linkdin"
             android:paddingTop="20dp"
-            android:layout_below="@id/company1"
-            android:layout_alignRight="@id/linkdin1"/>
+            android:layout_below="@id/editcompany1"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            />
 
-        <TextView
-            android:id="@+id/website1"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/Website"
-            android:textSize="24sp"
-            android:layout_below="@id/linkdin1"
-            android:paddingTop="20dp"/>
+
         <EditText
             android:id="@+id/editwebsite1"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
             android:inputType="textPersonName"
-            android:hint="@string/Type_here"
+            android:hint="@string/Website"
             android:paddingTop="20dp"
-            android:layout_below="@id/linkdin1"
-            android:layout_alignRight="@id/website1"/>
+            android:layout_below="@id/editlinkdin1"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            />
 
 
 
-        <TextView
-            android:id="@+id/yearofpass1"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/Year_of_passing"
-            android:textSize="24sp"
-            android:layout_below="@id/website1"
-            android:paddingTop="20dp"/>
+
         <EditText
             android:id="@+id/edityearofpass1"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
             android:inputType="number"
-            android:hint="@string/Type_here"
+            android:hint="@string/Year_of_passing"
             android:paddingTop="20dp"
-            android:layout_below="@id/website1"
-            android:layout_alignRight="@id/yearofpass1"/>
+            android:layout_below="@id/editwebsite1"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            />
 
         <Button
             android:id="@+id/button1"
@@ -207,9 +192,11 @@
             android:layout_height="match_parent"
             android:paddingTop="30dp"
             android:text="@string/Save"
-            android:layout_below="@id/yearofpass1"
+            android:layout_below="@id/edityearofpass1"
             android:textSize="20dp"
-            android:layout_centerHorizontal="true"/>
+            android:layout_centerHorizontal="true"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"/>
 
 
     </RelativeLayout>

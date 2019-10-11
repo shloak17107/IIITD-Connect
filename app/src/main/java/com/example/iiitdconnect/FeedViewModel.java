@@ -16,4 +16,6 @@ public class FeedViewModel extends ViewModel {
     public LiveData<String> getText() {
         return mText;
     }
+
+
 }

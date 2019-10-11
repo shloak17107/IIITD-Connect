@@ -21,6 +21,11 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.GoogleAuthProvider;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
@@ -31,6 +36,8 @@ public class Login_page_fragment extends Fragment {
 
     private FirebaseAuth mAuth;
     private GoogleSignInClient mGoogleSignInClient;
+    private DatabaseReference mDatabase;
+    private FirebaseUser currentUser;
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.login_page_fragment_layout, container, false);
@@ -44,7 +51,8 @@ public class Login_page_fragment extends Fragment {
 
         // Initialize Firebase Auth
         mAuth = FirebaseAuth.getInstance();
-
+        currentUser = mAuth.getCurrentUser();
+        mDatabase = FirebaseDatabase.getInstance().getReference();
         SignInButton loginButton = (SignInButton) view.findViewById(R.id.sign_in_button);
         loginButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -137,10 +145,11 @@ public class Login_page_fragment extends Fragment {
                                         });
                             }
                             else{
-                                Intent oneIntent = new Intent(getActivity(), RegistrationActivity.class);
-                                oneIntent.putExtra("Email", email);
-                                oneIntent.putExtra("Name", name);
-                                startActivity (oneIntent);
+                                String emailid = mAuth.getCurrentUser().getEmail().toString();
+                                String id = email.substring(0, email.indexOf("@"));
+
+
+                                check( id, emailid);
                             }
 
 
@@ -170,6 +179,75 @@ public class Login_page_fragment extends Fragment {
                           Log.d("SIGN OUT", "SUCCESSFUL");
                     }
                 });
+    }
+
+
+    public void check(String x, String y){
+        final String id = x;
+        final String email = y;
+        mDatabase.child("Student").orderByKey().equalTo(id).addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+
+                if(dataSnapshot.exists()) {
+//                    flag = true;
+                    Intent i = new Intent(getActivity(), Feed.class);
+                    i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                    startActivity(i);
+                    getActivity().finish();
+                } else {
+                    mDatabase.child("Alumni").orderByKey().equalTo(id).addValueEventListener(new ValueEventListener() {
+                        @Override
+                        public void onDataChange(DataSnapshot dataSnapshot) {
+
+                            if(dataSnapshot.exists()) {
+//                                flag = true;
+                                Intent i = new Intent(getActivity(), Feed.class);
+                                i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                                startActivity(i);
+                                getActivity().finish();
+                            } else {
+                                mDatabase.child("Faculty").orderByKey().equalTo(id).addValueEventListener(new ValueEventListener() {
+                                    @Override
+                                    public void onDataChange(DataSnapshot dataSnapshot) {
+
+                                        if(dataSnapshot.exists()) {
+//                                            flag = true;
+                                            Intent i = new Intent(getActivity(), Feed.class);
+                                            i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                                            getActivity().finish();
+                                        } else {
+                                            Intent oneIntent = new Intent(getActivity(), RegistrationActivity.class);
+                                            oneIntent.putExtra("Email", email);
+                                            oneIntent.putExtra("Name", currentUser.getDisplayName().toString());
+                                            startActivity(oneIntent);
+                                        }
+
+                                    }
+
+                                    @Override
+                                    public void onCancelled(@NonNull DatabaseError databaseError) {
+                                        Log.d("MSG", "cancelled");
+                                    }
+                                });
+                            }
+
+                        }
+
+                        @Override
+                        public void onCancelled(@NonNull DatabaseError databaseError) {
+                            Log.d("MSG", "cancelled");
+                        }
+                    });
+                }
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+                Log.d("MSG", "cancelled");
+            }
+        });
     }
 
 //    private void updateUI(FirebaseUser user) {

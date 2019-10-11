@@ -92,4 +92,5 @@ public class FeedFragment extends Fragment {
         getActivity().overridePendingTransition(0, 0);
         startActivity(intent);
     }
+
 }

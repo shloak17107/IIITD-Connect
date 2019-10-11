@@ -43,4 +43,29 @@
     <string name="Dark">Dark Theme</string>
     <string name="signout">Sign Out</string>
     <string name="notifications">Notifications</string>
+
+    <string-array name="statusarray">
+        <item>Select Status</item>
+        <item>Employed</item>
+        <item>Studying</item>
+        <item>Unemployed</item>
+        <item>Prefer not to say</item>
+    </string-array>
+    <string-array name="degreesarray">
+        <item>Select Branch</item>
+        <item>CSE</item>
+        <item>CSAM</item>
+        <item>CSD</item>
+        <item>CSSS</item>
+        <item>CSAI</item>
+        <item>CSAB</item>
+        <item>ECE</item>
+    </string-array>
+    <string-array name="departmentarray">
+        <item>Select Department</item>
+        <item>Computer Science</item>
+        <item>Electronics</item>
+        <item>Biology</item>
+
+    </string-array>
 </resources>
