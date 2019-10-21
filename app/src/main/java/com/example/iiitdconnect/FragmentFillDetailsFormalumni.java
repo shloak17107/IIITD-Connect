@@ -239,7 +239,7 @@ public class FragmentFillDetailsFormalumni extends Fragment {
 
 
     private void galleryorcamera(Context context) {
-        final CharSequence[] options = {"Use Photo", "Choose From Gallery", "Cancel"};
+        final CharSequence[] options = {"Use Camera", "Choose From Gallery", "Cancel"};
 
         AlertDialog.Builder alertbox = new AlertDialog.Builder(context);
         alertbox.setTitle("Choose Profile Picture");
@@ -250,17 +250,15 @@ public class FragmentFillDetailsFormalumni extends Fragment {
             public void onClick(DialogInterface dialog, int item) {
                 boolean result = Utility.checkPermission(getActivity());
                 if (options[item].equals("Use Camera")) {
-                    // if(result) {
-                    Intent capture = new Intent(android.provider.MediaStore.ACTION_IMAGE_CAPTURE);
-                    startActivityForResult(capture, 0);
-
-                    //}
+                    if(result) {
+                        Intent capture = new Intent(android.provider.MediaStore.ACTION_IMAGE_CAPTURE);
+                        startActivityForResult(capture, 0);
+                    }
                 } else if (options[item].equals("Choose From Gallery")) {
-                    //   if(result) {
-                    Intent pickfromgallery = new Intent(Intent.ACTION_PICK, android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
-                    startActivityForResult(pickfromgallery, 1);
-
-                    // }
+                    if(result) {
+                        Intent pickfromgallery = new Intent(Intent.ACTION_PICK, android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+                        startActivityForResult(pickfromgallery, 1);
+                    }
                 } else if (options[item].equals("Cancel")) {
                     dialog.dismiss();
                 }
