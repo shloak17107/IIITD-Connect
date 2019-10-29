@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
+        <!--        <ImageView-->
+        <!--            android:id="@+id/photo"-->
+        <!--            android:layout_width="match_parent"-->
+        <!--            android:layout_height="223dp"-->
+        <!--            android:layout_gravity="center"-->
+        <!--            android:src="@drawable/photo" />-->
+        <!--        <ImageView-->
+        <!--            android:id="@+id/circle_crop"-->
+        <!--            android:layout_width="match_parent"-->
+        <!--            android:layout_height="223dp"-->
+        <!--            android:layout_gravity="center"-->
+        <!--            android:src="@drawable/circle" />-->
+        <com.mikhaellopez.circularimageview.CircularImageView
+            android:id="@+id/photo"
+            android:layout_width="223dp"
+            android:layout_height="223dp"
+            android:layout_alignParentEnd="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginEnd="108dp"
+            android:src="@drawable/photo"
+            app:civ_border_width="4dp"
+            app:civ_shadow="true"
+            app:civ_shadow_color="#8BC34A"
+            app:civ_shadow_radius="1"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="108dp" />
+
+        <Button
+            android:id="@+id/camera"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_below="@id/photo"
+            android:layout_alignRight="@id/photo"
+            android:background="@drawable/camera" />
+
+
+        <EditText
+            android:id="@+id/editname"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:hint="@string/Name"
+            android:paddingTop="20dp"
+            android:layout_below="@id/camera"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            />
+
+
+        <Spinner
+            android:id="@+id/editbranch"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:paddingTop="20dp"
+            android:layout_below="@id/editname"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            />
+
+
+
+        <EditText
+            android:id="@+id/editcontact"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/editbranch"
+            android:ems="10"
+            android:inputType="number"
+            android:paddingTop="20dp"
+            android:hint="@string/Conatct_no"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"/>
+
+
+        <EditText
+            android:id="@+id/editdob"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="date"
+            android:hint="@string/D_O_B"
+            android:paddingTop="20dp"
+            android:layout_below="@id/editcontact"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            />
+        <Button
+            android:id="@+id/datebutton"
+            android:text="click"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_below="@+id/editcontact"
+            android:layout_alignRight="@+id/editdob"
+            android:background="@drawable/calendar"/>
+
+
+        <EditText
+            android:id="@+id/editlinkdin"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:hint="@string/Linkdin"
+            android:paddingTop="20dp"
+            android:layout_below="@id/editdob"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            />
+
+
+        <EditText
+            android:id="@+id/editwebsite"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:hint="@string/Website"
+            android:paddingTop="20dp"
+            android:layout_below="@id/editlinkdin"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            />
+
+
+
+        <EditText
+            android:id="@+id/edityearofpass"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="number"
+            android:hint="@string/Year_of_passing"
+            android:paddingTop="20dp"
+            android:layout_below="@id/editwebsite"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            />
+
+        <Button
+            android:id="@+id/button"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:paddingTop="30dp"
+            android:text="@string/Save"
+            android:layout_below="@id/edityearofpass"
+            android:textSize="20dp"
+            android:layout_centerHorizontal="true"
+            />
+
+
+
+
+    </RelativeLayout>
+</ScrollView>

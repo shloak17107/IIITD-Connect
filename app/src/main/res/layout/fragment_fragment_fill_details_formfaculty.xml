@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
+
+
+        <com.mikhaellopez.circularimageview.CircularImageView
+            android:id="@+id/photo2"
+            android:layout_width="223dp"
+            android:layout_height="223dp"
+            android:layout_alignParentEnd="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginEnd="108dp"
+            android:src="@drawable/photo"
+            app:civ_border_width="4dp"
+            app:civ_shadow="true"
+            app:civ_shadow_color="#8BC34A"
+            app:civ_shadow_radius="1"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="108dp" />
+
+        <Button
+            android:id="@+id/camera2"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_below="@id/photo2"
+            android:layout_alignRight="@id/photo2"
+            android:background="@drawable/camera" />
+
+
+        <EditText
+            android:id="@+id/editname2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:hint="@string/Name"
+            android:paddingTop="20dp"
+            android:layout_below="@id/camera2"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            />
+
+
+        <Spinner
+            android:id="@+id/editdepartment2"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+
+            android:hint="@string/Department"
+            android:paddingTop="20dp"
+            android:layout_below="@id/editname2"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            />
+
+
+        <EditText
+            android:id="@+id/editexpertise2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:hint="@string/Expertise"
+            android:paddingTop="20dp"
+            android:layout_below="@id/editdepartment2"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            />
+
+
+        <EditText
+            android:id="@+id/editlinkdin2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:hint="@string/Linkdin"
+            android:paddingTop="20dp"
+            android:layout_below="@id/editexpertise2"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            />
+
+
+        <EditText
+            android:id="@+id/editwebsite2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:hint="@string/Website"
+            android:paddingTop="20dp"
+            android:layout_below="@id/editlinkdin2"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            />
+
+
+        <Button
+            android:id="@+id/button2"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:paddingTop="30dp"
+            android:text="@string/Save"
+            android:layout_below="@id/editwebsite2"
+            android:textSize="20dp"
+            android:layout_centerHorizontal="true"/>
+
+
+    </RelativeLayout>
+</ScrollView>
