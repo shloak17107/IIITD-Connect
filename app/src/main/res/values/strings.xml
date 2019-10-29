@@ -44,6 +44,19 @@
     <string name="signout">Sign Out</string>
     <string name="notifications">Notifications</string>
 
+    <string name = "Welcome_to_IIITD_Connect">IIITD Connect</string>
+    <string name = "Anshuman">Anshuman</string>
+    <string name = "Bhavya">Bhavya</string>
+    <string name = "Shloak">Shloak</string>
+    <string name = "SANKET">sanket</string>
+    <string name = "Bhrigu">Bhrigu</string>
+    <string name = "Mohit">Mohit</string>
+    <string name = "Deepak">Deepak</string>
+    <string name = "AIshwarya">Aishwarya</string>
+    <string name = "Ali">ALi</string>
+    <string name = "Anuj">Anuj</string>
+    <string name = "yadav">yadav</string>
+
     <string-array name="statusarray">
         <item>Select Status</item>
         <item>Employed</item>
