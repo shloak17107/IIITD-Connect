@@ -195,7 +195,7 @@ public class FragmentFillDetailsFormalumni extends Fragment {
 
         String id = email.substring(0, email.indexOf("@"));
         ArrayList<String> temptags = new ArrayList<>();
-        temptags.add("event");
+        temptags.add("Event");
         Alumni newAlumni = new Alumni(name, branch, contact, dob, linkedIn, webpage, yop, status, company, temptags);
         mDatabase.child("Alumni").child(id).setValue(newAlumni);
         Toast.makeText(getActivity(), "Alumni Details Saved!", Toast.LENGTH_SHORT).show();

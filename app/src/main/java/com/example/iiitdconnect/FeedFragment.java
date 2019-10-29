@@ -69,6 +69,7 @@ public class FeedFragment extends Fragment {
                 for (DataSnapshot data : dataSnapshot.getChildren()) {
                     Post post = data.getValue(Post.class);
                     Map<String, String> postCategories = post.getCategories().getCategories();
+                    Log.d("tags_size", Integer.toString(interests.getCategories().size()));
                     boolean flag = false;
                     for(Map.Entry<String, String> e: interests.getCategories().entrySet()) {
                         if (postCategories.containsKey(e.getKey())) {
@@ -82,6 +83,8 @@ public class FeedFragment extends Fragment {
                     }
                 }
                 Collections.reverse(posts);
+                Collections.reverse(temp);
+                Log.d("message", Integer.toString(posts.size()));
                 for(Post e: temp){
                     posts.add(e);
                 }

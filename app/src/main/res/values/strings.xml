@@ -81,4 +81,19 @@
         <item>Biology</item>
 
     </string-array>
+
+    <string-array name="allTags">
+        <item>Alumni</item>
+        <item>Faculty</item>
+        <item>Seminar</item>
+        <item>Workshop</item>
+        <item>Research</item>
+        <item>Job</item>
+        <item>Internship</item>
+        <item>Club</item>
+        <item>Event</item>
+        <item>Company</item>
+        <item>Placement</item>
+        <item>Post-Graduation</item>
+    </string-array>
 </resources>

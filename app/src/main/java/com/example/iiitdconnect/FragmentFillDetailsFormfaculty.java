@@ -147,7 +147,7 @@ public class FragmentFillDetailsFormfaculty extends Fragment {
 
         ArrayList<String> temptags = new ArrayList<>();
 
-        temptags.add("post grad");
+        temptags.add("Post-Graduation");
 
 
         Faculty newFaculty = new Faculty(name, dept, expt, web, linkedin, temptags);
