@@ -18,8 +18,6 @@ import com.google.firebase.database.ValueEventListener;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.iiitdconnect.R;
-
 public class MainActivity extends AppCompatActivity {
 
     private static final String TAG = "GoogleActivity";
