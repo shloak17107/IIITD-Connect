@@ -31,6 +31,7 @@ import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Calendar;
 
 import androidx.annotation.NonNull;
@@ -193,7 +194,9 @@ public class FragmentFillDetailsFormalumni extends Fragment {
 
 
         String id = email.substring(0, email.indexOf("@"));
-        Alumni newAlumni = new Alumni(name, branch, contact, dob, linkedIn, webpage, yop, status, company);
+        ArrayList<String> temptags = new ArrayList<>();
+        temptags.add("event");
+        Alumni newAlumni = new Alumni(name, branch, contact, dob, linkedIn, webpage, yop, status, company, temptags);
         mDatabase.child("Alumni").child(id).setValue(newAlumni);
         Toast.makeText(getActivity(), "Alumni Details Saved!", Toast.LENGTH_SHORT).show();
     }

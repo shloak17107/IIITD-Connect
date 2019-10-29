@@ -1,11 +1,16 @@
 package com.example.iiitdconnect;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
+
 public class Faculty {
     private String name;
     private String department;
     private String expertise;
     private String linkedIn;
     private String webpage;
+    private categories category;
 
     public String getName() {
         return name;
@@ -46,12 +51,26 @@ public class Faculty {
     public void setWebpage(String webpage) {
         this.webpage = webpage;
     }
+    public categories getCategory() {
+        return category;
+    }
 
-    public Faculty(String name, String department, String expertise, String webpage, String linkedIn){
+    public void setCategory(categories category) {
+        this.category = category;
+    }
+
+    public Faculty(String name, String department, String expertise, String webpage, String linkedIn, ArrayList<String> tags){
         this.name = name;
         this.department = department;
         this.expertise = expertise;
         this.webpage=webpage;
         this.linkedIn=linkedIn;
+        Map<String, String> temp = new HashMap<>();
+        for(String cat: tags){
+            temp.put(cat, "");
+        }
+        this.category = new categories(temp);
     }
+
+    public Faculty(){}
 }

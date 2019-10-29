@@ -31,6 +31,7 @@ import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Calendar;
 
 import androidx.annotation.NonNull;
@@ -180,7 +181,9 @@ public class FragmentFillDetailsFormstudent extends Fragment {
         String yop = yearOfPassing.getText().toString();
 
         String id = email.substring(0, email.indexOf("@"));
-        Student newStudent = new Student(name, branch, contact, dob, linkedIn, webpage, yop);
+        ArrayList<String> temptags = new ArrayList<>();
+        temptags.add("job");
+        Student newStudent = new Student(name, branch, contact, dob, linkedIn, webpage, yop, temptags);
         mDatabase.child("Student").child(id).setValue(newStudent);
         Toast.makeText(getActivity(), "Student Details Saved!", Toast.LENGTH_SHORT).show();
     }
@@ -196,7 +199,6 @@ public class FragmentFillDetailsFormstudent extends Fragment {
                         public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
 //                            progressDialog.dismiss();
 //                            Toast.makeText(getActivity(), "Image Uploaded Successfully ", Toast.LENGTH_LONG).show();
-
 //                            @SuppressWarnings("VisibleForTests")
 //                            ImageUploadInfo imageUploadInfo = new ImageUploadInfo(TempImageName, taskSnapshot.getMetadata().getReference().getDownloadUrl().toString());
 //                            updateUI(mAuth.getCurrentUser());
