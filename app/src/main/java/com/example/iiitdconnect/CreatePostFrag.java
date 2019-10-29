@@ -12,6 +12,9 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+import java.lang.reflect.Array;
+import java.util.ArrayList;
+
 import androidx.fragment.app.Fragment;
 
 
@@ -55,7 +58,12 @@ public class CreatePostFrag extends Fragment {
 
         String id = email.substring(0, email.indexOf("@"));
 
-        Post post = new Post(email, post_title, post_body, post_tags);
+        ArrayList<String> temptags = new ArrayList<>();
+        temptags.add("job");
+        temptags.add("post grad");
+        temptags.add("alumni");
+
+        Post post = new Post(email, post_title, post_body, temptags);
         mDatabase.child("Post").child(post.getTimestamp().replace("-", ":").replace(".", ":")).setValue(post);
         Toast.makeText(getActivity(), "New Post Created!", Toast.LENGTH_SHORT).show();
         getActivity().onBackPressed();

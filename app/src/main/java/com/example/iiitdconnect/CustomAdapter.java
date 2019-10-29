@@ -57,7 +57,8 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.MyViewHold
 
         title.setText(dataSet.get(listPosition).getTitle());
         body.setText(dataSet.get(listPosition).getBody());
-        tags.setText(dataSet.get(listPosition).getTags());
+//        tags.setText(dataSet.get(listPosition).getTags());
+        tags.setText("TAGS");
         createdBy.setText(dataSet.get(listPosition).getCreatedBy());
         timestamp.setText(dataSet.get(listPosition).getTimestamp());
 

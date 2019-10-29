@@ -1,5 +1,9 @@
 package com.example.iiitdconnect;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
+
 public class Student {
     private String name;
     private String branch;
@@ -8,6 +12,7 @@ public class Student {
     private String linkedIn;
     private String webpage;
     private String yearOfPassing;
+    private categories category;
 
     public String getName() {
         return name;
@@ -64,8 +69,15 @@ public class Student {
     public void setYearOfPassing(String yearOfPassing) {
         this.yearOfPassing = yearOfPassing;
     }
+    public categories getCategory() {
+        return category;
+    }
 
-    public Student(String name, String branch, String contactNumber, String dateOfBirth, String linkedIn, String webpage, String yearOfPassing){
+    public void setCategory(categories category) {
+        this.category = category;
+    }
+
+    public Student(String name, String branch, String contactNumber, String dateOfBirth, String linkedIn, String webpage, String yearOfPassing, ArrayList<String> tags){
         this.name = name;
         this.contactNumber = contactNumber;
         this.branch = branch;
@@ -73,5 +85,12 @@ public class Student {
         this.webpage=webpage;
         this.yearOfPassing=yearOfPassing;
         this.linkedIn=linkedIn;
+        Map<String, String> temp = new HashMap<>();
+        for(String cat: tags){
+            temp.put(cat, "");
+        }
+        this.category = new categories(temp);
     }
+
+    public Student(){}
 }

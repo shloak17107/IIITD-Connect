@@ -1,5 +1,9 @@
 package com.example.iiitdconnect;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
+
 public class Alumni {
     private String name;
     private String branch;
@@ -10,6 +14,7 @@ public class Alumni {
     private String yearOfPassing;
     private String currentStatus;
     private String instituteCompany;
+    private categories category;
 
     public String getName() {
         return name;
@@ -82,8 +87,17 @@ public class Alumni {
     public void setInstituteCompany(String instituteCompany) {
         this.instituteCompany = instituteCompany;
     }
-//, String contactNumber, String dateOfBirth, String linkedIn, String webpage, String yearOfPassing, String currentStatus, String instituteCompany
-    public Alumni(String name, String branch, String contactNumber, String dateOfBirth, String linkedIn, String webpage, String yearOfPassing, String currentStatus, String instituteCompany){
+
+    public categories getCategory() {
+        return category;
+    }
+
+    public void setCategory(categories category) {
+        this.category = category;
+    }
+
+    //, String contactNumber, String dateOfBirth, String linkedIn, String webpage, String yearOfPassing, String currentStatus, String instituteCompany
+    public Alumni(String name, String branch, String contactNumber, String dateOfBirth, String linkedIn, String webpage, String yearOfPassing, String currentStatus, String instituteCompany, ArrayList<String> tags){
         this.name = name;
         this.branch = branch;
         this.contactNumber = contactNumber;
@@ -93,5 +107,13 @@ public class Alumni {
         this.linkedIn=linkedIn;
         this.currentStatus=currentStatus;
         this.instituteCompany=instituteCompany;
+        Map<String, String> temp = new HashMap<>();
+        for(String cat: tags){
+            temp.put(cat, "");
+        }
+        this.category = new categories(temp);
+
     }
+
+    public Alumni(){}
 }
