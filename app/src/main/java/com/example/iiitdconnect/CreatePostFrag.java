@@ -1,23 +1,28 @@
 package com.example.iiitdconnect;
 
+import android.app.DatePickerDialog;
+import android.app.TimePickerDialog;
 import android.content.DialogInterface;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.TextView;
+import android.widget.TimePicker;
 import android.widget.Toast;
+
+import androidx.appcompat.app.AlertDialog;
+import androidx.fragment.app.Fragment;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
-
-import androidx.appcompat.app.AlertDialog;
-import androidx.fragment.app.Fragment;
+import java.util.Calendar;
 
 
 public class CreatePostFrag extends Fragment {
@@ -27,7 +32,12 @@ public class CreatePostFrag extends Fragment {
     private DatabaseReference mDatabase;
     private EditText title, body, tagsField;
     private Button tagsButton;
+    private TextView date;
+    private TextView time;
     private ArrayList<String> postTags;
+    int year,month,day;
+    int selectedHour, selectedMinute;
+    private EditText venue;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -43,6 +53,52 @@ public class CreatePostFrag extends Fragment {
         tagsButton = (Button) view.findViewById(R.id.tagsButton);
         tagsField = (EditText) view.findViewById(R.id.tagsField);
         tagsField.setEnabled(false);
+        date = (TextView) view.findViewById(R.id.Date);
+        time = (TextView) view.findViewById(R.id.Time);
+        venue = (EditText) view.findViewById(R.id.location);
+
+
+        date.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Calendar cal=Calendar.getInstance();
+                year=cal.get(Calendar.YEAR);
+                month=cal.get(Calendar.MONTH);
+                day=cal.get(Calendar.DAY_OF_MONTH);
+                DatePickerDialog d=new DatePickerDialog(getActivity(), new DatePickerDialog.OnDateSetListener() {
+                    @Override
+                    public void onDateSet(DatePicker datePicker, int i, int i1, int i2) {
+                        date.setText(i2+"/"+(i1+1)+"/"+i);
+                    }
+                },year,month,day);
+                d.show();
+
+            }
+        });
+
+        time.setText( "" + selectedHour + ":" + selectedMinute);
+
+        time.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                // TODO Auto-generated method stub
+                Calendar mcurrentTime = Calendar.getInstance();
+                int hour = mcurrentTime.get(Calendar.HOUR_OF_DAY);
+                int minute = mcurrentTime.get(Calendar.MINUTE);
+                TimePickerDialog mTimePicker;
+                mTimePicker = new TimePickerDialog(getActivity(), new TimePickerDialog.OnTimeSetListener() {
+                    @Override
+                    public void onTimeSet(TimePicker timePicker, int selectedHour, int selectedMinute) {
+                        time.setText( selectedHour + ":" + selectedMinute);
+                    }
+                }, hour, minute, true);//Yes 24 hour time
+                mTimePicker.setTitle("Select Time");
+                mTimePicker.show();
+
+            }
+        });
+
 
         tagsButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -108,6 +164,9 @@ public class CreatePostFrag extends Fragment {
     public void uploadPost(){
         String post_title = title.getText().toString();
         String post_body = body.getText().toString();
+        String post_date = date.getText().toString();
+        String post_time = time.getText().toString();
+        String post_venue = venue.getText().toString();
 
         String email = mAuth.getCurrentUser().getEmail().toString();
 
@@ -118,7 +177,7 @@ public class CreatePostFrag extends Fragment {
 //        temptags.add("post grad");
 //        temptags.add("alumni");
 
-        Post post = new Post(email, post_title, post_body, postTags);
+        Post post = new Post(email, post_title, post_body, postTags, post_date, post_time, post_venue);
         mDatabase.child("Post").child(post.getTimestamp().replace("-", ":").replace(".", ":")).setValue(post);
         Toast.makeText(getActivity(), "New Post Created!", Toast.LENGTH_SHORT).show();
         getActivity().onBackPressed();

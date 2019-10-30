@@ -17,7 +17,11 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.annotation.NonNull;
+import androidx.fragment.app.Fragment;
 
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -30,9 +34,6 @@ import com.google.firebase.storage.UploadTask;
 
 import java.io.IOException;
 import java.util.ArrayList;
-
-import androidx.annotation.NonNull;
-import androidx.fragment.app.Fragment;
 
 import static android.app.Activity.RESULT_CANCELED;
 import static android.app.Activity.RESULT_OK;
@@ -50,6 +51,8 @@ public class FragmentFillDetailsFormfaculty extends Fragment {
     ProgressDialog progressDialog ;
     private FirebaseAuth mAuth;
     private DatabaseReference mDatabase;
+    private TextView tags;
+    private ArrayList<String> postTags;
 
     Spinner Department;
     EditText Expertise;
@@ -91,6 +94,59 @@ public class FragmentFillDetailsFormfaculty extends Fragment {
                 Intent i = new Intent(getActivity(), Feed.class);
                 i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                 startActivity(i);
+            }
+        });
+
+        tags = (TextView) view.findViewById(R.id.addtag2);
+
+
+        tags.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                postTags = new ArrayList<String>();
+                androidx.appcompat.app.AlertDialog.Builder builder = new androidx.appcompat.app.AlertDialog.Builder(getActivity());
+                builder.setTitle("Choose Tags");
+
+// Add a checkbox list
+                final String[] choices = getResources().getStringArray(R.array.allTags);
+                final boolean[] checkedItems =new boolean[choices.length];
+                builder.setMultiChoiceItems(choices, checkedItems, new DialogInterface.OnMultiChoiceClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which, boolean isChecked) {
+                        // The user checked or unchecked a box
+                        if(isChecked){
+                            if(!postTags.contains(choices[which])){
+                                postTags.add(choices[which]);
+                            }
+                        }
+                        else{
+                            if(postTags.contains(choices[which])){
+                                postTags.add(choices[which]);
+                            }
+                        }
+                    }
+                });
+
+// Add OK and Cancel buttons
+                builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        // The user clicked OK
+                        StringBuilder tagsshow = new StringBuilder();
+                        for (String t : postTags){
+                            tagsshow.append("'").append(t.replace("'", "\\'")).append("',");
+                        }
+                        if (tagsshow.length()>0){
+                            tagsshow.deleteCharAt(tagsshow.length() - 1);
+                        }
+                        tags.setText(tagsshow.toString());
+                    }
+                });
+                builder.setNegativeButton("Cancel", null);
+
+// Create and show the alert dialog
+                androidx.appcompat.app.AlertDialog dialog = builder.create();
+                dialog.show();
             }
         });
 
@@ -145,12 +201,10 @@ public class FragmentFillDetailsFormfaculty extends Fragment {
         String web = webpage.getText().toString();
         String id = email.substring(0, email.indexOf("@"));
 
-        ArrayList<String> temptags = new ArrayList<>();
-
-        temptags.add("Post-Graduation");
 
 
-        Faculty newFaculty = new Faculty(name, dept, expt, web, linkedin, temptags);
+
+        Faculty newFaculty = new Faculty(name, dept, expt, web, linkedin, postTags);
         mDatabase.child("Faculty").child(id).setValue(newFaculty);
 //        Toast.makeText(getActivity(), "Alumni Details Saved!", Toast.LENGTH_SHORT).show();
     }

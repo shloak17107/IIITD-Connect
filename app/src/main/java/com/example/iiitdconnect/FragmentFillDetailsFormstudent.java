@@ -19,7 +19,11 @@ import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.annotation.NonNull;
+import androidx.fragment.app.Fragment;
 
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -33,9 +37,6 @@ import com.google.firebase.storage.UploadTask;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Calendar;
-
-import androidx.annotation.NonNull;
-import androidx.fragment.app.Fragment;
 
 import static android.app.Activity.RESULT_CANCELED;
 import static android.app.Activity.RESULT_OK;
@@ -59,6 +60,8 @@ public class FragmentFillDetailsFormstudent extends Fragment {
     ProgressDialog progressDialog ;
     private FirebaseAuth mAuth;
     private DatabaseReference mDatabase;
+    private TextView tags;
+    private ArrayList<String> postTags;
 
     Spinner Branch;
     EditText ContactNumber;
@@ -96,6 +99,7 @@ public class FragmentFillDetailsFormstudent extends Fragment {
 
         click=(Button)view.findViewById(R.id.datebutton);
         date=(EditText)view.findViewById(R.id.editdob);
+        date.setEnabled(false);
         click.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -111,6 +115,58 @@ public class FragmentFillDetailsFormstudent extends Fragment {
                 },year,month,day);
                 d.show();
 
+            }
+        });
+
+        tags = (TextView) view.findViewById(R.id.addtag3);
+
+        tags.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                postTags = new ArrayList<String>();
+                androidx.appcompat.app.AlertDialog.Builder builder = new androidx.appcompat.app.AlertDialog.Builder(getActivity());
+                builder.setTitle("Choose Tags");
+
+// Add a checkbox list
+                final String[] choices = getResources().getStringArray(R.array.allTags);
+                final boolean[] checkedItems =new boolean[choices.length];
+                builder.setMultiChoiceItems(choices, checkedItems, new DialogInterface.OnMultiChoiceClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which, boolean isChecked) {
+                        // The user checked or unchecked a box
+                        if(isChecked){
+                            if(!postTags.contains(choices[which])){
+                                postTags.add(choices[which]);
+                            }
+                        }
+                        else{
+                            if(postTags.contains(choices[which])){
+                                postTags.add(choices[which]);
+                            }
+                        }
+                    }
+                });
+
+// Add OK and Cancel buttons
+                builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        // The user clicked OK
+                        StringBuilder tagsshow = new StringBuilder();
+                        for (String t : postTags){
+                            tagsshow.append("'").append(t.replace("'", "\\'")).append("',");
+                        }
+                        if (tagsshow.length()>0){
+                            tagsshow.deleteCharAt(tagsshow.length() - 1);
+                        }
+                        tags.setText(tagsshow.toString());
+                    }
+                });
+                builder.setNegativeButton("Cancel", null);
+
+// Create and show the alert dialog
+                androidx.appcompat.app.AlertDialog dialog = builder.create();
+                dialog.show();
             }
         });
 
@@ -181,9 +237,9 @@ public class FragmentFillDetailsFormstudent extends Fragment {
         String yop = yearOfPassing.getText().toString();
 
         String id = email.substring(0, email.indexOf("@"));
-        ArrayList<String> temptags = new ArrayList<>();
-        temptags.add("Job");
-        Student newStudent = new Student(name, branch, contact, dob, linkedIn, webpage, yop, temptags);
+//        ArrayList<String> temptags = new ArrayList<>();
+//        temptags.add("Job");
+        Student newStudent = new Student(name, branch, contact, dob, linkedIn, webpage, yop, postTags);
         mDatabase.child("Student").child(id).setValue(newStudent);
         Toast.makeText(getActivity(), "Student Details Saved!", Toast.LENGTH_SHORT).show();
     }
