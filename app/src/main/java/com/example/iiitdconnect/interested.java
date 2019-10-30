@@ -11,10 +11,12 @@ public class interested {
 
     public void setInterested_ids(Map<String, String> interested_ids) {
         this.interested_ids = interested_ids;
+
     }
 
     public interested(Map<String, String> interested_ids){
         this.interested_ids = interested_ids;
+        this.interested_ids.put("temp_id", "temp_id");
     }
     public interested(){}
 

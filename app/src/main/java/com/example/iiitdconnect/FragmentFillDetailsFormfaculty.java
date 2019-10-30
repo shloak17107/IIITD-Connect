@@ -99,7 +99,7 @@ public class FragmentFillDetailsFormfaculty extends Fragment {
 
         tags = (TextView) view.findViewById(R.id.addtag2);
 
-
+        postTags = new ArrayList<String>();
         tags.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
