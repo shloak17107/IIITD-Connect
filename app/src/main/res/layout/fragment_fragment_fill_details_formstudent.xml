@@ -145,14 +145,29 @@
             android:layout_marginRight="30dp"
             />
 
+        <TextView
+            android:id="@+id/addtag3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textAutoComplete"
+            android:ems="10"
+            android:layout_below="@+id/edityearofpass"
+            android:layout_marginRight="30dp"
+            android:layout_marginLeft="30dp"
+            android:paddingTop="20dp"
+            android:hint="Add Tags"
+            />
+
         <Button
             android:id="@+id/button"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:paddingTop="30dp"
+            android:paddingTop="10dp"
+            android:layout_marginTop="10dp"
             android:text="@string/Save"
-            android:layout_below="@id/edityearofpass"
+            android:layout_below="@id/addtag3"
             android:textSize="20dp"
+            android:background="@drawable/button"
             android:layout_centerHorizontal="true"
             />
 

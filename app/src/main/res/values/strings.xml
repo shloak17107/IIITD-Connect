@@ -20,6 +20,9 @@
     <string name="Company">Company</string>
     <string name="Edit">Edit</string>
     <string name="Cancel">Cancel</string>
+    <string name="Loc">Venue</string>
+    <string name="Date">Date</string>
+    <string name="Time">Time</string>
     <string name="Expertise">Expertise</string>
     <string name="Department">Department</string>
 
