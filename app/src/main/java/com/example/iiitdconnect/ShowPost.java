@@ -3,10 +3,13 @@ package com.example.iiitdconnect;
 
 import android.os.Bundle;
 import androidx.fragment.app.Fragment;
+
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
@@ -27,19 +30,21 @@ public class ShowPost extends Fragment {
     private DatabaseReference mDatabase;
 
     private Post post;
-    public ShowPost(Post post){
-        this.post = post;
-    }
+
+    public ShowPost(){}
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
+        showPostActivity act = (showPostActivity) getActivity();
+        this.post = act.getPost();
         View view = inflater.inflate(R.layout.fragment_show_post, container, false);
-        b=(Button)view.findViewById(R.id.interested);
+        b = (Button) view.findViewById(R.id.interested);
         mAuth = FirebaseAuth.getInstance();
         mDatabase = FirebaseDatabase.getInstance().getReference();
         final Post p = this.post;
+        Log.d("AHAHHAHA", p.getTitle());
         b.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -52,6 +57,7 @@ public class ShowPost extends Fragment {
                     mm.put(id, "");
                     p.setInterestedpeople(new interested(mm));
                     mDatabase.child("Post").child(p.getTimestamp().replace("-", ":").replace(".", ":")).setValue(p);
+                    Toast.makeText(getActivity(), "You are interested in this post!", Toast.LENGTH_SHORT).show();
                 }
                 else{
 //                    b.setBackgroundDrawable(getResources().getDrawable(R.drawable.uparrowpaint));
@@ -60,6 +66,7 @@ public class ShowPost extends Fragment {
                     mm.remove(id);
                     p.setInterestedpeople(new interested(mm));
                     mDatabase.child("Post").child(p.getTimestamp().replace("-", ":").replace(".", ":")).setValue(p);
+                    Toast.makeText(getActivity(), "You are not interested in this post!", Toast.LENGTH_SHORT).show();
                 }
             }
         });

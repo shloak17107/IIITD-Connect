@@ -1,11 +1,17 @@
 package com.example.iiitdconnect;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
 import java.io.Serializable;
 import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
+
+
+@SuppressWarnings("serial")
 
 public class Post implements Serializable {
     private String createdBy, title, body;
@@ -14,7 +20,7 @@ public class Post implements Serializable {
     private String date;
     private String time;
     private String venue;
-    private interested interestedpeople;
+    public interested interestedpeople;
 
 
     public String getVenue() {
@@ -111,5 +117,4 @@ public class Post implements Serializable {
     public void setTimestamp(String timestamp) {
         this.timestamp = timestamp;
     }
-
 }

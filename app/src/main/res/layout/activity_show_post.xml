@@ -10,6 +10,8 @@
         android:id="@+id/fragment_post_show"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_weight="1" />
+        android:layout_weight="1"
+        class = "com.example.iiitdconnect.ShowPost"
+        />
 
 </LinearLayout>

@@ -1,8 +1,9 @@
 package com.example.iiitdconnect;
 
+import java.io.Serializable;
 import java.util.Map;
 
-public class categories {
+public class categories implements Serializable {
     private Map<String, String> categories;
     public categories(Map<String, String> data){
         this.categories = data;
