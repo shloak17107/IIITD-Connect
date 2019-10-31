@@ -1,12 +1,13 @@
 package com.example.iiitdconnect;
 
+import java.io.Serializable;
 import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
-public class Post {
+public class Post implements Serializable {
     private String createdBy, title, body;
     private String timestamp;
     private categories category;
