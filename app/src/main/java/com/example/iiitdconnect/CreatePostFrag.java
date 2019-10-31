@@ -99,7 +99,7 @@ public class CreatePostFrag extends Fragment {
             }
         });
 
-
+        postTags = new ArrayList<String>();
         tagsButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

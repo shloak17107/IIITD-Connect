@@ -111,6 +111,7 @@ public class Alumni {
         for(String cat: tags){
             temp.put(cat, "");
         }
+        temp.put("tempAlumni", "tempAlumni");
         this.category = new categories(temp);
 
     }

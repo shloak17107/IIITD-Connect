@@ -89,6 +89,7 @@ public class Student {
         for(String cat: tags){
             temp.put(cat, "");
         }
+        temp.put("tempStudent", "tempStudent");
         this.category = new categories(temp);
     }
 

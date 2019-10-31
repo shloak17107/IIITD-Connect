@@ -13,15 +13,8 @@ public class Post {
     private String date;
     private String time;
     private String venue;
-    private interested interested;
+    private interested interestedpeople;
 
-    public categories getCategory() {
-        return category;
-    }
-
-    public void setCategory(categories category) {
-        this.category = category;
-    }
 
     public String getVenue() {
         return venue;
@@ -31,8 +24,16 @@ public class Post {
         this.venue = venue;
     }
 
+    public interested getInterestedpeople() {
+        return interestedpeople;
+    }
+
+    public void setInterestedpeople(interested interestedpeople) {
+        this.interestedpeople = interestedpeople;
+    }
+
     public Post(String createdBy, String title, String body, ArrayList<String> tags, String date, String time, String venue){
-        this.interested = new interested();
+        this.interestedpeople = new interested(new HashMap<String, String>());
         this.date = date;
         this.time = time;
         Date date_d = new Date();
@@ -47,6 +48,7 @@ public class Post {
         for(String cat: tags){
             temp.put(cat, "");
         }
+        temp.put("tempPost", "tempPost");
         this.category = new categories(temp);
     }
 
@@ -93,12 +95,12 @@ public class Post {
         this.body = body;
     }
 
-    public categories getCategories() {
+    public categories getCategory() {
         return category;
     }
 
-    public void setCategories(categories tags) {
-        this.category = tags;
+    public void setCategory(categories category) {
+        this.category = category;
     }
 
     public String getTimestamp() {

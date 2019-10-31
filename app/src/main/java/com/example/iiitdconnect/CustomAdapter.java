@@ -16,18 +16,18 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.MyViewHold
     public static class MyViewHolder extends RecyclerView.ViewHolder {
 
         private TextView title;
-        private TextView body;
         private TextView createdBy;
         private TextView timestamp;
-        private TextView tags;
+        private TextView venue;
+        private TextView interestedCount;
 
         public MyViewHolder(View itemView) {
             super(itemView);
             this.title = (TextView) itemView.findViewById(R.id.title);
-            this.body = (TextView) itemView.findViewById(R.id.body);
             this.createdBy = (TextView) itemView.findViewById(R.id.created_by);
             this.timestamp = (TextView) itemView.findViewById(R.id.timestamp);
-            this.tags = (TextView) itemView.findViewById(R.id.tags);
+            this.venue = (TextView) itemView.findViewById(R.id.venue);
+            this.interestedCount = (TextView) itemView.findViewById(R.id.interested_people);
         }
     }
 
@@ -49,18 +49,20 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.MyViewHold
     public void onBindViewHolder(final MyViewHolder holder, final int listPosition) {
 
         TextView title = holder.title;
-        TextView body = holder.body;
-        TextView tags = holder.tags;
+        TextView venue = holder.venue;
+        TextView interestedCount = holder.interestedCount;
         TextView createdBy = holder.createdBy;
         TextView timestamp = holder.timestamp;
 
 
         title.setText(dataSet.get(listPosition).getTitle());
-        body.setText(dataSet.get(listPosition).getBody());
-//        tags.setText(dataSet.get(listPosition).getTags());
-        tags.setText("TAGS");
+        venue.setText(dataSet.get(listPosition).getVenue());
+        int count = 0;
+        if (dataSet.get(listPosition).getInterestedpeople().getInterested_ids() != null)
+            count = dataSet.get(listPosition).getInterestedpeople().getInterested_ids().size();
+        interestedCount.setText(Integer.toString(count - 1) + " people are interested");
         createdBy.setText(dataSet.get(listPosition).getCreatedBy());
-        timestamp.setText(dataSet.get(listPosition).getTimestamp());
+        timestamp.setText(dataSet.get(listPosition).getDate() + dataSet.get(listPosition).getTime());
 
     }
 
