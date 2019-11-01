@@ -72,7 +72,7 @@ public class FeedFragment extends Fragment {
                 for (DataSnapshot data : dataSnapshot.getChildren()) {
                     Post post = data.getValue(Post.class);
                     Map<String, String> postCategories = post.getCategory().getCategories();
-                    Log.d("tags_size", Integer.toString(interests.getCategories().size()));
+//                    Log.d("tags_size", Integer.toString(interests.getCategories().size()));
                     boolean flag = false;
                     for(Map.Entry<String, String> e: interests.getCategories().entrySet()) {
                         if (postCategories.containsKey(e.getKey())) {
