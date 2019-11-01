@@ -23,7 +23,7 @@
         <item
             android:id="@+id/nav_signout"
             android:icon="@drawable/ic_signout_24dp"
-            android:title="@string/menu_signOut" />
+            android:title="My Posts" />
     </group>
 
 </menu>
