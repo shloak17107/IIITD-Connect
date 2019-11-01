@@ -1,8 +1,9 @@
 package com.example.iiitdconnect;
 
+import java.io.Serializable;
 import java.util.Map;
 
-public class interested {
+public class interested implements Serializable {
     private Map<String, String> interested_ids;
 
     public Map<String, String> getInterested_ids() {
