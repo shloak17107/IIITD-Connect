@@ -23,6 +23,7 @@ import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Map;
 
 
 public class CreatePostFrag extends Fragment {
@@ -179,6 +180,22 @@ public class CreatePostFrag extends Fragment {
 
         Post post = new Post(email, post_title, post_body, postTags, post_date, post_time, post_venue);
         mDatabase.child("Post").child(post.getTimestamp().replace("-", ":").replace(".", ":")).setValue(post);
+        if(FeedFragment.type == 1){
+            Map<String, String> xx = FeedFragment.currentStudent.getMyPosts();
+            xx.put(post.getTimestamp().replace("-", ":").replace(".", ":"), "");
+            FeedFragment.currentStudent.setMyPosts(xx);
+            mDatabase.child("Student").child(id).setValue(FeedFragment.currentStudent);
+        }else if(FeedFragment.type == 2){
+            Map<String, String> xx = FeedFragment.currentAlumni.getMyPosts();
+            xx.put(post.getTimestamp().replace("-", ":").replace(".", ":"), "");
+            FeedFragment.currentAlumni.setMyPosts(xx);
+            mDatabase.child("Alumni").child(id).setValue(FeedFragment.currentAlumni);
+        }else if(FeedFragment.type == 3){
+            Map<String, String> xx = FeedFragment.currentFaculty.getMyPosts();
+            xx.put(post.getTimestamp().replace("-", ":").replace(".", ":"), "");
+            FeedFragment.currentFaculty.setMyPosts(xx);
+            mDatabase.child("Faculty").child(id).setValue(FeedFragment.currentFaculty);
+        }
         Toast.makeText(getActivity(), "New Post Created!", Toast.LENGTH_SHORT).show();
         getActivity().onBackPressed();
     }
