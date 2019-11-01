@@ -23,6 +23,7 @@ public class Post implements Serializable {
     public interested interestedpeople;
 
 
+
     public String getVenue() {
         return venue;
     }
