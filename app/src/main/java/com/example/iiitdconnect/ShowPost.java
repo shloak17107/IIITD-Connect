@@ -102,22 +102,22 @@ public class ShowPost extends Fragment {
         mAuth = FirebaseAuth.getInstance();
         mDatabase = FirebaseDatabase.getInstance().getReference();
         final Post p = this.post;
+        String email = mAuth.getCurrentUser().getEmail().toString();
+        Map<String, String> xx = this.post.getInterestedpeople().getInterested_ids();
+        if(xx.containsKey(email.substring(0, email.indexOf("@")))){
+            buttoncounter = 1;
+        }else{
+            buttoncounter = 0;
+        }
+
         calender_save = view.findViewById(R.id.calender_save);
-
-
-//        try {
-//            createCalender();
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//        } catch (GeneralSecurityException e) {
-//            e.printStackTrace();
-//        }
 
         b.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 String email = mAuth.getCurrentUser().getEmail().toString();
                 String id = email.substring(0, email.indexOf("@"));
+                Log.d("TIMESTAMP", p.getTimestamp());
                 if(buttoncounter % 2 == 0){
 //                    b.setBackgroundDrawable(getResources().getDrawable(R.drawable.bluearrowpaint));
                    b.setBackgroundResource(R.drawable.bluearrowpaint);
@@ -126,6 +126,26 @@ public class ShowPost extends Fragment {
                     mm.put(id, "");
                     p.setInterestedpeople(new interested(mm));
                     mDatabase.child("Post").child(p.getTimestamp().replace("-", ":").replace(".", ":")).setValue(p);
+
+                    if(FeedFragment.type == 1){
+                        Map<String, String> xx = FeedFragment.currentStudent.getInterestedPosts();
+                        xx.put(post.getTimestamp().replace("-", ":").replace(".", ":"), "");
+                        FeedFragment.currentStudent.setInterestedPosts(xx);
+                        mDatabase.child("Student").child(id).setValue(FeedFragment.currentStudent);
+                    }else if(FeedFragment.type == 2){
+                        Map<String, String> xx = FeedFragment.currentAlumni.getInterestedPosts();
+                        xx.put(post.getTimestamp().replace("-", ":").replace(".", ":"), "");
+                        FeedFragment.currentAlumni.setInterestedPosts(xx);
+                        mDatabase.child("Alumni").child(id).setValue(FeedFragment.currentAlumni);
+                    }else if(FeedFragment.type == 3){
+                        Map<String, String> xx = FeedFragment.currentFaculty.getInterestedPosts();
+                        xx.put(post.getTimestamp().replace("-", ":").replace(".", ":"), "");
+                        FeedFragment.currentFaculty.setInterestedPosts(xx);
+                        mDatabase.child("Faculty").child(id).setValue(FeedFragment.currentFaculty);
+                    }
+
+
+
                     Toast.makeText(getActivity(), "You are interested in this post!", Toast.LENGTH_SHORT).show();
                 }
                 else{
@@ -136,6 +156,25 @@ public class ShowPost extends Fragment {
                     mm.remove(id);
                     p.setInterestedpeople(new interested(mm));
                     mDatabase.child("Post").child(p.getTimestamp().replace("-", ":").replace(".", ":")).setValue(p);
+
+                    if(FeedFragment.type == 1){
+                        Map<String, String> xx = FeedFragment.currentStudent.getInterestedPosts();
+                        xx.remove(post.getTimestamp().replace("-", ":").replace(".", ":"));
+                        FeedFragment.currentStudent.setInterestedPosts(xx);
+                        mDatabase.child("Student").child(id).setValue(FeedFragment.currentStudent);
+                    }else if(FeedFragment.type == 2){
+                        Map<String, String> xx = FeedFragment.currentAlumni.getInterestedPosts();
+                        xx.remove(post.getTimestamp().replace("-", ":").replace(".", ":"));
+                        FeedFragment.currentAlumni.setInterestedPosts(xx);
+                        mDatabase.child("Alumni").child(id).setValue(FeedFragment.currentAlumni);
+                    }else if(FeedFragment.type == 3){
+                        Map<String, String> xx = FeedFragment.currentFaculty.getInterestedPosts();
+                        xx.remove(post.getTimestamp().replace("-", ":").replace(".", ":"));
+                        FeedFragment.currentFaculty.setInterestedPosts(xx);
+                        mDatabase.child("Faculty").child(id).setValue(FeedFragment.currentFaculty);
+                    }
+
+
                     Toast.makeText(getActivity(), "You are not interested in this post!", Toast.LENGTH_SHORT).show();
                 }
             }
@@ -172,83 +211,6 @@ public class ShowPost extends Fragment {
         calender_save.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
-//                NetHttpTransport HTTP_TRANSPORT = null;
-//                try {
-//                    HTTP_TRANSPORT = GoogleNetHttpTransport.newTrustedTransport();
-//                } catch (GeneralSecurityException e) {
-//                    e.printStackTrace();
-//                } catch (IOException e) {
-//                    e.printStackTrace();
-//                }
-//                Calendar service = null;
-//                try {
-//                    service = new Calendar.Builder(HTTP_TRANSPORT, JSON_FACTORY, getCredentials(HTTP_TRANSPORT))
-//                            .setApplicationName(APPLICATION_NAME)
-//                            .build();
-//                } catch (IOException e) {
-//                    e.printStackTrace();
-//                }
-//
-//
-//                Event event = new Event()
-//                        .setSummary(TITLE)
-//                        .setLocation(LOCATION)
-//                        .setDescription(DESCRIPTION);
-//                String[] ss = DATE.split("/");
-//                String D = ss[0];
-//                String M = ss[1];
-//                String Y = ss[2];
-//                if(D.length() == 1){
-//                    D = "0" + D;
-//                }
-//                if(M.length() == 1){
-//                    M = "0" + M;
-//                }
-//                Log.d("HERE", "HERE");
-//                String startDate = Y + "-" + M + "-" + D;
-//                DateTime startDateTime = new DateTime(startDate + "T17:00:00-07:00");
-//                EventDateTime start = new EventDateTime()
-//                        .setDateTime(startDateTime)
-//                        .setTimeZone("India/Kolkata");
-//                event.setStart(start);
-//
-//                Log.d("HERE1", "HERE1");
-//
-//                DateTime endDateTime = new DateTime(startDate + "T23:00:00-07:00");
-//                EventDateTime end = new EventDateTime()
-//                        .setDateTime(endDateTime)
-//                        .setTimeZone("India/Kolkata");
-//                event.setEnd(end);
-//
-//                Log.d("HERE2", "HERE2");
-//
-//                EventReminder[] reminderOverrides = new EventReminder[] {
-//                        new EventReminder().setMethod("email").setMinutes(24 * 60),
-//                        new EventReminder().setMethod("popup").setMinutes(10),
-//                };
-//
-//                Event.Reminders reminders = new Event.Reminders()
-//                        .setUseDefault(false)
-//                        .setOverrides(Arrays.asList(reminderOverrides));
-//                event.setReminders(reminders);
-//
-//                String calendarId = "primary";
-//                try {
-//                    event = service.events().insert(calendarId, event).execute();
-//                } catch (Exception e) {
-//                    e.printStackTrace();
-//                }
-//                Log.d("HERE3", "HERE3");
-//                try {
-//                    Log.d("Event created: %s\n", event.getHtmlLink());
-//                }catch (Exception e){
-//                    e.printStackTrace();
-//                }
-//                Toast.makeText(getActivity(), "Event created in google calendar!", Toast.LENGTH_SHORT).show();
-
-
-
 
                 String[] ss = DATE.split("/");
                 String D = ss[0];
@@ -295,54 +257,5 @@ public class ShowPost extends Fragment {
         return view;
     }
 
-
-//    @RequiresApi(api = Build.VERSION_CODES.O)
-//    public static void createCalender () throws IOException, GeneralSecurityException{
-//        final NetHttpTransport HTTP_TRANSPORT = GoogleNetHttpTransport.newTrustedTransport();
-//        service = new Calendar.Builder(HTTP_TRANSPORT, JSON_FACTORY, getCredentials(HTTP_TRANSPORT))
-//                .setApplicationName(APPLICATION_NAME)
-//                .build();
-//
-//        // List the next 10 events from the primary calendar.
-//        DateTime now = new DateTime(System.currentTimeMillis());
-//        Events events = service.events().list("primary")
-//                .setMaxResults(10)
-//                .setTimeMin(now)
-//                .setOrderBy("startTime")
-//                .setSingleEvents(true)
-//                .execute();
-//        List<Event> items = events.getItems();
-//        if (items.isEmpty()) {
-//            Log.d("CALENDAR", "No upcoming events found.");
-//        } else {
-//            Log.d("CALENDAR", "Upcoming events");
-//            for (Event event : items) {
-//                DateTime start = event.getStart().getDateTime();
-//                if (start == null) {
-//                    start = event.getStart().getDate();
-//                }
-//                Log.d("CALENDAR\n", event.getSummary() + "---" + start);
-//            }
-//        }
-//
-//    }
-
-    private static Credential getCredentials(final NetHttpTransport HTTP_TRANSPORT) throws IOException {
-        // Load client secrets.
-        InputStream in = ShowPost.class.getResourceAsStream(CREDENTIALS_FILE_PATH);
-        if (in == null) {
-            throw new FileNotFoundException("Resource not found: " + CREDENTIALS_FILE_PATH);
-        }
-        GoogleClientSecrets clientSecrets = GoogleClientSecrets.load(JSON_FACTORY, new InputStreamReader(in));
-
-        // Build flow and trigger user authorization request.
-        GoogleAuthorizationCodeFlow flow = new GoogleAuthorizationCodeFlow.Builder(
-                HTTP_TRANSPORT, JSON_FACTORY, clientSecrets, SCOPES)
-                .setDataStoreFactory(new FileDataStoreFactory(new java.io.File(TOKENS_DIRECTORY_PATH)))
-                .setAccessType("offline")
-                .build();
-        LocalServerReceiver receiver = new LocalServerReceiver.Builder().setPort(8888).build();
-        return new AuthorizationCodeInstalledApp(flow, receiver).authorize("user");
-    }
 
 }
