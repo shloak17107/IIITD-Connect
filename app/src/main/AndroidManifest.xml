@@ -11,6 +11,8 @@
         android:theme="@style/AppTheme">
         <activity android:name=".UserType"></activity>
         <activity android:name=".CreatePost" />
+        <activity android:name=".Profile"/>
+        <activity android:name=".Profilechange"/>
         <activity android:name=".RegistrationActivity" />
         <activity android:name=".LoginActivity" />
         <activity android:name=".profile_see" />

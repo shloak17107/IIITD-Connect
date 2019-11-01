@@ -7,6 +7,14 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import androidx.annotation.NonNull;
+import androidx.fragment.app.Fragment;
+import androidx.lifecycle.ViewModelProviders;
+import androidx.recyclerview.widget.DefaultItemAnimator;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
+
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -19,14 +27,6 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Map;
 
-import androidx.annotation.NonNull;
-import androidx.fragment.app.Fragment;
-import androidx.lifecycle.ViewModelProviders;
-import androidx.recyclerview.widget.DefaultItemAnimator;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
-
 public class FeedFragment extends Fragment {
 
     private FeedViewModel feedViewModel;
@@ -38,6 +38,9 @@ public class FeedFragment extends Fragment {
     private FirebaseUser currentUser;
     private static categories interests;
     public static int type;
+    public static Student currentStudent;
+    public static Alumni currentAlumni;
+    public static Faculty currentFaculty;
     private SwipeRefreshLayout mSwipeRefreshLayout;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
@@ -129,6 +132,7 @@ public class FeedFragment extends Fragment {
                 if(dataSnapshot.exists()) {
                     type = 1;
                     Student user = dataSnapshot.child(id).getValue(Student.class);
+                    currentStudent = user;
                     interests = user.getCategory();
                 } else {
                     mDatabase.child("Alumni").orderByKey().equalTo(id).addValueEventListener(new ValueEventListener() {
@@ -138,6 +142,7 @@ public class FeedFragment extends Fragment {
                             if(dataSnapshot.exists()) {
                                 type = 2;
                                 Alumni user = dataSnapshot.child(id).getValue(Alumni.class);
+                                currentAlumni = user;
                                 interests = user.getCategory();
                             } else {
                                 mDatabase.child("Faculty").orderByKey().equalTo(id).addValueEventListener(new ValueEventListener() {
@@ -147,6 +152,7 @@ public class FeedFragment extends Fragment {
                                         if(dataSnapshot.exists()) {
                                             type = 3;
                                             Faculty user = dataSnapshot.child(id).getValue(Faculty.class);
+                                            currentFaculty = user;
                                             interests = user.getCategory();
                                         }
                                     }
