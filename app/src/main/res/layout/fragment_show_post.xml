@@ -6,10 +6,11 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".ShowPost">
 
+    <!-- TODO: Update blank fragment layout -->
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
-        <ImageView
+        <com.mikhaellopez.circularimageview.CircularImageView
             android:id="@+id/photodetails3"
             android:layout_width="223dp"
             android:layout_height="223dp"
@@ -17,22 +18,31 @@
             android:layout_centerHorizontal="true"
             android:layout_marginEnd="108dp"
             android:src="@drawable/photo"
+            app:civ_border_width="4dp"
+            app:civ_shadow="true"
+            app:civ_shadow_color="#8BC34A"
+            app:civ_shadow_radius="1"
             android:layout_alignParentRight="true"
             android:layout_marginRight="108dp" />
+
         <TextView
-            android:id="@+id/title"
+            android:id="@+id/post_title"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/photodetails3"
             android:layout_marginLeft="20dp"
-            android:layout_marginTop="50dp"
+            android:layout_marginTop="81dp"
             android:layout_marginRight="20dp"
-            android:paddingTop="30dp" />
+            android:inputType="textPersonName"
+            android:paddingTop="30dp"
+            android:text="@string/Title" />
+
         <TextView
-            android:id="@+id/description"
+            android:id="@+id/post_description"
+            android:text="Description"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/title"
+            android:layout_below="@+id/post_title"
             android:paddingTop="100dp"
             android:layout_marginRight="20dp"
             android:layout_marginLeft="20dp"
@@ -42,17 +52,18 @@
             android:id="@+id/image1"
             android:layout_width="76dp"
             android:layout_height="55dp"
-            android:layout_below="@+id/description"
+            android:layout_below="@+id/post_description"
             android:layout_marginLeft="20dp"
             android:layout_marginTop="50dp"
-
-            />
+            android:background="@drawable/location" />
 
         <TextView
-            android:id="@+id/location"
+            android:id="@+id/post_location"
+            android:text="Location"
+            android:inputType="textPersonName"
             android:layout_width="290dp"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/description"
+            android:layout_below="@+id/post_description"
             android:layout_alignParentStart="true"
             android:layout_alignParentLeft="true"
             android:layout_alignParentEnd="true"
@@ -74,10 +85,12 @@
             android:background="@drawable/calendar" />
 
         <TextView
-            android:id="@+id/date"
+            android:id="@+id/post_date"
+            android:text="@string/Date"
+            android:inputType="date"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/location"
+            android:layout_below="@+id/post_location"
             android:layout_alignParentStart="true"
             android:layout_alignParentLeft="true"
             android:layout_alignParentEnd="true"
@@ -95,14 +108,16 @@
             android:layout_height="49dp"
             android:layout_below="@+id/image2"
             android:layout_marginLeft="20dp"
-            android:layout_marginTop="46dp"/>
-
+            android:layout_marginTop="46dp"
+            android:background="@drawable/time" />
 
         <TextView
-            android:id="@+id/time"
+            android:id="@+id/post_time"
+            android:text="Time"
+            android:inputType="time"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/date"
+            android:layout_below="@+id/post_date"
             android:layout_alignParentStart="true"
             android:layout_alignParentLeft="true"
             android:layout_alignParentEnd="true"
@@ -117,10 +132,12 @@
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:layout_marginLeft="290dp"
-            android:layout_below="@+id/time"
+            android:layout_below="@+id/post_time"
+            android:background="@drawable/uparrowpaint"
             android:layout_marginTop="50dp"
             android:id="@+id/interested"
             />
+
     </RelativeLayout>
 
 
