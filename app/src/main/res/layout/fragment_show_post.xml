@@ -10,55 +10,83 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
-        <com.mikhaellopez.circularimageview.CircularImageView
+        <TextView
+            android:id="@+id/owner"
+            android:textColor="@color/black"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textStyle="italic"
+            android:textSize="15dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginRight="20dp"
+            android:inputType="textPersonName"
+            android:padding="5dp"
+            android:text="Owner_name" />
+
+        <ImageView
+            android:background="@drawable/customborder3"
             android:id="@+id/photodetails3"
-            android:layout_width="223dp"
-            android:layout_height="223dp"
-            android:layout_alignParentEnd="true"
+            android:layout_width="wrap_content"
+            android:layout_height="200dp"
+            android:layout_below="@+id/owner"
+
             android:layout_centerHorizontal="true"
-            android:layout_marginEnd="108dp"
-            android:src="@drawable/photo"
-            app:civ_border_width="4dp"
-            app:civ_shadow="true"
-            app:civ_shadow_color="#8BC34A"
-            app:civ_shadow_radius="1"
-            android:layout_alignParentRight="true"
-            android:layout_marginRight="108dp" />
+            android:layout_margin="20dp"
+            android:src="@drawable/event_image"
+
+
+             />
 
         <TextView
+
+
+
+            android:background="@drawable/customborder2"
             android:id="@+id/post_title"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/photodetails3"
+            android:textColor="@color/colorPrimaryDark"
             android:layout_marginLeft="20dp"
-            android:layout_marginTop="81dp"
+            android:textSize="20dp"
+            android:textStyle="bold"
+            android:lineSpacingExtra="2dp"
             android:layout_marginRight="20dp"
-            android:inputType="textPersonName"
-            android:paddingTop="30dp"
-            android:text="@string/Title" />
+
+            android:padding="2dp"
+            android:textAlignment="center"
+
+            android:text="IBM Overnight Hackathon : Sample title post"/>
 
         <TextView
+            android:background="@drawable/customborder"
+            android:lineSpacingExtra="1dp"
             android:id="@+id/post_description"
-            android:text="Description"
+            android:textStyle="bold"
+            android:text="Sample Description. 48 hour hackathon on Machine Learning and Data Science. Zero prerequisites required. Come and learn with us."
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/post_title"
-            android:paddingTop="100dp"
+            android:padding="15dp"
             android:layout_marginRight="20dp"
             android:layout_marginLeft="20dp"
-            android:layout_marginTop="50dp"/>
+            android:layout_marginTop="20dp"
+            android:textAlignment="center"/>
 
         <ImageView
             android:id="@+id/image1"
-            android:layout_width="76dp"
-            android:layout_height="55dp"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
             android:layout_below="@+id/post_description"
             android:layout_marginLeft="20dp"
-            android:layout_marginTop="50dp"
+            android:layout_marginTop="30dp"
             android:background="@drawable/location" />
 
         <TextView
+            android:background="@drawable/customborder"
             android:id="@+id/post_location"
+            android:textColor="@color/black"
             android:text="Location"
             android:inputType="textPersonName"
             android:layout_width="290dp"
@@ -70,22 +98,27 @@
             android:layout_alignParentRight="true"
             android:layout_marginStart="99dp"
             android:layout_marginLeft="99dp"
-            android:layout_marginTop="50dp"
+            android:layout_marginTop="30dp"
             android:layout_marginEnd="22dp"
             android:layout_marginRight="22dp"
-            android:paddingTop="35dp" />
+            android:paddingTop="15dp"
+            android:paddingRight="15dp"
+            android:paddingBottom="15dp"
+            android:paddingLeft="20dp"/>
 
         <ImageView
             android:id="@+id/image2"
-            android:layout_width="74dp"
-            android:layout_height="54dp"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
             android:layout_below="@+id/image1"
             android:layout_marginLeft="20dp"
-            android:layout_marginTop="50dp"
+            android:layout_marginTop="30dp"
             android:background="@drawable/calendar" />
 
         <TextView
+            android:background="@drawable/customborder"
             android:id="@+id/post_date"
+            android:textColor="@color/black"
             android:text="@string/Date"
             android:inputType="date"
             android:layout_width="wrap_content"
@@ -97,22 +130,28 @@
             android:layout_alignParentRight="true"
             android:layout_marginStart="99dp"
             android:layout_marginLeft="99dp"
-            android:layout_marginTop="50dp"
+            android:layout_marginTop="30dp"
             android:layout_marginEnd="22dp"
             android:layout_marginRight="22dp"
-            android:paddingTop="35dp" />
+            android:paddingTop="15dp"
+            android:paddingRight="15dp"
+            android:paddingBottom="15dp"
+            android:paddingLeft="20dp"
+            />
 
         <ImageView
             android:id="@+id/image3"
-            android:layout_width="76dp"
-            android:layout_height="49dp"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
             android:layout_below="@+id/image2"
             android:layout_marginLeft="20dp"
-            android:layout_marginTop="46dp"
+            android:layout_marginTop="30dp"
             android:background="@drawable/time" />
 
         <TextView
+            android:background="@drawable/customborder"
             android:id="@+id/post_time"
+            android:textColor="@color/black"
             android:text="Time"
             android:inputType="time"
             android:layout_width="wrap_content"
@@ -124,19 +163,47 @@
             android:layout_alignParentRight="true"
             android:layout_marginStart="99dp"
             android:layout_marginLeft="99dp"
-            android:layout_marginTop="46dp"
+            android:layout_marginTop="30dp"
             android:layout_marginEnd="22dp"
             android:layout_marginRight="22dp"
-            android:paddingTop="35dp" />
+            android:paddingTop="15dp"
+            android:paddingRight="15dp"
+            android:paddingBottom="15dp"
+            android:paddingLeft="20dp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_below="@+id/post_time"
+            android:gravity="center"
+            android:layout_marginTop="30dp"
+            android:paddingBottom="20dp"
+            >
         <Button
-            android:layout_width="50dp"
+            android:layout_width="130dp"
             android:layout_height="50dp"
-            android:layout_marginLeft="290dp"
+            android:text="Interested !"
+            android:textColor="@color/white"
             android:layout_below="@+id/post_time"
             android:background="@drawable/uparrowpaint"
-            android:layout_marginTop="50dp"
+
             android:id="@+id/interested"
+            android:layout_marginRight="10dp"
             />
+        <Button
+            android:layout_width="130dp"
+            android:layout_height="50dp"
+            android:text="Remind Me !"
+            android:textColor="@color/white"
+            android:layout_below="@+id/post_time"
+            android:layout_left="@+id/interested"
+            android:background="@drawable/uparrowpaint"
+
+            android:layout_marginLeft="10dp"
+            android:id="@+id/add_to_calendar"
+            />
+        </LinearLayout>
 
         <Button
             android:layout_width="50dp"
