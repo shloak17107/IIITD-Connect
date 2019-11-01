@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
+        <!--        <ImageView-->
+        <!--            android:id="@+id/photo1"-->
+        <!--            android:layout_width="match_parent"-->
+        <!--            android:layout_height="223dp"-->
+        <!--            android:layout_gravity="center"-->
+        <!--            android:src="@drawable/photo" />-->
+        <!--        <ImageView-->
+        <!--            android:id="@+id/circle_crop1"-->
+        <!--            android:layout_width="match_parent"-->
+        <!--            android:layout_height="223dp"-->
+        <!--            android:layout_gravity="center"-->
+        <!--            android:src="@drawable/circle" />-->
+        <com.mikhaellopez.circularimageview.CircularImageView
+            android:id="@+id/photochange1"
+            android:layout_width="223dp"
+            android:layout_height="223dp"
+            android:layout_alignParentEnd="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginEnd="108dp"
+            android:src="@drawable/photo"
+            app:civ_border_width="4dp"
+            app:civ_shadow="true"
+            app:civ_shadow_color="#8BC34A"
+            app:civ_shadow_radius="1"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="108dp" />
+
+        <Button
+            android:id="@+id/camerachange1"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_below="@id/photochange1"
+            android:layout_alignRight="@id/photochange1"
+            android:background="@drawable/camera" />
+
+
+        <EditText
+            android:id="@+id/editnamechange1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:hint="@string/Name"
+            android:paddingTop="20dp"
+            android:layout_below="@id/camerachange1"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            />
+
+
+        <Spinner
+            android:id="@+id/editbranchchange1"
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:paddingTop="20dp"
+            android:layout_below="@id/editnamechange1"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            />
+
+
+        <EditText
+            android:id="@+id/editcontactchange1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="number"
+            android:hint="@string/Conatct_no"
+            android:paddingTop="20dp"
+            android:layout_below="@id/editbranchchange1"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            />
+
+
+        <!--        <EditText-->
+        <!--            android:id="@+id/editstatus1"-->
+        <!--            android:layout_width="match_parent"-->
+        <!--            android:layout_height="wrap_content"-->
+        <!--            android:ems="10"-->
+        <!--            android:inputType="textPersonName"-->
+        <!--            android:hint="@string/Status"-->
+        <!--            android:paddingTop="20dp"-->
+        <!--            android:layout_below="@id/editcontact1"-->
+        <!--            android:layout_marginLeft="30dp"-->
+        <!--            android:layout_marginRight="30dp"-->
+        <!--            />-->
+        <Spinner
+            android:id="@+id/editstatuschange1"
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:paddingTop="20dp"
+            android:layout_below="@+id/editcontactchange1"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+
+            />
+
+
+        <EditText
+            android:id="@+id/editdobchange1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="date"
+            android:hint="@string/D_O_B"
+            android:paddingTop="20dp"
+            android:layout_below="@id/editstatuschange1"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            />
+        <Button
+            android:id="@+id/datebuttonchange1"
+            android:text="click"
+
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_below="@+id/editstatuschange1"
+            android:layout_alignRight="@+id/editdobchange1"
+            android:background="@drawable/calendar"/>
+
+
+
+        <EditText
+            android:id="@+id/editcompanychange1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:hint="@string/Company"
+            android:paddingTop="20dp"
+            android:layout_below="@id/editdobchange1"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            />
+
+
+        <EditText
+            android:id="@+id/editlinkdinchange1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:hint="@string/Linkdin"
+            android:paddingTop="20dp"
+            android:layout_below="@id/editcompanychange1"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            />
+
+
+        <EditText
+            android:id="@+id/editwebsitechange1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:hint="@string/Website"
+            android:paddingTop="20dp"
+            android:layout_below="@id/editlinkdinchange1"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            />
+
+
+
+
+        <EditText
+            android:id="@+id/edityearofpasschange1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="number"
+            android:hint="@string/Year_of_passing"
+            android:paddingTop="20dp"
+            android:layout_below="@id/editwebsitechange1"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            />
+
+        <Button
+            android:id="@+id/buttonchange1"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:paddingTop="30dp"
+            android:text="@string/Save"
+            android:layout_below="@id/edityearofpasschange1"
+            android:textSize="20dp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"/>
+
+
+    </RelativeLayout>
+</ScrollView>

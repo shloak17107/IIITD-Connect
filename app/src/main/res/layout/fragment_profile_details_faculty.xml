@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
+
+
+        <com.mikhaellopez.circularimageview.CircularImageView
+            android:id="@+id/photodetails2"
+            android:layout_width="223dp"
+            android:layout_height="223dp"
+            android:layout_alignParentEnd="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginEnd="108dp"
+            android:src="@drawable/photo"
+            app:civ_border_width="4dp"
+            app:civ_shadow="true"
+            app:civ_shadow_color="#8BC34A"
+            app:civ_shadow_radius="1"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="108dp" />
+
+
+        <TextView
+            android:id="@+id/namedetails2"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/Name"
+            android:textSize="24sp"
+            android:layout_below="@id/photodetails2"
+            android:paddingTop="20dp"/>
+        <TextView
+            android:id="@+id/editnamedetails2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/Type_here"
+            android:paddingTop="20dp"
+            android:layout_below="@id/photodetails2"
+            android:layout_alignRight="@id/namedetails2"/>
+
+        <TextView
+            android:id="@+id/departmentdetails2"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/Department"
+            android:textSize="24sp"
+            android:layout_below="@id/namedetails2"
+            android:paddingTop="20dp"/>
+        <TextView
+            android:id="@+id/editdepartmentdetails2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="@string/Type_here"
+            android:paddingTop="20dp"
+            android:layout_below="@id/namedetails2"
+            android:layout_alignRight="@id/departmentdetails2"/>
+
+        <TextView
+            android:id="@+id/expertisedetails2"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/departmentdetails2"
+            android:paddingTop="20dp"
+            android:text="@string/Expertise"
+            android:textSize="24sp" />
+        <TextView
+            android:id="@+id/editexpertisedetails2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/Type_here"
+            android:paddingTop="20dp"
+            android:layout_below="@id/departmentdetails2"
+            android:layout_alignRight="@id/expertisedetails2"/>
+
+        <TextView
+            android:id="@+id/linkdindetails2"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/Linkdin"
+            android:textSize="24sp"
+            android:layout_below="@id/expertisedetails2"
+            android:paddingTop="20dp"/>
+        <TextView
+            android:id="@+id/editlinkdindetails2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/Type_here"
+            android:paddingTop="20dp"
+            android:layout_below="@id/expertisedetails2"
+            android:layout_alignRight="@id/linkdindetails2"/>
+
+        <TextView
+            android:id="@+id/websitedetails2"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/Website"
+            android:textSize="24sp"
+            android:layout_below="@id/linkdindetails2"
+            android:paddingTop="20dp"/>
+        <TextView
+            android:id="@+id/editwebsitedetails2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/Type_here"
+            android:paddingTop="20dp"
+            android:layout_below="@id/linkdindetails2"
+            android:layout_alignRight="@id/websitedetails2"/>
+
+
+
+        <Button
+            android:id="@+id/Editdetails2"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:paddingTop="30dp"
+            android:text="@string/Edit"
+            android:layout_below="@id/websitedetails2"
+            android:textSize="20dp"
+            android:layout_centerHorizontal="true"/>
+
+
+    </RelativeLayout>
+</ScrollView>
