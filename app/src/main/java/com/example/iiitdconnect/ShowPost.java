@@ -12,6 +12,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 import com.bumptech.glide.Glide;
@@ -27,6 +28,8 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.mikhaellopez.circularimageview.CircularImageView;
+
+import org.w3c.dom.Text;
 
 import java.util.Collections;
 import java.util.GregorianCalendar;
@@ -63,11 +66,13 @@ public class ShowPost extends Fragment {
     private TextView postTime;
     String Storage_Path = "images/";
 
-    CircularImageView image;
+    ImageView image;
 
     private static final String APPLICATION_NAME = "IIITD Connect";
     private static final JsonFactory JSON_FACTORY = JacksonFactory.getDefaultInstance();
     private static final String TOKENS_DIRECTORY_PATH = "tokens";
+
+    private TextView owner;
 
     private static final List<String> SCOPES = Collections.singletonList(CalendarScopes.CALENDAR);
     private static final String CREDENTIALS_FILE_PATH = "./../../../../../../credentials.json";
@@ -90,7 +95,10 @@ public class ShowPost extends Fragment {
         final Post p = this.post;
         String email = mAuth.getCurrentUser().getEmail().toString();
 
-        image = (CircularImageView) view.findViewById(R.id.photodetails3);
+        owner = (TextView) view.findViewById(R.id.owner);
+        owner.setText(p.getCreatedBy());
+
+        image = (ImageView) view.findViewById(R.id.photodetails3);
         String Postid = p.getTimestamp().replace("-", ":").replace(".", ":");
         storageReference.child(Storage_Path + Postid).getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
             @Override
@@ -112,7 +120,7 @@ public class ShowPost extends Fragment {
             buttoncounter = 0;
         }
 
-        calender_save = view.findViewById(R.id.calender_save);
+        calender_save = view.findViewById(R.id.add_to_calendar);
 
         b.setOnClickListener(new View.OnClickListener() {
             @Override
