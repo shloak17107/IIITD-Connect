@@ -61,6 +61,7 @@
 
         <TextView
             android:background="@drawable/customborder"
+            android:lineSpacingExtra="1dp"
             android:id="@+id/post_description"
             android:textStyle="bold"
             android:text="Sample Description. 48 hour hackathon on Machine Learning and Data Science. Zero prerequisites required. Come and learn with us."
