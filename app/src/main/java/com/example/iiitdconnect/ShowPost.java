@@ -2,13 +2,11 @@ package com.example.iiitdconnect;
 
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
-
-import androidx.annotation.RequiresApi;
-import androidx.fragment.app.Fragment;
-
 import android.provider.CalendarContract;
+import android.provider.CalendarContract.Events;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -16,47 +14,28 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
-import java.util.GregorianCalendar;
+import com.bumptech.glide.Glide;
 
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.util.Arrays;
-
-import com.google.api.client.auth.oauth2.Credential;
-import com.google.api.client.extensions.java6.auth.oauth2.AuthorizationCodeInstalledApp;
-import com.google.api.client.extensions.jetty.auth.oauth2.LocalServerReceiver;
-import com.google.api.client.googleapis.auth.oauth2.GoogleAuthorizationCodeFlow;
-import com.google.api.client.googleapis.auth.oauth2.GoogleClientSecrets;
-import com.google.api.client.googleapis.javanet.GoogleNetHttpTransport;
-import com.google.api.client.http.javanet.NetHttpTransport;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.api.client.json.JsonFactory;
 import com.google.api.client.json.jackson2.JacksonFactory;
-import com.google.api.client.util.DateTime;
-import com.google.api.client.util.store.FileDataStoreFactory;
 import com.google.api.services.calendar.CalendarScopes;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.api.services.calendar.Calendar;
-import com.google.api.services.calendar.model.*;
-import android.provider.CalendarContract.Events;
-
-import org.w3c.dom.Text;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
+import com.mikhaellopez.circularimageview.CircularImageView;
 
 import java.util.Collections;
-import java.util.Date;
+import java.util.GregorianCalendar;
 import java.util.List;
 import java.util.Map;
 
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.security.GeneralSecurityException;
-import java.util.Collections;
-import java.util.List;
+import androidx.annotation.NonNull;
+import androidx.annotation.RequiresApi;
+import androidx.fragment.app.Fragment;
 
 
 /**
@@ -78,8 +57,13 @@ public class ShowPost extends Fragment {
     private TextView postDescription;
     private TextView postLocation;
     private TextView postDate;
+    StorageReference storageReference2nd;
+    Uri FilePathUri;
+    StorageReference storageReference;
     private TextView postTime;
+    String Storage_Path = "images/";
 
+    CircularImageView image;
 
     private static final String APPLICATION_NAME = "IIITD Connect";
     private static final JsonFactory JSON_FACTORY = JacksonFactory.getDefaultInstance();
@@ -100,9 +84,27 @@ public class ShowPost extends Fragment {
         View view = inflater.inflate(R.layout.fragment_show_post, container, false);
         b = view.findViewById(R.id.interested);
         mAuth = FirebaseAuth.getInstance();
+        FirebaseStorage storage = FirebaseStorage.getInstance();
+        storageReference = storage.getReferenceFromUrl("gs://iiitd-connect-73dc0.appspot.com");
         mDatabase = FirebaseDatabase.getInstance().getReference();
         final Post p = this.post;
         String email = mAuth.getCurrentUser().getEmail().toString();
+
+        image = (CircularImageView) view.findViewById(R.id.photodetails3);
+        String Postid = p.getTimestamp().replace("-", ":").replace(".", ":");
+        storageReference.child(Storage_Path + Postid).getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+            @Override
+            public void onSuccess(Uri uri) {
+                String imageURL = uri.toString();
+                Glide.with(getActivity()).load(imageURL).into(image);
+            }
+        }).addOnFailureListener(new OnFailureListener() {
+            @Override
+            public void onFailure(@NonNull Exception exception) {
+                // Handle any errors
+            }
+        });
+
         Map<String, String> xx = this.post.getInterestedpeople().getInterested_ids();
         if(xx.containsKey(email.substring(0, email.indexOf("@")))){
             buttoncounter = 1;
