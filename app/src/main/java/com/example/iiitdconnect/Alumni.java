@@ -15,6 +15,8 @@ public class Alumni {
     private String currentStatus;
     private String instituteCompany;
     private categories category;
+    private Map<String, String> myPosts;
+    private Map<String, String> interestedPosts;
 
     public String getName() {
         return name;
@@ -96,6 +98,22 @@ public class Alumni {
         this.category = category;
     }
 
+    public Map<String, String> getMyPosts() {
+        return myPosts;
+    }
+
+    public void setMyPosts(Map<String, String> myPosts) {
+        this.myPosts = myPosts;
+    }
+
+    public Map<String, String> getInterestedPosts() {
+        return interestedPosts;
+    }
+
+    public void setInterestedPosts(Map<String, String> interestedPosts) {
+        this.interestedPosts = interestedPosts;
+    }
+
     //, String contactNumber, String dateOfBirth, String linkedIn, String webpage, String yearOfPassing, String currentStatus, String instituteCompany
     public Alumni(String name, String branch, String contactNumber, String dateOfBirth, String linkedIn, String webpage, String yearOfPassing, String currentStatus, String instituteCompany, ArrayList<String> tags){
         this.name = name;
@@ -107,6 +125,10 @@ public class Alumni {
         this.linkedIn=linkedIn;
         this.currentStatus=currentStatus;
         this.instituteCompany=instituteCompany;
+        this.myPosts = new HashMap<>();
+        myPosts.put("temp_post", "temp_post");
+        this.interestedPosts = new HashMap<>();
+        this.interestedPosts.put("temp_post", "temp_post");
         Map<String, String> temp = new HashMap<>();
         for(String cat: tags){
             temp.put(cat, "");
