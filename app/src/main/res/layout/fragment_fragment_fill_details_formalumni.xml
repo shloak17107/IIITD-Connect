@@ -188,16 +188,17 @@
 
         <TextView
             android:id="@+id/addtag1"
-            android:background="@color/white"
+            android:background="#009688"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="textAutoComplete"
             android:ems="10"
             android:layout_below="@+id/edityearofpass1"
-            android:layout_marginRight="30dp"
-            android:layout_marginLeft="30dp"
+            android:layout_marginRight="100dp"
+            android:layout_marginLeft="100dp"
             android:paddingTop="20dp"
-            android:hint="Add Tags"
+            android:hint="Click To Add Tags"
+            android:textSize="20dp"
             />
 
         <Button
