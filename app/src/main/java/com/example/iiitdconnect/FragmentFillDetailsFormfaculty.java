@@ -9,6 +9,7 @@ import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -89,11 +90,21 @@ public class FragmentFillDetailsFormfaculty extends Fragment {
         Save.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                UploadUserData();
-                UploadImageFileToFirebaseStorage();
-                Intent i = new Intent(getActivity(), Feed.class);
-                i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-                startActivity(i);
+                Log.d("abc",departmentspinner.getSelectedItem().toString());
+                if( departmentspinner.getSelectedItem().toString().equals("Select Department*")){
+                    Toast toast = Toast.makeText(getContext(),
+                            "Please fill the essential details",
+                            Toast.LENGTH_SHORT);
+
+                    toast.show();
+                }
+                else {
+                    UploadUserData();
+                    UploadImageFileToFirebaseStorage();
+                    Intent i = new Intent(getActivity(), Feed.class);
+                    i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                    startActivity(i);
+                }
             }
         });
 
