@@ -45,7 +45,7 @@ public class ProfileFragment extends Fragment {
         final TextView textView = root.findViewById(R.id.text_profile);
         int type=FeedFragment.type;
         Button Edit;
-        if(type==1){
+        if(FeedFragment.type==1){
             Student student=FeedFragment.currentStudent;
             root = inflater.inflate(R.layout.fragment_profile_details_student, container, false);
             TextView name=root.findViewById(R.id.editnamedetails);
@@ -94,7 +94,7 @@ public class ProfileFragment extends Fragment {
                 }
             });
         }
-        else if(type==2){
+        else if(FeedFragment.type==2){
             Alumni alumni=FeedFragment.currentAlumni;
             root = inflater.inflate(R.layout.fragment_profile_details_alumni, container, false);
             TextView name=root.findViewById(R.id.editnamedetails1);
@@ -145,7 +145,7 @@ public class ProfileFragment extends Fragment {
                 }
             });
         }
-        else{
+        else if(FeedFragment.type == 3){
             Faculty faculty =FeedFragment.currentFaculty;
             root = inflater.inflate(R.layout.fragment_profile_details_faculty, container, false);
             TextView name=root.findViewById(R.id.editnamedetails2);
