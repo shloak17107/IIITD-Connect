@@ -119,7 +119,7 @@ public class ProfileFragment extends Fragment {
 
             FirebaseStorage storage = FirebaseStorage.getInstance();
             storageReference = storage.getReferenceFromUrl("gs://iiitd-connect-73dc0.appspot.com");
-            image = root.findViewById(R.id.photodetails);
+            image = root.findViewById(R.id.photodetails1);
             mAuth = FirebaseAuth.getInstance();
             String email = mAuth.getCurrentUser().getEmail().toString();
             storageReference.child(Storage_Path + email).getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
@@ -157,11 +157,12 @@ public class ProfileFragment extends Fragment {
             expertise.setText(faculty.getExpertise());
             linkedin.setText(faculty.getLinkedIn());
             website.setText(faculty.getWebpage());
+            department.setText(faculty.getDepartment());
             Edit = (Button) root.findViewById(R.id.Editdetails2);
 
             FirebaseStorage storage = FirebaseStorage.getInstance();
             storageReference = storage.getReferenceFromUrl("gs://iiitd-connect-73dc0.appspot.com");
-            image = root.findViewById(R.id.photodetails);
+            image = root.findViewById(R.id.photodetails2);
             mAuth = FirebaseAuth.getInstance();
             String email = mAuth.getCurrentUser().getEmail().toString();
             storageReference.child(Storage_Path + email).getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
