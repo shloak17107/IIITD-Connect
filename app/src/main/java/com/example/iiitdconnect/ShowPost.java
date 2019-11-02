@@ -224,43 +224,45 @@ public class ShowPost extends Fragment {
         calender_save.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
-                String[] ss = DATE.split("/");
-                String D = ss[0];
-                String M = ss[1];
-                String Y = ss[2];
-                if(D.length() == 1){
-                    D = "0" + D;
+                Log.d("HELLO", DATE);
+                if (DATE.equals("")) {
+                    Toast.makeText(getActivity(), "Post doesn't have date. Cannot add to calendar.", Toast.LENGTH_SHORT).show();
                 }
-                if(M.length() == 1){
-                    M = "0" + M;
+                else {
+                    String[] ss = DATE.split("/");
+                    String D = ss[0];
+                    String M = ss[1];
+                    String Y = ss[2];
+                    if(D.length() == 1){
+                        D = "0" + D;
+                    }
+                    if(M.length() == 1){
+                        M = "0" + M;
+                    }
+
+                    Intent intent = new Intent(Intent.ACTION_INSERT);
+                    intent.setType("vnd.android.cursor.item/event");
+                    intent.putExtra(Events.TITLE, TITLE);
+                    intent.putExtra(Events.EVENT_LOCATION, LOCATION);
+                    intent.putExtra(Events.DESCRIPTION, DESCRIPTION);
+
+                    // Setting dates
+
+                    java.sql.Timestamp tsStart = java.sql.Timestamp.valueOf(Y+ "-" + M + "-" + D + " " + 05 + ":"+ 12 + ":00");
+                    java.sql.Timestamp tsEnd = java.sql.Timestamp.valueOf(Y+ "-" + M + "-" + D + " " + 23+ ":"+ 59+ ":00");
+
+                    long startTime = tsStart.getTime();
+                    long endTime = tsEnd.getTime();
+
+                    GregorianCalendar calDate = new GregorianCalendar(Integer.parseInt(Y), Integer.parseInt(M), Integer.parseInt(D));
+                    intent.putExtra(CalendarContract.EXTRA_EVENT_BEGIN_TIME,
+                            startTime);
+                    intent.putExtra(CalendarContract.EXTRA_EVENT_END_TIME,
+                            endTime);
+
+                    intent.putExtra(CalendarContract.EXTRA_EVENT_ALL_DAY, true);
+                    startActivity(intent);
                 }
-
-
-
-                Intent intent = new Intent(Intent.ACTION_INSERT);
-                intent.setType("vnd.android.cursor.item/event");
-                intent.putExtra(Events.TITLE, TITLE);
-                intent.putExtra(Events.EVENT_LOCATION, LOCATION);
-                intent.putExtra(Events.DESCRIPTION, DESCRIPTION);
-
-// Setting dates
-
-                java.sql.Timestamp tsStart = java.sql.Timestamp.valueOf(Y+ "-" + M + "-" + D + " " + 05 + ":"+ 12 + ":00");
-                java.sql.Timestamp tsEnd = java.sql.Timestamp.valueOf(Y+ "-" + M + "-" + D + " " + 23+ ":"+ 59+ ":00");
-
-                long startTime = tsStart.getTime();
-                long endTime = tsEnd.getTime();
-
-                GregorianCalendar calDate = new GregorianCalendar(Integer.parseInt(Y), Integer.parseInt(M), Integer.parseInt(D));
-                intent.putExtra(CalendarContract.EXTRA_EVENT_BEGIN_TIME,
-                        startTime);
-                intent.putExtra(CalendarContract.EXTRA_EVENT_END_TIME,
-                        endTime);
-
-                intent.putExtra(CalendarContract.EXTRA_EVENT_ALL_DAY, true);
-                startActivity(intent);
-
             }
         });
 
