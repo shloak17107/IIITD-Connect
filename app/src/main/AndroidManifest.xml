@@ -22,7 +22,6 @@
         <activity android:name=".profile_enter" />
         <activity android:name=".Feed" />
         <activity android:name=".MainActivity">
-            android:screenOrientation="portrait"
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
