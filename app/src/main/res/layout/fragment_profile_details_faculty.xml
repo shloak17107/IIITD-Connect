@@ -29,7 +29,7 @@
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:text="@string/Name"
-            android:textSize="24sp"
+            android:textSize="24dp"
             android:layout_below="@id/photodetails2"
             android:paddingTop="20dp"/>
         <TextView
@@ -37,6 +37,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/Type_here"
+            android:textSize="24dp"
             android:paddingTop="20dp"
             android:layout_below="@id/photodetails2"
             android:layout_alignRight="@id/namedetails2"/>
@@ -46,7 +47,7 @@
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:text="@string/Department"
-            android:textSize="24sp"
+            android:textSize="24dp"
             android:layout_below="@id/namedetails2"
             android:paddingTop="20dp"/>
         <TextView
@@ -54,6 +55,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:hint="@string/Type_here"
+            android:textSize="24dp"
             android:paddingTop="20dp"
             android:layout_below="@id/namedetails2"
             android:layout_alignRight="@id/departmentdetails2"/>
@@ -65,12 +67,13 @@
             android:layout_below="@id/departmentdetails2"
             android:paddingTop="20dp"
             android:text="@string/Expertise"
-            android:textSize="24sp" />
+            android:textSize="24dp" />
         <TextView
             android:id="@+id/editexpertisedetails2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/Type_here"
+            android:textSize="24dp"
             android:paddingTop="20dp"
             android:layout_below="@id/departmentdetails2"
             android:layout_alignRight="@id/expertisedetails2"/>
@@ -80,7 +83,7 @@
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:text="@string/Linkdin"
-            android:textSize="24sp"
+            android:textSize="24dp"
             android:layout_below="@id/expertisedetails2"
             android:paddingTop="20dp"/>
         <TextView
@@ -88,6 +91,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/Type_here"
+            android:textSize="24dp"
             android:paddingTop="20dp"
             android:layout_below="@id/expertisedetails2"
             android:layout_alignRight="@id/linkdindetails2"/>
@@ -97,7 +101,7 @@
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:text="@string/Website"
-            android:textSize="24sp"
+            android:textSize="24dp"
             android:layout_below="@id/linkdindetails2"
             android:paddingTop="20dp"/>
         <TextView
@@ -105,6 +109,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/Type_here"
+            android:textSize="24dp"
             android:paddingTop="20dp"
             android:layout_below="@id/linkdindetails2"
             android:layout_alignRight="@id/websitedetails2"/>

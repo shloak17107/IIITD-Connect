@@ -23,7 +23,7 @@
             android:layout_alignParentRight="true"
             android:layout_marginRight="108dp" />
 
-        <Button
+        <ImageButton
             android:id="@+id/camerachange2"
             android:layout_width="50dp"
             android:layout_height="50dp"
