@@ -2,6 +2,7 @@
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
+    android:layout_margin="20dp"
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <RelativeLayout
         android:layout_width="match_parent"
@@ -10,16 +11,12 @@
             android:id="@+id/photodetails1"
             android:layout_width="223dp"
             android:layout_height="223dp"
-            android:layout_alignParentEnd="true"
             android:layout_centerHorizontal="true"
-            android:layout_marginEnd="108dp"
             android:src="@drawable/photo"
             app:civ_border_width="4dp"
             app:civ_shadow="true"
             app:civ_shadow_color="#8BC34A"
-            app:civ_shadow_radius="1"
-            android:layout_alignParentRight="true"
-            android:layout_marginRight="108dp" />
+            app:civ_shadow_radius="1" />
 
 
         <TextView
@@ -180,7 +177,6 @@
             android:id="@+id/Editdetails1"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:paddingTop="30dp"
             android:text="@string/Edit"
             android:layout_below="@id/yearofpassdetails1"
             android:textSize="20dp"

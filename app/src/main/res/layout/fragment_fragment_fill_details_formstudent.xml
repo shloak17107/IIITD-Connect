@@ -155,13 +155,13 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/edityearofpass"
-            android:layout_marginLeft="100dp"
-            android:layout_marginRight="100dp"
-            android:background="#009688"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
             android:ems="10"
             android:hint="Click To Add Tags"
             android:inputType="textAutoComplete"
-            android:paddingTop="20dp"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
             android:textSize="20dp" />
 
         <Button

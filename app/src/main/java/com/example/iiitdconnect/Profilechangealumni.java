@@ -44,6 +44,42 @@ public class Profilechangealumni extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View v = inflater.inflate(R.layout.fragment_profile_change_alumni, container, false);
+        changed = false;
+        Save = (Button) v.findViewById(R.id.buttonchange1);
+
+        Name = (EditText) v.findViewById(R.id.editnamechange1);
+        Branch = (Spinner) v.findViewById(R.id.editbranchchange1);
+        ContactNumber = (EditText) v.findViewById(R.id.editcontactchange1);
+        status = (Spinner) v.findViewById(R.id.editstatuschange1);
+        Company = (EditText) v.findViewById(R.id.editcompanychange1);
+        dateOfBirth = (EditText) v.findViewById(R.id.editdobchange1);
+        LinkedIn = (EditText) v.findViewById(R.id.editlinkdinchange1);
+        webPage = (EditText) v.findViewById(R.id.editwebsitechange1);
+        yearOfPassing = (EditText) v.findViewById(R.id.edityearofpasschange1);
+
+
+        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(getActivity(),
+                R.array.statusarray, android.R.layout.simple_spinner_item);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        adapter.setDropDownViewResource(android.R.layout.simple_dropdown_item_1line);
+        status.setAdapter(adapter);
+
+
+        ArrayAdapter<CharSequence> adapter1 = ArrayAdapter.createFromResource(getActivity(),
+                R.array.degreesarray, android.R.layout.simple_spinner_item);
+        adapter1.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        adapter1.setDropDownViewResource(android.R.layout.simple_dropdown_item_1line);
+        Branch.setAdapter(adapter1);
+
+        Name.setText(FeedFragment.currentAlumni.getName());
+        Branch.setSelection(((ArrayAdapter)Branch.getAdapter()).getPosition(FeedFragment.currentAlumni.getBranch()));
+        ContactNumber.setText(FeedFragment.currentAlumni.getContactNumber());
+        status.setSelection(((ArrayAdapter)status.getAdapter()).getPosition(FeedFragment.currentAlumni.getCurrentStatus()));
+        Company.setText(FeedFragment.currentAlumni.getInstituteCompany());
+        dateOfBirth.setText(FeedFragment.currentAlumni.getDateOfBirth());
+        LinkedIn.setText(FeedFragment.currentAlumni.getLinkedIn());
+        webPage.setText(FeedFragment.currentAlumni.getWebpage());
+        yearOfPassing.setText(FeedFragment.currentAlumni.getYearOfPassing());
 
         Save = (Button) v.findViewById(R.id.buttonchange1);
         Save.setOnClickListener(new View.OnClickListener() {
@@ -82,5 +118,121 @@ public class Profilechangealumni extends Fragment {
 
         return v;
     }
+
+
+
+    public void UploadUserData() {
+        String email = mAuth.getCurrentUser().getEmail();
+
+//        FeedFragment.currentStudent.setBranch(Branch.getSelectedItem().toString());
+        FeedFragment.currentAlumni.setName(Name.getText().toString());
+        FeedFragment.currentAlumni.setBranch(Branch.getSelectedItem().toString());
+        FeedFragment.currentAlumni.setContactNumber(ContactNumber.getText().toString());
+        FeedFragment.currentAlumni.setYearOfPassing(yearOfPassing.getText().toString());
+        FeedFragment.currentAlumni.setLinkedIn(LinkedIn.getText().toString());
+        FeedFragment.currentAlumni.setWebpage(webPage.getText().toString());
+        FeedFragment.currentAlumni.setDateOfBirth(dateOfBirth.getText().toString());
+        FeedFragment.currentAlumni.setCurrentStatus(status.getSelectedItem().toString());
+        FeedFragment.currentAlumni.setInstituteCompany(Company.getText().toString());
+
+        String id = email.substring(0, email.indexOf("@"));
+        mDatabase.child("Alumni").child(id).setValue(FeedFragment.currentAlumni);
+        Toast.makeText(getActivity(), "Student Details Saved!", Toast.LENGTH_SHORT).show();
+    }
+
+    public void UploadImageFileToFirebaseStorage() {
+        if (FilePathUri != null) {
+            storageReference2nd = storageReference.child(Storage_Path + mAuth.getCurrentUser().getEmail().toString());
+            storageReference2nd.putFile(FilePathUri)
+                    .addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+                        @Override
+                        public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+
+                        }
+                    })
+                    .addOnFailureListener(new OnFailureListener() {
+                        @Override
+                        public void onFailure(@NonNull Exception exception) {
+                            progressDialog.dismiss();
+                            Toast.makeText(getActivity(), exception.getMessage(), Toast.LENGTH_LONG).show();
+                        }
+                    })
+                    .addOnProgressListener(new OnProgressListener<UploadTask.TaskSnapshot>() {
+                        @Override
+                        public void onProgress(UploadTask.TaskSnapshot taskSnapshot) {
+                        }
+                    });
+        }
+        else {
+
+            Toast.makeText(getActivity(), "Please Select Image or Add Image Name", Toast.LENGTH_LONG).show();
+
+        }
+    }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if(resultCode != RESULT_CANCELED) {
+            switch (requestCode) {
+                case 0:
+                    if (resultCode == RESULT_OK && data != null) {
+                        FilePathUri = data.getData();
+                        Log.d("IMAGEPATH", FilePathUri.toString());
+                        Bitmap selectedImage = (Bitmap) data.getExtras().get("data");
+                        image.setImageBitmap(selectedImage);
+                        changed = true;
+                    }
+                    break;
+                case 1:
+                    if (resultCode == RESULT_OK && data != null) {
+                        FilePathUri = data.getData();
+                        Log.d("IMAGEPATH", FilePathUri.toString());
+                        Bitmap im = null;//MediaStore.Images.Media.getBitmap(getApplicationContext().getContentResolver(), data.getData());
+                        if (data != null) {
+                            try {
+                                im = MediaStore.Images.Media.getBitmap(getActivity().getContentResolver(), data.getData());
+                            } catch (IOException e) {
+                                e.printStackTrace();
+                            }
+                        }
+                        image.setImageBitmap(im);
+                        changed = true;
+                    }
+                    break;
+            }
+
+        }
+    }
+
+
+    private void galleryorcamera(Context context) {
+        final CharSequence[] options = {"Use Camera", "Choose From Gallery", "Cancel"};
+
+        AlertDialog.Builder alertbox = new AlertDialog.Builder(context);
+        alertbox.setTitle("Choose Profile Picture");
+
+        alertbox.setItems(options, new DialogInterface.OnClickListener() {
+
+            @Override
+            public void onClick(DialogInterface dialog, int item) {
+                boolean result = Utility.checkPermission(getActivity());
+                if (options[item].equals("Use Camera")) {
+                    //if(result) {
+                    Intent capture = new Intent(android.provider.MediaStore.ACTION_IMAGE_CAPTURE);
+                    startActivityForResult(capture, 0);
+                    //}
+                } else if (options[item].equals("Choose From Gallery")) {
+                    //if(result) {
+                    Intent pickfromgallery = new Intent(Intent.ACTION_PICK, android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+                    startActivityForResult(pickfromgallery, 1);
+                    //}
+                } else if (options[item].equals("Cancel")) {
+                    dialog.dismiss();
+                }
+            }
+        });
+        alertbox.show();
+    }
+
 
 }
