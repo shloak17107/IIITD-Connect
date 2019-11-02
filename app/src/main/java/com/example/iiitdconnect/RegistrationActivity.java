@@ -6,6 +6,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.Toast;
+
 
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
@@ -49,7 +51,12 @@ public class RegistrationActivity extends AppCompatActivity {
 
                 // find the radiobutton by returned id
                 user_type = (RadioButton) findViewById(selectedId);
-                if(user_type.getText().equals("Student") ) {
+
+                if(user_type == null){
+                    Toast.makeText(getApplicationContext(), "Please select an option to proceed!!!",
+                            Toast.LENGTH_SHORT).show();
+                }
+                else if(user_type.getText().equals("Student") ) {
 
 
                     Intent intent = new Intent(RegistrationActivity.this, UserType.class);
