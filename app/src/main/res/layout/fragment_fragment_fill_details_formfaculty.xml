@@ -2,10 +2,12 @@
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
+
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent" >
+        android:layout_height="match_parent"
+        android:layout_margin="30dp">
 
         <com.mikhaellopez.circularimageview.CircularImageView
             android:id="@+id/photo2"
@@ -24,22 +26,43 @@
             android:layout_height="50dp"
             android:layout_below="@id/photo2"
             android:layout_alignRight="@id/photo2"
-            android:scaleType="fitCenter"
+            android:layout_marginTop="-50dp"
             android:background="@color/iiit"
-            android:src="@drawable/camera" />
+            android:scaleType="fitCenter"
+            android:src="@drawable/camera"/>
 
 
+        <ImageView
+            android:id="@+id/person_ic"
+            android:layout_width="55dp"
+            android:layout_height="55dp"
+            android:layout_marginTop="5dp"
+            android:src="@drawable/person"
+            android:layout_below="@id/camera2"
+            android:paddingTop="20dp"
+            />
         <EditText
             android:id="@+id/editname2"
+            android:background="@drawable/customborder"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
             android:inputType="textPersonName"
             android:hint="@string/Name"
-            android:paddingTop="20dp"
+            android:layout_toEndOf="@id/person_ic"
+            android:layout_marginTop="20dp"
             android:layout_below="@id/camera2"
-            android:layout_marginLeft="30dp"
-            android:layout_marginRight="30dp"
+
+            />
+
+        <ImageView
+            android:id="@+id/branch_ic"
+            android:layout_width="55dp"
+            android:layout_height="55dp"
+            android:layout_marginTop="5dp"
+            android:src="@drawable/branch_ic"
+            android:layout_below="@id/editname2"
+            android:paddingTop="20dp"
             />
 
 
@@ -47,54 +70,92 @@
             android:id="@+id/editdepartment2"
             android:layout_width="match_parent"
             android:layout_height="50dp"
-
+            android:layout_toEndOf="@id/branch_ic"
             android:hint="@string/Department"
-            android:paddingTop="20dp"
+            android:layout_marginTop="20dp"
             android:layout_below="@id/editname2"
-            android:layout_marginLeft="30dp"
-            android:layout_marginRight="30dp"
+
             />
 
-
+        <ImageView
+            android:id="@+id/expert_ic"
+            android:layout_marginTop="5dp"
+            android:layout_width="55dp"
+            android:layout_height="55dp"
+            android:src="@drawable/ic_iconmonstr_medical_8"
+            android:layout_below="@id/editdepartment2"
+            android:paddingTop="20dp"
+            />
         <EditText
             android:id="@+id/editexpertise2"
             android:layout_width="match_parent"
+            android:background="@drawable/customborder"
             android:layout_height="wrap_content"
             android:ems="10"
+            android:layout_toEndOf="@id/expert_ic"
             android:inputType="textPersonName"
             android:hint="@string/Expertise"
-            android:paddingTop="20dp"
+            android:layout_marginTop="20dp"
             android:layout_below="@id/editdepartment2"
-            android:layout_marginLeft="30dp"
-            android:layout_marginRight="30dp"
+
             />
 
+        <ImageView
+            android:id="@+id/linkedin_ic"
+            android:layout_width="55dp"
+            android:layout_height="55dp"
+            android:layout_marginTop="5dp"
+            android:src="@drawable/linkedin"
+            android:layout_below="@id/editexpertise2"
+            android:paddingTop="20dp"
+            />
 
         <EditText
             android:id="@+id/editlinkdin2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
+            android:layout_toEndOf="@id/linkedin_ic"
+            android:background="@drawable/customborder"
             android:inputType="textPersonName"
             android:hint="@string/Linkdin"
-            android:paddingTop="20dp"
+            android:layout_marginTop="20dp"
             android:layout_below="@id/editexpertise2"
-            android:layout_marginLeft="30dp"
-            android:layout_marginRight="30dp"
+
             />
 
+        <ImageView
+            android:id="@+id/website_ic"
+            android:layout_width="55dp"
+            android:layout_height="55dp"
+            android:src="@drawable/website_ic"
+            android:layout_marginTop="5dp"
+            android:layout_below="@id/editlinkdin2"
+            android:paddingTop="20dp"
+            />
 
         <EditText
             android:id="@+id/editwebsite2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
+            android:layout_toEndOf="@id/website_ic"
+            android:background="@drawable/customborder"
             android:inputType="textPersonName"
             android:hint="@string/Website"
-            android:paddingTop="20dp"
+            android:layout_marginTop="20dp"
             android:layout_below="@id/editlinkdin2"
-            android:layout_marginLeft="30dp"
-            android:layout_marginRight="30dp"
+
+            />
+        <ImageView
+            android:id="@+id/tag_ic"
+            android:layout_width="55dp"
+            android:layout_height="55dp"
+            android:src="@drawable/ic_tag"
+            android:layout_below="@id/editwebsite2"
+            android:paddingTop="5dp"
+            android:layout_marginTop="15dp"
+            android:paddingBottom="20dp"
             />
         <TextView
             android:id="@+id/addtag2"
@@ -102,11 +163,10 @@
             android:layout_height="wrap_content"
             android:inputType="textAutoComplete"
             android:ems="10"
+            android:layout_toEndOf="@id/tag_ic"
             android:layout_below="@+id/editwebsite2"
-            android:layout_marginRight="30dp"
-            android:layout_marginLeft="30dp"
-            android:paddingTop="10dp"
-            android:paddingBottom="10dp"
+            android:paddingTop="20dp"
+
             android:hint="Click To Add Tags"
             android:textSize="20dp"
             />
@@ -115,10 +175,10 @@
             android:id="@+id/button2"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:paddingTop="10dp"
+
             android:text="@string/Save"
             android:layout_below="@id/addtag2"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="20dp"
             android:textSize="20dp"
             android:background="@drawable/button"
             android:layout_centerHorizontal="true"/>
