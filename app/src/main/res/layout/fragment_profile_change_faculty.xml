@@ -29,7 +29,9 @@
             android:layout_height="50dp"
             android:layout_below="@id/photochange2"
             android:layout_alignRight="@id/photochange2"
-            android:background="@drawable/camera" />
+            android:scaleType="fitCenter"
+            android:src="@drawable/camera"
+            android:background="@color/iiit" />
 
 
         <EditText

@@ -10,7 +10,7 @@ public class AboutusViewModel extends ViewModel {
 
     public AboutusViewModel() {
         mText = new MutableLiveData<>();
-        mText.setValue("This is about us fragment constructor, in AboutusViewModel.java");
+        mText.setValue("CONTRIBUTORS");
     }
 
     public LiveData<String> getText() {

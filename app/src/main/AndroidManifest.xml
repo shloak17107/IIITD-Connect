@@ -9,17 +9,20 @@
         android:roundIcon="@mipmap/iiitd_connect_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".showPostActivity"></activity>
+        <activity android:name=".showPostActivity">
+
+        </activity>
         <activity android:name=".UserType" />
         <activity android:name=".CreatePost" />
         <activity android:name=".Profile"/>
-        <activity android:name=".Profilechange"/>
-        <activity android:name=".RegistrationActivity" />
-        <activity android:name=".LoginActivity" />
+        <activity android:name=".Profilechange" />
+        <activity android:name=".RegistrationActivity" android:screenOrientation="portrait"/>
+        <activity android:name=".LoginActivity" android:screenOrientation="portrait"/>
         <activity android:name=".profile_see" />
         <activity android:name=".profile_enter" />
         <activity android:name=".Feed" />
         <activity android:name=".MainActivity">
+            android:screenOrientation="portrait"
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

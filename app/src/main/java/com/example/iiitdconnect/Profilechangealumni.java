@@ -85,6 +85,7 @@ public class Profilechangealumni extends Fragment {
         // Inflate the layout for this fragment
         View v = inflater.inflate(R.layout.fragment_profile_change_alumni, container, false);
         changed = false;
+
         Save = (Button) v.findViewById(R.id.buttonchange1);
 
         Name = (EditText) v.findViewById(R.id.editnamechange1);
@@ -97,6 +98,20 @@ public class Profilechangealumni extends Fragment {
         webPage = (EditText) v.findViewById(R.id.editwebsitechange1);
         yearOfPassing = (EditText) v.findViewById(R.id.edityearofpasschange1);
 
+
+        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(getActivity(),
+                R.array.statusarray, android.R.layout.simple_spinner_item);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        adapter.setDropDownViewResource(android.R.layout.simple_dropdown_item_1line);
+        status.setAdapter(adapter);
+
+
+        ArrayAdapter<CharSequence> adapter1 = ArrayAdapter.createFromResource(getActivity(),
+                R.array.degreesarray, android.R.layout.simple_spinner_item);
+        adapter1.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        adapter1.setDropDownViewResource(android.R.layout.simple_dropdown_item_1line);
+        Branch.setAdapter(adapter1);
+
         Name.setText(FeedFragment.currentAlumni.getName());
         Branch.setSelection(((ArrayAdapter)Branch.getAdapter()).getPosition(FeedFragment.currentAlumni.getBranch()));
         ContactNumber.setText(FeedFragment.currentAlumni.getContactNumber());
@@ -106,7 +121,6 @@ public class Profilechangealumni extends Fragment {
         LinkedIn.setText(FeedFragment.currentAlumni.getLinkedIn());
         webPage.setText(FeedFragment.currentAlumni.getWebpage());
         yearOfPassing.setText(FeedFragment.currentAlumni.getYearOfPassing());
-
 
 
         mAuth = FirebaseAuth.getInstance();
@@ -189,7 +203,7 @@ public class Profilechangealumni extends Fragment {
         FeedFragment.currentAlumni.setInstituteCompany(Company.getText().toString());
 
         String id = email.substring(0, email.indexOf("@"));
-        mDatabase.child("Alumni").child(id).setValue(FeedFragment.currentStudent);
+        mDatabase.child("Alumni").child(id).setValue(FeedFragment.currentAlumni);
         Toast.makeText(getActivity(), "Student Details Saved!", Toast.LENGTH_SHORT).show();
     }
 

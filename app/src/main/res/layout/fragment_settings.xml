@@ -6,9 +6,6 @@
     android:layout_marginTop="20dp"
     android:orientation="vertical">
 
-    <!-- TODO: Update blank fragment layout -->
-
-
     <Switch
         android:id="@+id/Darktheme"
         android:layout_width="match_parent"
@@ -31,7 +28,7 @@
         android:layout_gravity="center"
         android:id="@+id/sign_out"
         android:theme="@style/PrimaryButton"
-        android:text="@string/signout"
+        android:text="Sign Out"
         android:textAlignment="center"/>
 
 </LinearLayout>

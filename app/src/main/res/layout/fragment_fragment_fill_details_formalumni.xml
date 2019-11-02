@@ -6,32 +6,17 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent" >
-        <!--        <ImageView-->
-        <!--            android:id="@+id/photo1"-->
-        <!--            android:layout_width="match_parent"-->
-        <!--            android:layout_height="223dp"-->
-        <!--            android:layout_gravity="center"-->
-        <!--            android:src="@drawable/photo" />-->
-        <!--        <ImageView-->
-        <!--            android:id="@+id/circle_crop1"-->
-        <!--            android:layout_width="match_parent"-->
-        <!--            android:layout_height="223dp"-->
-        <!--            android:layout_gravity="center"-->
-        <!--            android:src="@drawable/circle" />-->
+
         <com.mikhaellopez.circularimageview.CircularImageView
             android:id="@+id/photo1"
             android:layout_width="223dp"
             android:layout_height="223dp"
-            android:layout_alignParentEnd="true"
             android:layout_centerHorizontal="true"
-            android:layout_marginEnd="108dp"
             android:src="@drawable/photo"
             app:civ_border_width="4dp"
             app:civ_shadow="true"
             app:civ_shadow_color="#8BC34A"
-            app:civ_shadow_radius="1"
-            android:layout_alignParentRight="true"
-            android:layout_marginRight="108dp" />
+            app:civ_shadow_radius="1" />
 
         <ImageButton
             android:id="@+id/camera1"
@@ -192,15 +177,15 @@
 
         <TextView
             android:id="@+id/addtag1"
-            android:background="#009688"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="textAutoComplete"
             android:ems="10"
             android:layout_below="@+id/edityearofpass1"
-            android:layout_marginRight="100dp"
-            android:layout_marginLeft="100dp"
-            android:paddingTop="20dp"
+            android:layout_marginRight="30dp"
+            android:layout_marginLeft="30dp"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
             android:hint="Click To Add Tags"
             android:textSize="20dp"
             />

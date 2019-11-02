@@ -97,6 +97,12 @@ public class Profilechangestudent extends Fragment {
         webPage = v.findViewById(R.id.editwebsitechange);
         yearOfPassing = v.findViewById(R.id.edityearofpasschange);
 
+        ArrayAdapter<CharSequence> adapter2 = ArrayAdapter.createFromResource(getActivity(),
+                R.array.degreesarray, android.R.layout.simple_spinner_item);
+        adapter2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        adapter2.setDropDownViewResource(android.R.layout.simple_dropdown_item_1line);
+        Branch.setAdapter(adapter2);
+
         Name.setText(FeedFragment.currentStudent.getName());
         Branch.setSelection(((ArrayAdapter)Branch.getAdapter()).getPosition(FeedFragment.currentStudent.getBranch()));
         ContactNumber.setText(FeedFragment.currentStudent.getContactNumber());
