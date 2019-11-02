@@ -16,9 +16,11 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.TextView;
@@ -96,6 +98,7 @@ public class Profilechangestudent extends Fragment {
         yearOfPassing = v.findViewById(R.id.edityearofpasschange);
 
         Name.setText(FeedFragment.currentStudent.getName());
+        Branch.setSelection(((ArrayAdapter)Branch.getAdapter()).getPosition(FeedFragment.currentStudent.getBranch()));
         ContactNumber.setText(FeedFragment.currentStudent.getContactNumber());
         dateOfBirth.setText(FeedFragment.currentStudent.getDateOfBirth());
         LinkedIn.setText(FeedFragment.currentStudent.getLinkedIn());
@@ -130,11 +133,11 @@ public class Profilechangestudent extends Fragment {
                     UploadImageFileToFirebaseStorage();
                 }
 
-                addSmallDelay();
+//                addSmallDelay();
             }
         });
 
-        Button click=(Button)v.findViewById(R.id.datebuttonchange);
+        ImageButton click=(ImageButton)v.findViewById(R.id.datebuttonchange);
         dateOfBirth.setEnabled(false);
         click.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -155,7 +158,7 @@ public class Profilechangestudent extends Fragment {
         });
 
 
-        Button camerabutton = (Button)v.findViewById(R.id.camerachange);
+        ImageButton camerabutton = (ImageButton)v.findViewById(R.id.camerachange);
         camerabutton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -186,6 +189,7 @@ public class Profilechangestudent extends Fragment {
 
 //        FeedFragment.currentStudent.setBranch(Branch.getSelectedItem().toString());
         FeedFragment.currentStudent.setName(Name.getText().toString());
+        FeedFragment.currentStudent.setBranch(Branch.getSelectedItem().toString());
         FeedFragment.currentStudent.setContactNumber(ContactNumber.getText().toString());
         FeedFragment.currentStudent.setYearOfPassing(yearOfPassing.getText().toString());
         FeedFragment.currentStudent.setLinkedIn(LinkedIn.getText().toString());
@@ -227,39 +231,7 @@ public class Profilechangestudent extends Fragment {
         }
     }
 
-    @Override
-    public void onActivityResult(int requestCode, int resultCode, Intent data) {
-        if(resultCode != RESULT_CANCELED) {
-            switch (requestCode) {
-                case 0:
-                    if (resultCode == RESULT_OK && data != null) {
-                        FilePathUri = data.getData();
-                        Log.d("IMAGEPATH", FilePathUri.toString());
-                        Bitmap selectedImage = (Bitmap) data.getExtras().get("data");
-                        image.setImageBitmap(selectedImage);
-                        changed = true;
-                    }
-                    break;
-                case 1:
-                    if (resultCode == RESULT_OK && data != null) {
-                        FilePathUri = data.getData();
-                        Log.d("IMAGEPATH", FilePathUri.toString());
-                        Bitmap im = null;//MediaStore.Images.Media.getBitmap(getApplicationContext().getContentResolver(), data.getData());
-                        if (data != null) {
-                            try {
-                                im = MediaStore.Images.Media.getBitmap(getActivity().getContentResolver(), data.getData());
-                            } catch (IOException e) {
-                                e.printStackTrace();
-                            }
-                        }
-                        image.setImageBitmap(im);
-                        changed = true;
-                    }
-                    break;
-            }
 
-        }
-    }
 
     private void galleryorcamera(Context context) {
         final CharSequence[] options = {"Use Camera", "Choose From Gallery", "Cancel"};

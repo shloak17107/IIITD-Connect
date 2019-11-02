@@ -27,7 +27,7 @@
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:text="@string/Name"
-            android:textSize="24sp"
+            android:textSize="24dp"
             android:layout_below="@id/photodetails1"
             android:paddingTop="20dp"/>
         <TextView
@@ -35,6 +35,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/Type_here"
+            android:textSize="24dp"
             android:paddingTop="20dp"
             android:layout_below="@id/photodetails1"
             android:layout_alignRight="@id/namedetails1"/>
@@ -44,7 +45,7 @@
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:text="@string/Branch"
-            android:textSize="24sp"
+            android:textSize="24dp"
             android:layout_below="@id/namedetails1"
             android:paddingTop="20dp"/>
         <TextView
@@ -52,6 +53,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/Type_here"
+            android:textSize="24dp"
             android:paddingTop="20dp"
             android:layout_below="@id/namedetails1"
             android:layout_alignRight="@id/branchdetails1"/>
@@ -61,7 +63,7 @@
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:text="@string/Conatct_no"
-            android:textSize="24sp"
+            android:textSize="24dp"
             android:layout_below="@id/branchdetails1"
             android:paddingTop="20dp"/>
         <TextView
@@ -69,6 +71,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/Type_here"
+            android:textSize="24dp"
             android:paddingTop="20dp"
             android:layout_below="@id/branchdetails1"
             android:layout_alignRight="@id/contactdetails1"/>
@@ -78,7 +81,7 @@
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:text="@string/Status"
-            android:textSize="24sp"
+            android:textSize="24dp"
             android:layout_below="@id/contactdetails1"
             android:paddingTop="20dp"/>
         <TextView
@@ -86,6 +89,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/Type_here"
+            android:textSize="24dp"
             android:paddingTop="20dp"
             android:layout_below="@id/contactdetails1"
             android:layout_alignRight="@id/dobdetails1"/>
@@ -95,7 +99,7 @@
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:text="@string/D_O_B"
-            android:textSize="24sp"
+            android:textSize="24dp"
             android:layout_below="@id/statusdetails1"
             android:paddingTop="20dp"/>
         <TextView
@@ -103,6 +107,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/Type_here"
+            android:textSize="24dp"
             android:paddingTop="20dp"
             android:layout_below="@id/statusdetails1"
             android:layout_alignRight="@id/dobdetails1"/>
@@ -112,7 +117,7 @@
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:text="@string/Company"
-            android:textSize="24sp"
+            android:textSize="24dp"
             android:layout_below="@id/dobdetails1"
             android:paddingTop="20dp"/>
         <TextView
@@ -120,6 +125,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/Type_here"
+            android:textSize="24dp"
             android:paddingTop="20dp"
             android:layout_below="@id/dobdetails1"
             android:layout_alignRight="@id/companydetails1"/>
@@ -129,7 +135,7 @@
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:text="@string/Linkdin"
-            android:textSize="24sp"
+            android:textSize="24dp"
             android:layout_below="@id/companydetails1"
             android:paddingTop="20dp"/>
         <TextView
@@ -137,6 +143,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/Type_here"
+            android:textSize="24dp"
             android:paddingTop="20dp"
             android:layout_below="@id/companydetails1"
             android:layout_alignRight="@id/linkdindetails1"/>
@@ -146,7 +153,7 @@
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:text="@string/Website"
-            android:textSize="24sp"
+            android:textSize="24dp"
             android:layout_below="@id/linkdindetails1"
             android:paddingTop="20dp"/>
         <TextView
@@ -154,6 +161,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/Type_here"
+            android:textSize="24dp"
             android:paddingTop="20dp"
             android:layout_below="@id/linkdindetails1"
             android:layout_alignRight="@id/websitedetails1"/>
@@ -164,7 +172,7 @@
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:text="@string/Year_of_passing"
-            android:textSize="24sp"
+            android:textSize="24dp"
             android:layout_below="@id/websitedetails1"
             android:paddingTop="20dp"/>
         <TextView
@@ -172,6 +180,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/Type_here"
+            android:textSize="24dp"
             android:paddingTop="20dp"
             android:layout_below="@id/websitedetails1"
             android:layout_alignRight="@id/yearofpassdetails1"/>

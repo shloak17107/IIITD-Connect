@@ -33,7 +33,7 @@
             android:layout_alignParentRight="true"
             android:layout_marginRight="108dp" />
 
-        <Button
+        <ImageButton
             android:id="@+id/camerachange"
             android:layout_width="50dp"
             android:layout_height="50dp"
@@ -93,7 +93,7 @@
             android:layout_marginLeft="30dp"
             android:layout_marginRight="30dp"
             />
-        <Button
+        <ImageButton
             android:id="@+id/datebuttonchange"
             android:text="click"
             android:layout_width="50dp"
