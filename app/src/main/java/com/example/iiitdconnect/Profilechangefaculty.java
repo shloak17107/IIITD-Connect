@@ -135,6 +135,11 @@ public class Profilechangefaculty extends Fragment {
                 if(changed) {
                     UploadImageFileToFirebaseStorage();
                 }
+
+                Intent i = new Intent(getActivity(), Feed.class);
+                i.addFlags(i.FLAG_ACTIVITY_NO_ANIMATION);
+                getActivity().finish();
+                startActivity(i);
             }
         });
 
