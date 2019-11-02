@@ -5,7 +5,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent" >
+        android:layout_height="match_parent"
+        android:layout_margin="30dp">
 
         <com.mikhaellopez.circularimageview.CircularImageView
             android:id="@+id/photo1"
@@ -24,47 +25,77 @@
             android:layout_height="50dp"
             android:layout_below="@id/photo1"
             android:layout_alignRight="@id/photo1"
-            android:scaleType="fitCenter"
+            android:layout_marginTop="-50dp"
             android:background="@color/iiit"
+            android:scaleType="fitCenter"
             android:src="@drawable/camera" />
 
+        <ImageView
+            android:id="@+id/person_ic"
+            android:layout_width="55dp"
+            android:layout_height="55dp"
+            android:src="@drawable/person"
+            android:layout_below="@id/camera1"
+            android:layout_marginTop="5dp"
+            android:paddingTop="20dp"
+            />
 
         <EditText
             android:id="@+id/editname1"
+            android:layout_toEndOf="@id/person_ic"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
+            android:background="@drawable/customborder"
             android:inputType="textPersonName"
             android:hint="@string/Name"
-            android:paddingTop="20dp"
+            android:layout_marginTop="20dp"
             android:layout_below="@id/camera1"
-            android:layout_marginLeft="30dp"
-            android:layout_marginRight="30dp"
-            />
 
+            />
+        <ImageView
+            android:id="@+id/branch_ic"
+            android:layout_width="55dp"
+            android:layout_height="55dp"
+            android:layout_marginTop="5dp"
+            android:src="@drawable/branch_ic"
+            android:layout_below="@id/editname1"
+            android:paddingTop="20dp"
+            />
 
         <Spinner
             android:id="@+id/editbranch1"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
+            android:layout_toEndOf="@id/branch_ic"
             android:layout_height="50dp"
-            android:paddingTop="20dp"
+            android:layout_marginTop="20dp"
             android:layout_below="@id/editname1"
-            android:layout_marginLeft="30dp"
-            android:layout_marginRight="30dp"
+
             />
 
 
+        <ImageView
+            android:id="@+id/mobile_ic"
+            android:layout_width="55dp"
+            android:layout_marginTop="5dp"
+            android:layout_height="55dp"
+            android:src="@drawable/mobile"
+            android:paddingTop="20dp"
+            android:layout_below="@id/editbranch1"
+            />
         <EditText
             android:id="@+id/editcontact1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
+            android:background="@drawable/customborder"
+            android:layout_toLeftOf="@id/mobile_ic"
+            android:layout_toEndOf="@id/branch_ic"
             android:inputType="number"
             android:hint="@string/Conatct_no"
-            android:paddingTop="20dp"
+            android:layout_marginTop="20dp"
             android:layout_below="@id/editbranch1"
-            android:layout_marginLeft="30dp"
-            android:layout_marginRight="30dp"
+
             />
 
 
@@ -80,29 +111,49 @@
         <!--            android:layout_marginLeft="30dp"-->
         <!--            android:layout_marginRight="30dp"-->
         <!--            />-->
+
+        <ImageView
+            android:id="@+id/status_ic"
+            android:layout_width="55dp"
+            android:layout_height="55dp"
+            android:layout_marginTop="5dp"
+            android:src="@drawable/status_ic"
+            android:layout_below="@id/editcontact1"
+            android:paddingTop="20dp"
+            />
         <Spinner
             android:id="@+id/editstatus1"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
+            android:layout_toEndOf="@id/status_ic"
             android:layout_height="50dp"
             android:paddingTop="20dp"
             android:layout_below="@+id/editcontact1"
-            android:layout_marginLeft="30dp"
-            android:layout_marginRight="30dp"
+
 
             />
 
 
+        <ImageView
+            android:id="@+id/birth_ic"
+            android:layout_width="55dp"
+            android:layout_height="55dp"
+            android:layout_marginTop="5dp"
+            android:paddingTop="20dp"
+            android:src="@drawable/birth"
+            android:layout_below="@id/editstatus1"
+            />
         <EditText
             android:id="@+id/editdob1"
-            android:layout_width="match_parent"
+            android:layout_width="250dp"
             android:layout_height="wrap_content"
             android:ems="10"
+            android:layout_toEndOf="@id/birth_ic"
             android:inputType="date"
             android:hint="@string/D_O_B"
-            android:paddingTop="20dp"
+            android:background="@drawable/customborder"
+            android:layout_marginTop="20dp"
             android:layout_below="@id/editstatus1"
-            android:layout_marginLeft="30dp"
-            android:layout_marginRight="30dp"
+
             />
         <ImageButton
             android:id="@+id/datebutton1"
@@ -111,68 +162,119 @@
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:layout_below="@+id/editstatus1"
+            android:layout_marginLeft="5dp"
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="23dp"
             android:layout_alignRight="@+id/editdob1"
             android:scaleType="fitCenter"
             android:background="@color/iiit"
             android:src="@drawable/calendar"/>
 
 
+        <ImageView
+            android:id="@+id/company_ic"
+            android:layout_width="55dp"
+            android:layout_height="55dp"
+            android:layout_marginTop="5dp"
+            android:paddingTop="20dp"
+            android:src="@drawable/company"
+            android:layout_below="@id/editdob1"
+            />
 
         <EditText
             android:id="@+id/editcompany1"
+            android:layout_toEndOf="@id/company_ic"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
+            android:background="@drawable/customborder"
             android:inputType="textPersonName"
             android:hint="@string/Company"
-            android:paddingTop="20dp"
+            android:layout_marginTop="20dp"
             android:layout_below="@id/editdob1"
-            android:layout_marginLeft="30dp"
-            android:layout_marginRight="30dp"
+
             />
 
+        <ImageView
+            android:id="@+id/linkedin_ic"
+            android:layout_width="55dp"
+            android:layout_height="55dp"
+            android:src="@drawable/linkedin"
+            android:layout_margin="5dp"
+            android:layout_below="@id/editcompany1"
+            android:paddingTop="20dp"
+            />
 
         <EditText
+            android:layout_toEndOf="@id/linkedin_ic"
             android:id="@+id/editlinkdin1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
+            android:background="@drawable/customborder"
             android:inputType="textPersonName"
             android:hint="@string/Linkdin"
-            android:paddingTop="20dp"
+            android:layout_marginTop="20dp"
             android:layout_below="@id/editcompany1"
-            android:layout_marginLeft="30dp"
-            android:layout_marginRight="30dp"
+
             />
 
-
+        <ImageView
+            android:id="@+id/website_ic"
+            android:layout_width="55dp"
+            android:layout_height="55dp"
+            android:layout_margin="5dp"
+            android:src="@drawable/website_ic"
+            android:layout_below="@id/editlinkdin1"
+            android:paddingTop="20dp"
+            />
         <EditText
             android:id="@+id/editwebsite1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
+            android:layout_toEndOf="@id/website_ic"
             android:inputType="textPersonName"
             android:hint="@string/Website"
-            android:paddingTop="20dp"
+            android:background="@drawable/customborder"
+            android:layout_marginTop="20dp"
             android:layout_below="@id/editlinkdin1"
-            android:layout_marginLeft="30dp"
-            android:layout_marginRight="30dp"
+
             />
 
 
 
-
+        <ImageView
+            android:id="@+id/graduate_ic"
+            android:layout_width="55dp"
+            android:layout_height="55dp"
+            android:layout_marginTop="5dp"
+            android:src="@drawable/ic_graduate"
+            android:layout_below="@id/editwebsite1"
+            android:paddingTop="20dp"
+            />
         <EditText
             android:id="@+id/edityearofpass1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
+            android:layout_toEndOf="@id/graduate_ic"
             android:inputType="number"
             android:hint="@string/Year_of_passing"
-            android:paddingTop="20dp"
+            android:background="@drawable/customborder"
+            android:layout_marginTop="20dp"
             android:layout_below="@id/editwebsite1"
-            android:layout_marginLeft="30dp"
-            android:layout_marginRight="30dp"
+
+            />
+        <ImageView
+            android:id="@+id/tag_ic"
+            android:layout_width="55dp"
+            android:layout_height="55dp"
+            android:src="@drawable/ic_tag"
+            android:layout_marginTop="20dp"
+            android:layout_below="@id/edityearofpass1"
+            android:paddingTop="5dp"
+            android:paddingBottom="20dp"
             />
 
         <TextView
@@ -181,11 +283,11 @@
             android:layout_height="wrap_content"
             android:inputType="textAutoComplete"
             android:ems="10"
+            android:layout_toEndOf="@id/tag_ic"
             android:layout_below="@+id/edityearofpass1"
-            android:layout_marginRight="30dp"
-            android:layout_marginLeft="30dp"
-            android:paddingTop="10dp"
-            android:paddingBottom="10dp"
+
+            android:layout_marginTop="20dp"
+
             android:hint="Click To Add Tags"
             android:textSize="20dp"
             />
@@ -194,14 +296,13 @@
             android:id="@+id/button1"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:paddingTop="10dp"
+            android:layout_marginTop="10dp"
             android:text="@string/Save"
             android:layout_below="@id/addtag1"
             android:textSize="20dp"
             android:layout_centerHorizontal="true"
             android:background="@drawable/button"
-            android:layout_marginLeft="30dp"
-            android:layout_marginRight="30dp"/>
+          />
 
 
     </RelativeLayout>
