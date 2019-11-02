@@ -18,12 +18,6 @@
         tools:layout="@layout/fragment_profile" />
 
     <fragment
-        android:id="@+id/nav_settings"
-        android:name="com.example.iiitdconnect.ui.settings.SettingsFragment"
-        android:label="@string/menu_settings"
-        tools:layout="@layout/fragment_settings" />
-
-    <fragment
         android:id="@+id/nav_aboutus"
         android:name="com.example.iiitdconnect.ui.aboutus.AboutusFragment"
         android:label="@string/menu_about"
