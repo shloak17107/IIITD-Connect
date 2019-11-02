@@ -1,11 +1,26 @@
 package com.example.iiitdconnect;
 
+import android.app.AlertDialog;
+import android.app.DatePickerDialog;
+import android.app.ProgressDialog;
+import android.content.Context;
+import android.content.DialogInterface;
+import android.content.Intent;
+import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Bundle;
+import android.provider.MediaStore;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.DatePicker;
+import android.widget.EditText;
+import android.widget.ImageButton;
+import android.widget.Spinner;
+import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.google.android.gms.tasks.OnFailureListener;
@@ -14,25 +29,43 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.OnProgressListener;
 import com.google.firebase.storage.StorageReference;
+import com.google.firebase.storage.UploadTask;
 import com.mikhaellopez.circularimageview.CircularImageView;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
+
+import java.io.IOException;
+import java.util.Calendar;
+
+import static android.app.Activity.RESULT_CANCELED;
+import static android.app.Activity.RESULT_OK;
 
 public class Profilechangefaculty extends Fragment {
 
     private Button Cancel;
     private Button Save;
 
+    public boolean changed;
     private FirebaseAuth mAuth;
     private DatabaseReference mDatabase;
 
+    ProgressDialog progressDialog ;
     StorageReference storageReference2nd;
     Uri FilePathUri;
     StorageReference storageReference;
     String Storage_Path = "images/";
     CircularImageView image;
+
+
+    EditText Name;
+    Spinner Department;
+    EditText LinkedIn;
+    EditText webPage;
+    EditText expertise;
+
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -65,13 +98,8 @@ public class Profilechangefaculty extends Fragment {
         webPage.setText(FeedFragment.currentFaculty.getWebpage());
         expertise.setText(FeedFragment.currentFaculty.getExpertise());
 
-        Save = (Button) v.findViewById(R.id.buttonchange2);
-        Save.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
+        
 
-            }
-        });
 //        Cancel = (Button) v.findViewById(R.id.buttoncancel2);
 //        Cancel.setOnClickListener(new View.OnClickListener() {
 //            @Override
@@ -85,7 +113,7 @@ public class Profilechangefaculty extends Fragment {
         storageReference = storage.getReferenceFromUrl("gs://iiitd-connect-73dc0.appspot.com");
         mDatabase = FirebaseDatabase.getInstance().getReference();
         String email = mAuth.getCurrentUser().getEmail().toString();
-        image = v.findViewById(R.id.photochange);
+        image = v.findViewById(R.id.photochange2);
         String id = email.substring(0, email.indexOf("@"));
         storageReference.child(Storage_Path + email).getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
             @Override
@@ -97,6 +125,25 @@ public class Profilechangefaculty extends Fragment {
             @Override
             public void onFailure(@NonNull Exception exception) {
                 // Handle any errors
+            }
+        });
+
+        Save.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                UploadUserData();
+                if(changed) {
+                    UploadImageFileToFirebaseStorage();
+                }
+            }
+        });
+
+
+        ImageButton camerabutton = (ImageButton)v.findViewById(R.id.camerachange2);
+        camerabutton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                galleryorcamera(getActivity());
             }
         });
 
