@@ -15,6 +15,7 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.TextView;
@@ -40,7 +41,7 @@ import static android.app.Activity.RESULT_CANCELED;
 import static android.app.Activity.RESULT_OK;
 
 public class FragmentFillDetailsFormfaculty extends Fragment {
-    private Button camerabutton ;
+    private ImageButton camerabutton ;
     ImageView img;
     private Button Save;
     Spinner departmentspinner;
@@ -79,7 +80,7 @@ public class FragmentFillDetailsFormfaculty extends Fragment {
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         adapter.setDropDownViewResource(android.R.layout.simple_dropdown_item_1line);
         departmentspinner.setAdapter(adapter);
-        camerabutton = (Button)view.findViewById(R.id.camera2);
+        camerabutton = (ImageButton)view.findViewById(R.id.camera2);
         camerabutton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

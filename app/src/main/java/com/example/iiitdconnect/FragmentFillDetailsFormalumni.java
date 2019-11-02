@@ -17,6 +17,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.TextView;
@@ -44,12 +45,12 @@ import static android.app.Activity.RESULT_OK;
 
 
 public class FragmentFillDetailsFormalumni extends Fragment {
-    private Button camerabutton ;
+    private ImageButton camerabutton ;
     ImageView img;
     private Button Save;
     Spinner degreespinner;
     Spinner statusspinner;
-    Button click;
+    ImageButton click;
     EditText date;
     int year,month,day;
     private TextView tags;
@@ -98,7 +99,7 @@ public class FragmentFillDetailsFormalumni extends Fragment {
         adapter1.setDropDownViewResource(android.R.layout.simple_dropdown_item_1line);
         degreespinner.setAdapter(adapter1);
 
-        camerabutton = (Button)view.findViewById(R.id.camera1);
+        camerabutton = (ImageButton) view.findViewById(R.id.camera1);
         camerabutton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -106,7 +107,7 @@ public class FragmentFillDetailsFormalumni extends Fragment {
             }
         });
 
-        click=(Button)view.findViewById(R.id.datebutton1);
+        click=(ImageButton)view.findViewById(R.id.datebutton1);
         date=(EditText)view.findViewById(R.id.editdob1);
         date.setEnabled(false);
         click.setOnClickListener(new View.OnClickListener() {
