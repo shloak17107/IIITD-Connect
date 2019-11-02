@@ -33,13 +33,15 @@
             android:layout_alignParentRight="true"
             android:layout_marginRight="108dp" />
 
-        <Button
+        <ImageButton
             android:id="@+id/camera1"
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:layout_below="@id/photo1"
             android:layout_alignRight="@id/photo1"
-            android:background="@drawable/camera" />
+            android:scaleType="fitCenter"
+            android:background="@color/iiit"
+            android:src="@drawable/camera" />
 
 
         <EditText
@@ -117,7 +119,7 @@
             android:layout_marginLeft="30dp"
             android:layout_marginRight="30dp"
             />
-        <Button
+        <ImageButton
             android:id="@+id/datebutton1"
             android:text="click"
 
@@ -125,7 +127,9 @@
             android:layout_height="50dp"
             android:layout_below="@+id/editstatus1"
             android:layout_alignRight="@+id/editdob1"
-            android:background="@drawable/calendar"/>
+            android:scaleType="fitCenter"
+            android:background="@color/iiit"
+            android:src="@drawable/calendar"/>
 
 
 

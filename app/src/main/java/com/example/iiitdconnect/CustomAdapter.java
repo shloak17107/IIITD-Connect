@@ -51,6 +51,7 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.MyViewHold
 
     public CustomAdapter(ArrayList<Post> data) {
         this.dataSet = data;
+        Log.d("check", "check");
     }
 
     @Override

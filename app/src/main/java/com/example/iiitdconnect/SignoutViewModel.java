@@ -1,4 +1,4 @@
-package com.example.iiitdconnect.ui.signout;
+package com.example.iiitdconnect;
 
 import com.google.firebase.auth.FirebaseAuth;
 

@@ -46,6 +46,7 @@ public class showPostActivity extends AppCompatActivity {
         }
         this.post = new Post(createdBy, title, body, tt, date, time, venue);
         this.post.interestedpeople = new interested(inter);
+        this.post.setTimestamp(this.timestamp);
 
         setContentView(R.layout.activity_show_post);
         FragmentManager fm = getSupportFragmentManager();

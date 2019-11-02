@@ -17,6 +17,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.TextView;
@@ -30,6 +31,7 @@ import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.OnProgressListener;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
@@ -44,12 +46,12 @@ import static android.app.Activity.RESULT_OK;
 
 public class FragmentFillDetailsFormstudent extends Fragment {
 
-    private Button camerabutton ;
+    private ImageButton camerabutton ;
 
     private Button Save ;
     ImageView img;
     Spinner degreespinner;
-    Button click;
+    ImageButton click;
     EditText date;
     int year,month,day;
 
@@ -89,7 +91,7 @@ public class FragmentFillDetailsFormstudent extends Fragment {
         adapter2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         adapter2.setDropDownViewResource(android.R.layout.simple_dropdown_item_1line);
         degreespinner.setAdapter(adapter2);
-        camerabutton = (Button)view.findViewById(R.id.camera);
+        camerabutton = (ImageButton)view.findViewById(R.id.camera);
         camerabutton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -97,7 +99,7 @@ public class FragmentFillDetailsFormstudent extends Fragment {
             }
         });
 
-        click=(Button)view.findViewById(R.id.datebutton);
+        click=(ImageButton)view.findViewById(R.id.datebutton);
         date=(EditText)view.findViewById(R.id.editdob);
         date.setEnabled(false);
         click.setOnClickListener(new View.OnClickListener() {
@@ -171,6 +173,18 @@ public class FragmentFillDetailsFormstudent extends Fragment {
         });
 
 
+        Save = (Button)view.findViewById(R.id.button);
+        Save.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                UploadUserData();
+                UploadImageFileToFirebaseStorage();
+                Intent i = new Intent(getActivity(), Feed.class);
+                i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                startActivity(i);
+            }
+        });
+
         storageReference = RegistrationActivity.storageReference;
         mAuth = FirebaseAuth.getInstance();
         mDatabase = FirebaseDatabase.getInstance().getReference();
@@ -215,6 +229,7 @@ public class FragmentFillDetailsFormstudent extends Fragment {
                         FilePathUri = data.getData();
                         Bitmap selectedImage = (Bitmap) data.getExtras().get("data");
                         img.setImageBitmap(selectedImage);
+//                        img.setImageURI(FilePathUri);
                     }
                     break;
                 case 1:

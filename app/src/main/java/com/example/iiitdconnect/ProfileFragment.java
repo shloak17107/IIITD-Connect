@@ -1,6 +1,7 @@
 package com.example.iiitdconnect;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -14,9 +15,23 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 
+import com.bumptech.glide.Glide;
 import com.example.iiitdconnect.ui.profile.ProfileViewModel;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
+import com.mikhaellopez.circularimageview.CircularImageView;
 
 public class ProfileFragment extends Fragment {
+
+    StorageReference storageReference2nd;
+    Uri FilePathUri;
+    StorageReference storageReference;
+    String Storage_Path = "images/";
+    CircularImageView image;
+    private FirebaseAuth mAuth;
 
     private ProfileViewModel profileViewModel;
 
@@ -30,7 +45,7 @@ public class ProfileFragment extends Fragment {
         final TextView textView = root.findViewById(R.id.text_profile);
         int type=FeedFragment.type;
         Button Edit;
-        if(type==1){
+        if(FeedFragment.type==1){
             Student student=FeedFragment.currentStudent;
             root = inflater.inflate(R.layout.fragment_profile_details_student, container, false);
             TextView name=root.findViewById(R.id.editnamedetails);
@@ -48,6 +63,26 @@ public class ProfileFragment extends Fragment {
             website.setText(student.getWebpage());
             yop.setText(student.getYearOfPassing());
             Edit = (Button) root.findViewById(R.id.Editdetails);
+
+            FirebaseStorage storage = FirebaseStorage.getInstance();
+            storageReference = storage.getReferenceFromUrl("gs://iiitd-connect-73dc0.appspot.com");
+            image = root.findViewById(R.id.photodetails);
+            mAuth = FirebaseAuth.getInstance();
+            String email = mAuth.getCurrentUser().getEmail().toString();
+            storageReference.child(Storage_Path + email).getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+                @Override
+                public void onSuccess(Uri uri) {
+                    String imageURL = uri.toString();
+                    Glide.with(getActivity()).load(imageURL).into(image);
+                }
+            }).addOnFailureListener(new OnFailureListener() {
+                @Override
+                public void onFailure(@NonNull Exception exception) {
+                    // Handle any errors
+                }
+            });
+
+
             Edit.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
@@ -59,7 +94,7 @@ public class ProfileFragment extends Fragment {
                 }
             });
         }
-        else if(type==2){
+        else if(FeedFragment.type==2){
             Alumni alumni=FeedFragment.currentAlumni;
             root = inflater.inflate(R.layout.fragment_profile_details_alumni, container, false);
             TextView name=root.findViewById(R.id.editnamedetails1);
@@ -81,6 +116,25 @@ public class ProfileFragment extends Fragment {
             yop.setText(alumni.getYearOfPassing());
             company.setText(alumni.getInstituteCompany());
             Edit = (Button) root.findViewById(R.id.Editdetails1);
+
+            FirebaseStorage storage = FirebaseStorage.getInstance();
+            storageReference = storage.getReferenceFromUrl("gs://iiitd-connect-73dc0.appspot.com");
+            image = root.findViewById(R.id.photodetails);
+            mAuth = FirebaseAuth.getInstance();
+            String email = mAuth.getCurrentUser().getEmail().toString();
+            storageReference.child(Storage_Path + email).getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+                @Override
+                public void onSuccess(Uri uri) {
+                    String imageURL = uri.toString();
+                    Glide.with(getActivity()).load(imageURL).into(image);
+                }
+            }).addOnFailureListener(new OnFailureListener() {
+                @Override
+                public void onFailure(@NonNull Exception exception) {
+                    // Handle any errors
+                }
+            });
+
             Edit.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
@@ -91,7 +145,7 @@ public class ProfileFragment extends Fragment {
                 }
             });
         }
-        else{
+        else if(FeedFragment.type == 3){
             Faculty faculty =FeedFragment.currentFaculty;
             root = inflater.inflate(R.layout.fragment_profile_details_faculty, container, false);
             TextView name=root.findViewById(R.id.editnamedetails2);
@@ -104,6 +158,25 @@ public class ProfileFragment extends Fragment {
             linkedin.setText(faculty.getLinkedIn());
             website.setText(faculty.getWebpage());
             Edit = (Button) root.findViewById(R.id.Editdetails2);
+
+            FirebaseStorage storage = FirebaseStorage.getInstance();
+            storageReference = storage.getReferenceFromUrl("gs://iiitd-connect-73dc0.appspot.com");
+            image = root.findViewById(R.id.photodetails);
+            mAuth = FirebaseAuth.getInstance();
+            String email = mAuth.getCurrentUser().getEmail().toString();
+            storageReference.child(Storage_Path + email).getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+                @Override
+                public void onSuccess(Uri uri) {
+                    String imageURL = uri.toString();
+                    Glide.with(getActivity()).load(imageURL).into(image);
+                }
+            }).addOnFailureListener(new OnFailureListener() {
+                @Override
+                public void onFailure(@NonNull Exception exception) {
+                    // Handle any errors
+                }
+            });
+
             Edit.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {

@@ -31,8 +31,8 @@
 
     <fragment
         android:id="@+id/nav_signout"
-        android:name="com.example.iiitdconnect.ui.signout.SignoutFragment"
+        android:name="com.example.iiitdconnect.SignoutFragment"
         android:label="@string/menu_signOut"
-        tools:layout="@layout/fragment_signout" />
+        tools:layout="@layout/fragment_myPosts" />
 
 </navigation>

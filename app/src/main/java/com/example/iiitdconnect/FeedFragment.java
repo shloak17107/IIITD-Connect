@@ -1,11 +1,13 @@
 package com.example.iiitdconnect;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
@@ -15,6 +17,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
+import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -72,7 +75,7 @@ public class FeedFragment extends Fragment {
                 for (DataSnapshot data : dataSnapshot.getChildren()) {
                     Post post = data.getValue(Post.class);
                     Map<String, String> postCategories = post.getCategory().getCategories();
-                    Log.d("tags_size", Integer.toString(interests.getCategories().size()));
+//                    Log.d("tags_size", Integer.toString(interests.getCategories().size()));
                     boolean flag = false;
                     for(Map.Entry<String, String> e: interests.getCategories().entrySet()) {
                         if (postCategories.containsKey(e.getKey())) {
@@ -111,6 +114,7 @@ public class FeedFragment extends Fragment {
             }
         });
 
+
         return root;
     }
 
@@ -134,6 +138,7 @@ public class FeedFragment extends Fragment {
                     Student user = dataSnapshot.child(id).getValue(Student.class);
                     currentStudent = user;
                     interests = user.getCategory();
+
                 } else {
                     mDatabase.child("Alumni").orderByKey().equalTo(id).addValueEventListener(new ValueEventListener() {
                         @Override
