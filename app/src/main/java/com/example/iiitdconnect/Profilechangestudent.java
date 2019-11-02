@@ -19,6 +19,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.TextView;
@@ -134,7 +135,7 @@ public class Profilechangestudent extends Fragment {
             }
         });
 
-        Button click=(Button)v.findViewById(R.id.datebuttonchange);
+        ImageButton click=(ImageButton)v.findViewById(R.id.datebuttonchange);
         dateOfBirth.setEnabled(false);
         click.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -155,7 +156,7 @@ public class Profilechangestudent extends Fragment {
         });
 
 
-        Button camerabutton = (Button)v.findViewById(R.id.camerachange);
+        ImageButton camerabutton = (ImageButton)v.findViewById(R.id.camerachange);
         camerabutton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
