@@ -4,15 +4,23 @@ import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.google.android.gms.auth.api.signin.GoogleSignIn;
+import com.google.android.gms.auth.api.signin.GoogleSignInClient;
+import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.navigation.NavigationView;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -42,7 +50,10 @@ public class Feed extends AppCompatActivity implements NavigationView.OnNavigati
     private static RecyclerView recyclerView;
     private static ArrayList<Post> posts;
     private DatabaseReference mDatabase;
+
+
     private FirebaseAuth mAuth;
+    private GoogleSignInClient mGoogleSignInClient;
 
     public TextView tv, bb;
 
@@ -67,7 +78,7 @@ public class Feed extends AppCompatActivity implements NavigationView.OnNavigati
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
         mAppBarConfiguration = new AppBarConfiguration.Builder(R.id.nav_feed,
-                R.id.nav_profile, R.id.nav_settings, R.id.nav_aboutus,
+                R.id.nav_profile, R.id.nav_aboutus,
                 R.id.nav_signout)
                 .setDrawerLayout(drawer)
                 .build();
@@ -84,48 +95,9 @@ public class Feed extends AppCompatActivity implements NavigationView.OnNavigati
             }
         });
 
-//        recyclerView = (RecyclerView) findViewById(R.id.my_recycler_view);
-//        recyclerView.setHasFixedSize(true);
-//
-//        layoutManager = new LinearLayoutManager(this);
-//        recyclerView.setLayoutManager(layoutManager);
-//        recyclerView.setItemAnimator(new DefaultItemAnimator());
-//        posts = new ArrayList<Post>();
-
         mAuth = FirebaseAuth.getInstance();
         mDatabase = FirebaseDatabase.getInstance().getReference();
 
-
-//        mSwipeRefreshLayout = (SwipeRefreshLayout) findViewById(R.id.swipeToRefresh);
-//
-//        mSwipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
-//            @Override
-//            public void onRefresh() {
-//                Refresh();
-//                mSwipeRefreshLayout.setRefreshing(false);
-//            }
-//        });
-
-//        // FETCH RECORDS FROM DATABASE
-//
-//        final FirebaseDatabase database = FirebaseDatabase.getInstance();
-//        DatabaseReference ref = database.getReference("Post");
-//        ref.addValueEventListener(new ValueEventListener() {
-//            @Override
-//            public void onDataChange(DataSnapshot dataSnapshot) {
-//                for (DataSnapshot data : dataSnapshot.getChildren()) {
-//                    Post post = data.getValue(Post.class);
-//                    posts.add(post);
-//                }
-//                adapter = new CustomAdapter(posts);
-//                recyclerView.setAdapter(adapter);
-//            }
-//
-//            @Override
-//            public void onCancelled(@NonNull DatabaseError databaseError) {
-//
-//            }
-//        });
 
     }
 
@@ -153,25 +125,60 @@ public class Feed extends AppCompatActivity implements NavigationView.OnNavigati
         return true;
     }
 
-//    public void signOut(){
-//        FirebaseAuth mAuth = FirebaseAuth.getInstance();
-//        mAuth.signOut();
-//        Intent i = new Intent(this, LoginActivity.class);
-//        startActivity(i);
-//    }
-
-//    public void Refresh (){
-//        Intent intent = getIntent();
-//        intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
-//        finish();
-//        startActivity(intent);
-//    }
 
     @Override
     public boolean onSupportNavigateUp() {
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
         return NavigationUI.navigateUp(navController, mAppBarConfiguration)
                 || super.onSupportNavigateUp();
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        if(item.getItemId() == R.id.action_settings){
+
+            // Write your code DB guys
+            Toast.makeText(this,"Successfull in sign out!",
+                    Toast.LENGTH_SHORT).show();
+
+
+            signOutFunction();
+
+
+        }
+
+        return true;
+    }
+
+    public void signOutFunction(){
+        GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
+                .requestIdToken("638022948431-c9op3nr45inlcojskujluvdk04l9arlp.apps.googleusercontent.com")
+                .requestEmail()
+                .build();
+        mGoogleSignInClient = GoogleSignIn.getClient(this, gso);
+        mAuth = FirebaseAuth.getInstance();
+        FirebaseUser user = mAuth.getCurrentUser();
+        mAuth.signOut();
+        mGoogleSignInClient.signOut().addOnCompleteListener(this,
+                new OnCompleteListener<Void>() {
+                    @Override
+                    public void onComplete(@NonNull Task<Void> task) {
+//                        updateUI(null);
+                        Log.d("SIGN OUT", "SUCCESSFUL");
+                    }
+                });
+        user.delete()
+                .addOnCompleteListener(new OnCompleteListener<Void>() {
+                    @Override
+                    public void onComplete(@NonNull Task<Void> task) {
+                        if (task.isSuccessful()) {
+                            Log.d("ATTENTION", "User account deleted.");
+                        }
+                    }
+                });
+        Intent i = new Intent(this, LoginActivity.class);
+        startActivity(i);
+        Toast.makeText(this, "Logged out successfully!", Toast.LENGTH_SHORT).show();
     }
 
 
