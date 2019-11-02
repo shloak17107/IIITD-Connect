@@ -16,6 +16,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.Glide;
 
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -116,8 +117,10 @@ public class ShowPost extends Fragment {
         Map<String, String> xx = this.post.getInterestedpeople().getInterested_ids();
         if(xx.containsKey(email.substring(0, email.indexOf("@")))){
             buttoncounter = 1;
+            b.setText("NO INTEREST");
         }else{
             buttoncounter = 0;
+            b.setText("SHOW INTEREST");
         }
 
         calender_save = view.findViewById(R.id.add_to_calendar);
@@ -130,7 +133,7 @@ public class ShowPost extends Fragment {
                 Log.d("TIMESTAMP", p.getTimestamp());
                 if(buttoncounter % 2 == 0){
 //                    b.setBackgroundDrawable(getResources().getDrawable(R.drawable.bluearrowpaint));
-                   b.setBackgroundResource(R.drawable.bluearrowpaint);
+                    b.setText("NO INTEREST");
                     buttoncounter++;
                     Map<String, String> mm = p.getInterestedpeople().getInterested_ids();
                     mm.put(id, "");
@@ -160,8 +163,8 @@ public class ShowPost extends Fragment {
                 }
                 else{
 //                    b.setBackgroundDrawable(getResources().getDrawable(R.drawable.uparrowpaint));
-                    b.setBackgroundResource(R.drawable.uparrowpaint);
                     buttoncounter++;
+                    b.setText("SHOW INTEREST");
                     Map<String, String> mm = p.getInterestedpeople().getInterested_ids();
                     mm.remove(id);
                     p.setInterestedpeople(new interested(mm));

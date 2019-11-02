@@ -16,6 +16,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.TimePicker;
@@ -49,8 +50,8 @@ public class CreatePostFrag extends Fragment {
     private Button postButton;
     private FirebaseAuth mAuth;
     private DatabaseReference mDatabase;
-    private EditText title, body, tagsField;
-    private Button tagsButton;
+    private EditText title, body;
+    private TextView tagsButton;
     private TextView date;
     ImageView img;
     private TextView time;
@@ -64,7 +65,7 @@ public class CreatePostFrag extends Fragment {
     StorageReference storageReference2nd;
     Uri FilePathUri;
     StorageReference storageReference;
-    private Button camerabutton;
+    private ImageButton camerabutton;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -79,9 +80,9 @@ public class CreatePostFrag extends Fragment {
         mDatabase = FirebaseDatabase.getInstance().getReference();
         title = (EditText) view.findViewById(R.id.title);
         body = (EditText) view.findViewById(R.id.body);
-        tagsButton = (Button) view.findViewById(R.id.tagsButton);
-        tagsField = (EditText) view.findViewById(R.id.tagsField);
-        tagsField.setEnabled(false);
+
+        tagsButton = (TextView) view.findViewById(R.id.tagsField);
+
         date = (TextView) view.findViewById(R.id.Date);
         time = (TextView) view.findViewById(R.id.Time);
         venue = (EditText) view.findViewById(R.id.location);
@@ -105,7 +106,7 @@ public class CreatePostFrag extends Fragment {
             }
         });
 
-        camerabutton = (Button)view.findViewById(R.id.camera1);
+        camerabutton = (ImageButton)view.findViewById(R.id.camera1);
         camerabutton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -113,7 +114,7 @@ public class CreatePostFrag extends Fragment {
             }
         });
 
-        time.setText( "" + selectedHour + ":" + selectedMinute);
+//        time.setText( "" + selectedHour + ":" + selectedMinute);
 
         time.setOnClickListener(new View.OnClickListener() {
 
@@ -176,7 +177,7 @@ public class CreatePostFrag extends Fragment {
                         if (tagsshow.length()>0){
                             tagsshow.deleteCharAt(tagsshow.length() - 1);
                         }
-                        tagsField.setText(tagsshow.toString());
+                        tagsButton.setText(tagsshow.toString());
                     }
                 });
                 builder.setNegativeButton("Cancel", null);
