@@ -172,6 +172,7 @@ public class FragmentFillDetailsFormstudent extends Fragment {
             }
         });
 
+
         Save = (Button)view.findViewById(R.id.button);
         Save.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -183,8 +184,8 @@ public class FragmentFillDetailsFormstudent extends Fragment {
                 startActivity(i);
             }
         });
-        FirebaseStorage storage = FirebaseStorage.getInstance();
-        storageReference = storage.getReferenceFromUrl("gs://iiitd-connect-73dc0.appspot.com");
+
+        storageReference = RegistrationActivity.storageReference;
         mAuth = FirebaseAuth.getInstance();
         mDatabase = FirebaseDatabase.getInstance().getReference();
 
@@ -194,6 +195,27 @@ public class FragmentFillDetailsFormstudent extends Fragment {
         LinkedIn = (EditText) view.findViewById(R.id.editlinkdin);
         webPage = (EditText) view.findViewById(R.id.editwebsite);
         yearOfPassing = (EditText) view.findViewById(R.id.edityearofpass);
+
+        Save = (Button)view.findViewById(R.id.button);
+        Save.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if( Branch.getSelectedItem().toString().equals("Select Branch*") || ContactNumber.getText().toString().equals("") || yearOfPassing.getText().toString().equals("")){
+                    Toast toast = Toast.makeText(getContext(),
+                            "Please fill the essential details",
+                            Toast.LENGTH_SHORT);
+
+                    toast.show();
+                }
+                else {
+                    UploadUserData();
+                    UploadImageFileToFirebaseStorage();
+                    Intent i = new Intent(getActivity(), Feed.class);
+                    i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                    startActivity(i);
+                }
+            }
+        });
 
         return view;
     }

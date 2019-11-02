@@ -7,13 +7,13 @@
     <string name="fill_details_faculty">Faculty</string>
     <string name="fill_details">Fill Details</string>
     <string name="Email">Email</string>
-    <string name="Branch">Branch</string>
-    <string name="Conatct_no">Contact No.</string>
-    <string name="D_O_B">D.O.B</string>
+    <string name="Branch">Branch(*)</string>
+    <string name="Conatct_no">Contact No.(*)</string>
+    <string name="D_O_B">D.O.B(*)</string>
     <string name="Linkdin">LinkedIn</string>
     <string name="Website">Website</string>
-    <string name="Name">Name</string>
-    <string name="Year_of_passing">Year of passing</string>
+    <string name="Name">Name(*)</string>
+    <string name="Year_of_passing">Year of passing(*)</string>
     <string name="Type_here">None</string>
     <string name="Save">Save</string>
     <string name="Status">Status</string>
@@ -37,14 +37,14 @@
     <string name="menu_profile">Profile</string>
     <string name="menu_settings">Settings</string>
     <string name="menu_about">About Us</string>
-    <string name="menu_signOut">Sign Out</string>
+    <string name="menu_signOut">My Posts</string>
 
     <string name="Title">Title:</string>
     <string name="Body">Body:</string>
     <string name="Tags">Tags:</string>
     <string name="share">Share Post</string>
     <string name="Dark">Dark Theme</string>
-    <string name="signout">Sign Out</string>
+    <string name="signout">My Posts</string>
     <string name="notifications">Notifications</string>
 
     <string name="Welcome_to_IIITD_Connect">IIITD Connect</string>
@@ -68,7 +68,7 @@
         <item>Prefer not to say</item>
     </string-array>
     <string-array name="degreesarray">
-        <item>Select Branch</item>
+        <item>Select Branch*</item>
         <item>CSE</item>
         <item>CSAM</item>
         <item>CSD</item>
@@ -78,7 +78,7 @@
         <item>ECE</item>
     </string-array>
     <string-array name="departmentarray">
-        <item>Select Department</item>
+        <item>Select Department*</item>
         <item>Computer Science</item>
         <item>Electronics</item>
         <item>Biology</item>

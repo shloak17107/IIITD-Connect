@@ -16,6 +16,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.Glide;
 
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -116,8 +117,10 @@ public class ShowPost extends Fragment {
         Map<String, String> xx = this.post.getInterestedpeople().getInterested_ids();
         if(xx.containsKey(email.substring(0, email.indexOf("@")))){
             buttoncounter = 1;
+            b.setText("NO INTEREST");
         }else{
             buttoncounter = 0;
+            b.setText("SHOW INTEREST");
         }
 
         calender_save = view.findViewById(R.id.add_to_calendar);
@@ -130,7 +133,7 @@ public class ShowPost extends Fragment {
                 Log.d("TIMESTAMP", p.getTimestamp());
                 if(buttoncounter % 2 == 0){
 //                    b.setBackgroundDrawable(getResources().getDrawable(R.drawable.bluearrowpaint));
-                   b.setBackgroundResource(R.drawable.bluearrowpaint);
+                    b.setText("NO INTEREST");
                     buttoncounter++;
                     Map<String, String> mm = p.getInterestedpeople().getInterested_ids();
                     mm.put(id, "");
@@ -160,8 +163,8 @@ public class ShowPost extends Fragment {
                 }
                 else{
 //                    b.setBackgroundDrawable(getResources().getDrawable(R.drawable.uparrowpaint));
-                    b.setBackgroundResource(R.drawable.uparrowpaint);
                     buttoncounter++;
+                    b.setText("SHOW INTEREST");
                     Map<String, String> mm = p.getInterestedpeople().getInterested_ids();
                     mm.remove(id);
                     p.setInterestedpeople(new interested(mm));
@@ -221,43 +224,45 @@ public class ShowPost extends Fragment {
         calender_save.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
-                String[] ss = DATE.split("/");
-                String D = ss[0];
-                String M = ss[1];
-                String Y = ss[2];
-                if(D.length() == 1){
-                    D = "0" + D;
+                Log.d("HELLO", DATE);
+                if (DATE.equals("")) {
+                    Toast.makeText(getActivity(), "Post doesn't have date. Cannot add to calendar.", Toast.LENGTH_SHORT).show();
                 }
-                if(M.length() == 1){
-                    M = "0" + M;
+                else {
+                    String[] ss = DATE.split("/");
+                    String D = ss[0];
+                    String M = ss[1];
+                    String Y = ss[2];
+                    if(D.length() == 1){
+                        D = "0" + D;
+                    }
+                    if(M.length() == 1){
+                        M = "0" + M;
+                    }
+
+                    Intent intent = new Intent(Intent.ACTION_INSERT);
+                    intent.setType("vnd.android.cursor.item/event");
+                    intent.putExtra(Events.TITLE, TITLE);
+                    intent.putExtra(Events.EVENT_LOCATION, LOCATION);
+                    intent.putExtra(Events.DESCRIPTION, DESCRIPTION);
+
+                    // Setting dates
+
+                    java.sql.Timestamp tsStart = java.sql.Timestamp.valueOf(Y+ "-" + M + "-" + D + " " + 05 + ":"+ 12 + ":00");
+                    java.sql.Timestamp tsEnd = java.sql.Timestamp.valueOf(Y+ "-" + M + "-" + D + " " + 23+ ":"+ 59+ ":00");
+
+                    long startTime = tsStart.getTime();
+                    long endTime = tsEnd.getTime();
+
+                    GregorianCalendar calDate = new GregorianCalendar(Integer.parseInt(Y), Integer.parseInt(M), Integer.parseInt(D));
+                    intent.putExtra(CalendarContract.EXTRA_EVENT_BEGIN_TIME,
+                            startTime);
+                    intent.putExtra(CalendarContract.EXTRA_EVENT_END_TIME,
+                            endTime);
+
+                    intent.putExtra(CalendarContract.EXTRA_EVENT_ALL_DAY, true);
+                    startActivity(intent);
                 }
-
-
-
-                Intent intent = new Intent(Intent.ACTION_INSERT);
-                intent.setType("vnd.android.cursor.item/event");
-                intent.putExtra(Events.TITLE, TITLE);
-                intent.putExtra(Events.EVENT_LOCATION, LOCATION);
-                intent.putExtra(Events.DESCRIPTION, DESCRIPTION);
-
-// Setting dates
-
-                java.sql.Timestamp tsStart = java.sql.Timestamp.valueOf(Y+ "-" + M + "-" + D + " " + 05 + ":"+ 12 + ":00");
-                java.sql.Timestamp tsEnd = java.sql.Timestamp.valueOf(Y+ "-" + M + "-" + D + " " + 23+ ":"+ 59+ ":00");
-
-                long startTime = tsStart.getTime();
-                long endTime = tsEnd.getTime();
-
-                GregorianCalendar calDate = new GregorianCalendar(Integer.parseInt(Y), Integer.parseInt(M), Integer.parseInt(D));
-                intent.putExtra(CalendarContract.EXTRA_EVENT_BEGIN_TIME,
-                        startTime);
-                intent.putExtra(CalendarContract.EXTRA_EVENT_END_TIME,
-                        endTime);
-
-                intent.putExtra(CalendarContract.EXTRA_EVENT_ALL_DAY, true);
-                startActivity(intent);
-
             }
         });
 
