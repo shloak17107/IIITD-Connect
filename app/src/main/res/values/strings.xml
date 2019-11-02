@@ -7,13 +7,13 @@
     <string name="fill_details_faculty">Faculty</string>
     <string name="fill_details">Fill Details</string>
     <string name="Email">Email</string>
-    <string name="Branch">Branch</string>
-    <string name="Conatct_no">Contact No.</string>
-    <string name="D_O_B">D.O.B</string>
+    <string name="Branch">Branch(*)</string>
+    <string name="Conatct_no">Contact No.(*)</string>
+    <string name="D_O_B">D.O.B(*)</string>
     <string name="Linkdin">LinkedIn</string>
     <string name="Website">Website</string>
-    <string name="Name">Name</string>
-    <string name="Year_of_passing">Year of passing</string>
+    <string name="Name">Name(*)</string>
+    <string name="Year_of_passing">Year of passing(*)</string>
     <string name="Type_here">None</string>
     <string name="Save">Save</string>
     <string name="Status">Status</string>
@@ -68,7 +68,7 @@
         <item>Prefer not to say</item>
     </string-array>
     <string-array name="degreesarray">
-        <item>Select Branch</item>
+        <item>Select Branch*</item>
         <item>CSE</item>
         <item>CSAM</item>
         <item>CSD</item>
@@ -78,7 +78,7 @@
         <item>ECE</item>
     </string-array>
     <string-array name="departmentarray">
-        <item>Select Department</item>
+        <item>Select Department*</item>
         <item>Computer Science</item>
         <item>Electronics</item>
         <item>Biology</item>

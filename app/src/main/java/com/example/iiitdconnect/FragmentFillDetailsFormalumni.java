@@ -187,11 +187,20 @@ public class FragmentFillDetailsFormalumni extends Fragment {
         Save.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                UploadUserData();
-                UploadImageFileToFirebaseStorage();
-                Intent i = new Intent(getActivity(), Feed.class);
-                i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-                startActivity(i);
+                if( Branch.getSelectedItem().toString().equals("Select Branch*") || ContactNumber.getText().toString().equals("") || yearOfPassing.getText().toString().equals("")){
+                    Toast toast = Toast.makeText(getContext(),
+                            "Please fill the essential details",
+                            Toast.LENGTH_SHORT);
+
+                    toast.show();
+                }
+                else {
+                    UploadUserData();
+                    UploadImageFileToFirebaseStorage();
+                    Intent i = new Intent(getActivity(), Feed.class);
+                    i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                    startActivity(i);
+                }
             }
         });
 
