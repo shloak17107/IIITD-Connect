@@ -131,7 +131,7 @@ public class Profilechangestudent extends Fragment {
                     UploadImageFileToFirebaseStorage();
                 }
 
-                addSmallDelay();
+//                addSmallDelay();
             }
         });
 
