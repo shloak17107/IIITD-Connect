@@ -86,14 +86,19 @@ public class Profilechangefaculty extends Fragment {
         webPage = (EditText) v.findViewById(R.id.editwebsitechange2);
         expertise = (EditText) v.findViewById(R.id.editexpertisechange2);
 
+        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(getActivity(),
+                R.array.departmentarray, android.R.layout.simple_spinner_item);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        adapter.setDropDownViewResource(android.R.layout.simple_dropdown_item_1line);
+        Department.setAdapter(adapter);
+
         Name.setText(FeedFragment.currentFaculty.getName());
         Department.setSelection(((ArrayAdapter)Department.getAdapter()).getPosition(FeedFragment.currentFaculty.getDepartment()));
         LinkedIn.setText(FeedFragment.currentFaculty.getLinkedIn());
         webPage.setText(FeedFragment.currentFaculty.getWebpage());
         expertise.setText(FeedFragment.currentFaculty.getExpertise());
 
-
-
+        
 
 //        Cancel = (Button) v.findViewById(R.id.buttoncancel2);
 //        Cancel.setOnClickListener(new View.OnClickListener() {
@@ -157,7 +162,7 @@ public class Profilechangefaculty extends Fragment {
         FeedFragment.currentFaculty.setExpertise(expertise.getText().toString());
 
         String id = email.substring(0, email.indexOf("@"));
-        mDatabase.child("Faculty").child(id).setValue(FeedFragment.currentStudent);
+        mDatabase.child("Faculty").child(id).setValue(FeedFragment.currentFaculty);
         Toast.makeText(getActivity(), "Student Details Saved!", Toast.LENGTH_SHORT).show();
     }
 
