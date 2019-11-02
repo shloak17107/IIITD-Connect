@@ -23,10 +23,12 @@
         android:label="@string/menu_about"
         tools:layout="@layout/fragement_aboutus" />
 
+
+
     <fragment
         android:id="@+id/nav_signout"
         android:name="com.example.iiitdconnect.SignoutFragment"
         android:label="@string/menu_signOut"
-        tools:layout="@layout/fragment_myPosts" />
+        tools:layout="@layout/fragment_signout" />
 
 </navigation>

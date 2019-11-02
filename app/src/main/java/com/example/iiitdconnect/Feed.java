@@ -143,11 +143,13 @@ public class Feed extends AppCompatActivity implements NavigationView.OnNavigati
 
 
             signOutFunction();
-
+            return true;
 
         }
 
-        return true;
+        return super.onOptionsItemSelected(item);
+
+
     }
 
     public void signOutFunction(){
