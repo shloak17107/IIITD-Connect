@@ -206,6 +206,7 @@ public class FragmentFillDetailsFormstudent extends Fragment {
                         FilePathUri = data.getData();
                         Bitmap selectedImage = (Bitmap) data.getExtras().get("data");
                         img.setImageBitmap(selectedImage);
+//                        img.setImageURI(FilePathUri);
                     }
                     break;
                 case 1:
